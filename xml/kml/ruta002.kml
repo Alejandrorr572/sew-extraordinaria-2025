@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <name>Ruta Gastronómica de las Sidrerías Tradicionales</name>
+        <description>
+            Recorrido por las sidrerías más auténticas del concejo de Siero, 
+            donde podrás degustar la sidra natural y los platos tradicionales 
+            asturianos en ambientes familiares y acogedores que mantienen 
+            viva la tradición culinaria sierense.
+        </description>
+        
+        <!-- Estilos para puntos -->
+        <Style id="inicio">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+                </Icon>
+                <scale>1.2</scale>
+            </IconStyle>
+        </Style>
+        
+        <Style id="hito">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+                </Icon>
+                <scale>1.0</scale>
+            </IconStyle>
+        </Style>
+        
+        <Style id="ruta">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        
+        <!-- Punto de inicio -->
+        <Placemark>
+            <name>Inicio: Sidrería La Pola</name>
+            <description>Punto de inicio de la ruta</description>
+            <styleUrl>#inicio</styleUrl>
+            <Point>
+                <coordinates>
+                    -5.6652,43.3888,183
+                </coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 1 -->
+        <Placemark>
+            <name>Hito 1: Sidrería La Pola</name>
+            <description>
+                    Sidrería centenaria que mantiene la tradición del escanciado 
+                    y ofrece la auténtica fabada sierense. Ambiente familiar 
+                    con decoración tradicional asturiana.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6652,43.3888,183</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 2 -->
+        <Placemark>
+            <name>Hito 2: Casa Fermín</name>
+            <description>
+                    Restaurante de tradición familiar especializado en cachopo 
+                    y carnes a la brasa. Su bodega de sidras naturales es 
+                    una de las mejor surtidas del concejo.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6634,43.3902,187</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 3 -->
+        <Placemark>
+            <name>Hito 3: Sidrería Los Carbayones</name>
+            <description>
+                    Ubicada en Carbayín, destaca por su terraza con vistas 
+                    al valle y su especialidad en productos locales. 
+                    Ideal para degustar quesos asturianos con sidra.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6789,43.3756,195</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 4 -->
+        <Placemark>
+            <name>Hito 4: El Lagar de Aramil</name>
+            <description>
+                    Lagar tradicional reconvertido en sidrería que conserva 
+                    la maquinaria original de prensado. Ofrece catas de 
+                    sidras de diferentes productores locales.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6523,43.3698,210</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 5 -->
+        <Placemark>
+            <name>Hito 5: Restaurante El Lugones</name>
+            <description>Sin descripción disponible</description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.7823,43.4156,145</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Línea de ruta -->
+        <Placemark>
+            <name>Recorrido Ruta Gastronómica de las Sidrerías Tradicionales</name>
+            <description>Trazado completo de la ruta</description>
+            <styleUrl>#ruta</styleUrl>
+            <LineString>
+                <tessellate>1</tessellate>
+                <coordinates>
+                    -5.6652,43.3888,183 -5.6652,43.3888,183 -5.6634,43.3902,187 -5.6789,43.3756,195 -5.6523,43.3698,210 -5.7823,43.4156,145
+                </coordinates>
+            </LineString>
+        </Placemark>
+        
+    </Document>
+</kml>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:noNamespaceSchemaLocation="rutas.xsd">
+    
+    <ruta id="ruta001">
+        <nombre>Ruta de los Palacios Indianos de Siero</nombre>
+        <tipo>Arquitectura y monumentos</tipo>
+        <transporte>A pie</transporte>
+        <fechaInicio>2025-06-15</fechaInicio>
+        <horaInicio>10:00</horaInicio>
+        <duracion>3 horas</duracion>
+        <agencia>TurismoSiero</agencia>
+        <descripcion>
+            Descubre el patrimonio indiano del concejo de Siero a través de esta fascinante ruta 
+            que recorre los principales palacios y casas de indianos construidos por emigrantes 
+            asturianos que hicieron fortuna en América. Un viaje por la historia y la arquitectura 
+            que define gran parte del paisaje urbano sierense.
+        </descripcion>
+        <personasAdecuadas>Todas las edades, accesible para familias con niños</personasAdecuadas>
+        <lugarInicio>Plaza de la Campa - Pola de Siero</lugarInicio>
+        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>
+        <coordenadasInicio>
+            <longitud>-5.6647</longitud>
+            <latitud>43.3892</latitud>
+            <altitud>185</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.turismosiero.com/patrimonio-indiano</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Arquitectura_indiana_en_Asturias</referencia>
+            <referencia>http://www.siero.es/turismo/rutas-culturales</referencia>
+            <referencia>https://www.asturias.es/patrimonio/palacios-indianos</referencia>
+        </referencias>
+        <recomendacion>8</recomendacion>
+        
+        <hitos>
+            <hito>
+                <nombre>Casa Consistorial de Siero</nombre>
+                <descripcion>
+                    Edificio de estilo ecléctico construido a principios del siglo XX, 
+                    sede del ayuntamiento que combina elementos tradicionales asturianos 
+                    con influencias indianas.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6645</longitud>
+                    <latitud>43.3894</latitud>
+                    <altitud>186</altitud>
+                </coordenadas>
+                <distancia unidad="metros">50</distancia>
+                <fotografias>
+                    <fotografia>ayuntamiento-siero-fachada.jpg</fotografia>
+                    <fotografia>ayuntamiento-siero-detalle.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Palacio de los Álvarez-Buylla</nombre>
+                <descripcion>
+                    Magnífico ejemplo de arquitectura indiana del siglo XIX, 
+                    construido por la familia Álvarez-Buylla tras su regreso de Cuba. 
+                    Destaca por su torre mirador y sus jardines.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6623</longitud>
+                    <latitud>43.3901</latitud>
+                    <altitud>188</altitud>
+                </coordenadas>
+                <distancia unidad="metros">280</distancia>
+                <fotografias>
+                    <fotografia>palacio-alvarez-buylla-principal.jpg</fotografia>
+                    <fotografia>palacio-alvarez-buylla-torre.jpg</fotografia>
+                    <fotografia>palacio-alvarez-buylla-jardines.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>palacio-alvarez-buylla-360.mp4</video>
+                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>Villa Indiana "El Retiro"</nombre>
+                <descripcion>
+                    Casa solariega de finales del XIX con elementos decorativos 
+                    típicos del estilo colonial cubano adaptado al clima asturiano. 
+                    Notable por sus galerías acristaladas y su capilla privada.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6598</longitud>
+                    <latitud>43.3915</latitud>
+                    <altitud>192</altitud>
+                </coordenadas>
+                <distancia unidad="metros">420</distancia>
+                <fotografias>
+                    <fotografia>villa-el-retiro-fachada.jpg</fotografia>
+                    <fotografia>villa-el-retiro-galeria.jpg</fotografia>
+                    <fotografia>villa-el-retiro-capilla.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Casa de los Miranda</nombre>
+                <descripcion>
+                    Edificio de influencia colonial mexicana con característicos 
+                    balcones de hierro forjado y patio interior. Actualmente 
+                    alberga el Centro Cultural del concejo.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6612</longitud>
+                    <latitud>43.3928</latitud>
+                    <altitud>190</altitud>
+                </coordenadas>
+                <distancia unidad="metros">315</distancia>
+                <fotografias>
+                    <fotografia>casa-miranda-balcones.jpg</fotografia>
+                    <fotografia>casa-miranda-patio.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>casa-miranda-interior.mp4</video>
+                    <video>casa-miranda-exposicion.mp4</video>
+                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>Quinta de San José</nombre>
+                <descripcion>
+                    Conjunto arquitectónico que incluye palacio, capilla y jardines 
+                    de estilo francés. Construido por un indiano enriquecido en Argentina, 
+                    representa la culminación del estilo palaciego sierense.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6635</longitud>
+                    <latitud>43.3885</latitud>
+                    <altitud>184</altitud>
+                </coordenadas>
+                <distancia unidad="metros">650</distancia>
+                <fotografias>
+                    <fotografia>quinta-san-jose-palacio.jpg</fotografia>
+                    <fotografia>quinta-san-jose-capilla.jpg</fotografia>
+                    <fotografia>quinta-san-jose-jardines.jpg</fotografia>
+                    <fotografia>quinta-san-jose-panoramica.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>quinta-san-jose-aereo.mp4</video>
+                </videos>
+            </hito>
+        </hitos>
+    </ruta>
+    
+    <ruta id="ruta002">
+        <nombre>Ruta Gastronómica de las Sidrerías Tradicionales</nombre>
+        <tipo>Gastronómica</tipo>
+        <transporte>A pie</transporte>
+        <duracion>4 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>
+            Recorrido por las sidrerías más auténticas del concejo de Siero, 
+            donde podrás degustar la sidra natural y los platos tradicionales 
+            asturianos en ambientes familiares y acogedores que mantienen 
+            viva la tradición culinaria sierense.
+        </descripcion>
+        <personasAdecuadas>Adultos, tercera edad</personasAdecuadas>
+        <lugarInicio>Sidrería La Pola</lugarInicio>
+        <direccionInicio>Calle Marcelino Fernández, 12</direccionInicio>
+        <coordenadasInicio>
+            <longitud>-5.6652</longitud>
+            <latitud>43.3888</latitud>
+            <altitud>183</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.sidreriasasturias.com/siero</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Sidra_de_Asturias</referencia>
+            <referencia>https://www.gastronomiaasturiana.com/rutas-sidrerías</referencia>
+        </referencias>
+        <recomendacion>9</recomendacion>
+        
+        <hitos>
+            <hito>
+                <nombre>Sidrería La Pola</nombre>
+                <descripcion>
+                    Sidrería centenaria que mantiene la tradición del escanciado 
+                    y ofrece la auténtica fabada sierense. Ambiente familiar 
+                    con decoración tradicional asturiana.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6652</longitud>
+                    <latitud>43.3888</latitud>
+                    <altitud>183</altitud>
+                </coordenadas>
+                <distancia unidad="metros">0</distancia>
+                <fotografias>
+                    <fotografia>sidreria-la-pola-interior.jpg</fotografia>
+                    <fotografia>sidreria-la-pola-escanciado.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Casa Fermín</nombre>
+                <descripcion>
+                    Restaurante de tradición familiar especializado en cachopo 
+                    y carnes a la brasa. Su bodega de sidras naturales es 
+                    una de las mejor surtidas del concejo.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6634</longitud>
+                    <latitud>43.3902</latitud>
+                    <altitud>187</altitud>
+                </coordenadas>
+                <distancia unidad="metros">380</distancia>
+                <fotografias>
+                    <fotografia>casa-fermin-comedor.jpg</fotografia>
+                    <fotografia>casa-fermin-cachopo.jpg</fotografia>
+                    <fotografia>casa-fermin-bodega.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Sidrería Los Carbayones</nombre>
+                <descripcion>
+                    Ubicada en Carbayín, destaca por su terraza con vistas 
+                    al valle y su especialidad en productos locales. 
+                    Ideal para degustar quesos asturianos con sidra.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6789</longitud>
+                    <latitud>43.3756</latitud>
+                    <altitud>195</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1850</distancia>
+                <fotografias>
+                    <fotografia>los-carbayones-terraza.jpg</fotografia>
+                    <fotografia>los-carbayones-quesos.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>los-carbayones-vistas.mp4</video>
+                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>El Lagar de Aramil</nombre>
+                <descripcion>
+                    Lagar tradicional reconvertido en sidrería que conserva 
+                    la maquinaria original de prensado. Ofrece catas de 
+                    sidras de diferentes productores locales.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6523</longitud>
+                    <latitud>43.3698</latitud>
+                    <altitud>210</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1200</distancia>
+                <fotografias>
+                    <fotografia>lagar-aramil-prensa.jpg</fotografia>
+                    <fotografia>lagar-aramil-barricas.jpg</fotografia>
+                    <fotografia>lagar-aramil-cata.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Restaurante El Lugones</nombre>
+                <descripción>
+                    Establecimiento moderno que fusiona la cocina tradicional 
+                    con técnicas contemporáneas. Su carta de sidras incluye 
+                    variedades premium de productores sierenses.
+                </descripción>
+                <coordenadas>
+                    <longitud>-5.7823</longitud>
+                    <latitud>43.4156</latitud>
+                    <altitud>145</altitud>
+                </coordenadas>
+                <distancia unidad="metros">2100</distancia>
+                <fotografias>
+                    <fotografia>el-lugones-salon.jpg</fotografia>
+                    <fotografia>el-lugones-carta-sidras.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>el-lugones-cocina.mp4</video>
+                </videos>
+            </hito>
+        </hitos>
+    </ruta>
+    
+    <ruta id="ruta003">
+        <nombre>Sendero de la Sierra del Sueve</nombre>
+        <tipo>Senderismo</tipo>
+        <transporte>A pie</transporte>
+        <duracion>6 horas</duracion>
+        <agencia>NaturaSiero</agencia>
+        <descripcion>
+            Ruta de senderismo de dificultad media que recorre los paisajes 
+            más espectaculares de la Sierra del Sueve desde el territorio 
+            sierense. Ideal para observar la fauna local y disfrutar de 
+            vistas panorámicas excepcionales del concejo y la costa asturiana.
+        </descripcion>
+        <personasAdecuadas>Personas en buena forma física, experiencia en senderismo recomendada</personasAdecuadas>
+        <lugarInicio>Aparcamiento de La Foz</lugarInicio>
+        <direccionInicio>Carretera AS-267, Km 8</direccionInicio>
+        <coordenadasInicio>
+            <longitud>-5.5234</longitud>
+            <latitud>43.4123</latitud>
+            <altitud>320</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.sierradelsueve.org/senderos</referencia>
+            <referencia>https://www.asturias.es/naturaleza/espacios-naturales/sueve</referencia>
+            <referencia>https://wikiloc.com/hiking-trails/sierra-sueve-siero</referencia>
+            <referencia>https://www.montañasasturianas.com/sueve-oriental</referencia>
+        </referencias>
+        <recomendacion>7</recomendacion>
+        
+        <hitos>
+            <hito>
+                <nombre>Mirador de La Foz</nombre>
+                <descripcion>
+                    Punto de inicio con vistas panorámicas del valle del Nora 
+                    y el concejo de Siero. Área de descanso con paneles 
+                    informativos sobre la flora y fauna de la zona.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.5234</longitud>
+                    <latitud>43.4123</latitud>
+                    <altitud>320</altitud>
+                </coordenadas>
+                <distancia unidad="metros">0</distancia>
+                <fotografias>
+                    <fotografia>mirador-la-foz-panoramica.jpg</fotografia>
+                    <fotografia>mirador-la-foz-panel.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Bosque de Hayas Centenarias</nombre>
+                <descripcion>
+                    Bosque maduro de hayas con ejemplares de más de 200 años. 
+                    Refugio natural de fauna autóctona y punto de gran valor 
+                    ecológico dentro del territorio sierense.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.5156</longitud>
+                    <latitud>43.4089</latitud>
+                    <altitud>420</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1100</distancia>
+                <fotografias>
+                    <fotografia>bosque-hayas-sendero.jpg</fotografia>
+                    <fotografia>bosque-hayas-ejemplar.jpg</fotografia>
+                    <fotografia>bosque-hayas-fauna.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>bosque-hayas-ambiente.mp4</video>
+                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>Collado de Los Veneros</nombre>
+                <descripcion>
+                    Puerto de montaña a 580 metros que marca el límite 
+                    natural del concejo. Punto estratégico con vistas 
+                    hacia ambas vertientes de la sierra.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.5089</longitud>
+                    <latitud>43.4034</latitud>
+                    <altitud>580</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1800</distancia>
+                <fotografias>
+                    <fotografia>collado-veneros-cartel.jpg</fotografia>
+                    <fotografia>collado-veneros-vista-norte.jpg</fotografia>
+                    <fotografia>collado-veneros-vista-sur.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Majada de Los Serranos</nombre>
+                <descripcion>
+                    Prado de alta montaña donde tradicionalmente pastaba 
+                    el ganado sierense. Conserva cabañas pastoriles 
+                    de piedra y ofrece vistas espectaculares del concejo.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.5012</longitud>
+                    <latitud>43.3978</latitud>
+                    <altitud>650</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1400</distancia>
+                <fotografias>
+                    <fotografia>majada-serranos-cabañas.jpg</fotografia>
+                    <fotografia>majada-serranos-prado.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>majada-serranos-panoramica.mp4</video>
+                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>Pico Siero</nombre>
+                <descripcion>
+                    Cumbre que da nombre al concejo, con 734 metros de altitud. 
+                    Vistas de 360 grados que abarcan desde la costa cantábrica 
+                    hasta los Picos de Europa. Punto culminante de la ruta.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.4956</longitud>
+                    <latitud>43.3923</latitud>
+                    <altitud>734</altitud>
+                </coordenadas>
+                <distancia unidad="metros">1650</distancia>
+                <fotografias>
+                    <fotografia>pico-siero-cumbre.jpg</fotografia>
+                    <fotografia>pico-siero-vista-costa.jpg</fotografia>
+                    <fotografia>pico-siero-vista-picos.jpg</fotografia>
+                    <fotografia>pico-siero-grupo.jpg</fotografia>
+                </fotografias>
+                <videos>
+                    <video>pico-siero-360-grados.mp4</video>
+                </videos>
+            </hito>
+        </hitos>
+    </ruta>
+    
+</rutas>

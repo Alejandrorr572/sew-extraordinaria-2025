@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- Elemento raíz -->
+    <xs:element name="rutas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ruta" type="rutaType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Tipo complejo para ruta -->
+    <xs:complexType name="rutaType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="tipo" type="tipoRutaType"/>
+            <xs:element name="transporte" type="transporteType"/>
+            <xs:element name="fechaInicio" type="xs:date" minOccurs="0"/>
+            <xs:element name="horaInicio" type="xs:time" minOccurs="0"/>
+            <xs:element name="duracion" type="xs:string"/>
+            <xs:element name="agencia" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="personasAdecuadas" type="xs:string"/>
+            <xs:element name="lugarInicio" type="xs:string"/>
+            <xs:element name="direccionInicio" type="xs:string"/>
+            <xs:element name="coordenadasInicio" type="coordenadasType"/>
+            <xs:element name="referencias" type="referenciasType"/>
+            <xs:element name="recomendacion" type="recomendacionType"/>
+            <xs:element name="hitos" type="hitosType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <!-- Tipos simples con restricciones -->
+    <xs:simpleType name="tipoRutaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Arquitectura y monumentos"/>
+            <xs:enumeration value="Gastronómica"/>
+            <xs:enumeration value="Paisajística"/>
+            <xs:enumeration value="Mixta tapas y monumentos"/>
+            <xs:enumeration value="Escalada"/>
+            <xs:enumeration value="Senderismo"/>
+            <xs:enumeration value="Mixta"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="transporteType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A pie"/>
+            <xs:enumeration value="Bicicleta"/>
+            <xs:enumeration value="Coche"/>
+            <xs:enumeration value="Transporte público"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="recomendacionType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo complejo para coordenadas -->
+    <xs:complexType name="coordenadasType">
+        <xs:sequence>
+            <xs:element name="longitud" type="longitudType"/>
+            <xs:element name="latitud" type="latitudType"/>
+            <xs:element name="altitud" type="altitudType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tipos para coordenadas geográficas -->
+    <xs:simpleType name="longitudType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-180"/>
+            <xs:maxInclusive value="180"/>
+            <xs:fractionDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="latitudType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-90"/>
+            <xs:maxInclusive value="90"/>
+            <xs:fractionDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="altitudType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="-500"/>
+            <xs:maxInclusive value="5000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo complejo para referencias -->
+    <xs:complexType name="referenciasType">
+        <xs:sequence>
+            <xs:element name="referencia" type="xs:anyURI" minOccurs="3" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tipo complejo para hitos -->
+    <xs:complexType name="hitosType">
+        <xs:sequence>
+            <xs:element name="hito" type="hitoType" minOccurs="5" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hitoType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="coordenadas" type="coordenadasType"/>
+            <xs:element name="distancia" type="distanciaType"/>
+            <xs:element name="fotografias" type="fotografiasType"/>
+            <xs:element name="videos" type="videosType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tipo complejo para distancia -->
+    <xs:complexType name="distanciaType">
+        <xs:simpleContent>
+            <xs:extension base="xs:nonNegativeInteger">
+                <xs:attribute name="unidad" type="unidadDistanciaType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="unidadDistanciaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="metros"/>
+            <xs:enumeration value="kilometros"/>
+            <xs:enumeration value="millas"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo complejo para fotografías -->
+    <xs:complexType name="fotografiasType">
+        <xs:sequence>
+            <xs:element name="fotografia" type="xs:string" minOccurs="1" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Tipo complejo para videos -->
+    <xs:complexType name="videosType">
+        <xs:sequence>
+            <xs:element name="video" type="xs:string" minOccurs="0" maxOccurs="3"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

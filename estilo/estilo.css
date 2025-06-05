@@ -1,0 +1,111 @@
+/* Especificidad: (0,0,7) */
+html body header nav ul li a {
+    color: #1a237e; /* Color de primer plano azul - fondo heredado del elemento padre header */
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    transition: background 0.2s;
+}
+
+/* Especificidad: (0,1,7) */
+html body header nav ul li a[aria-current="page"] {
+    background: #e3e3e3; /* Color de fondo gris - primer plano heredado del selector base a */
+    border-radius: 0.5em;
+}
+
+/* Especificidad: (0,1,7) */
+html body header nav ul li a:hover {
+    background: #c5cae9; /* Color de fondo azul claro - primer plano heredado del selector base a */
+}
+
+/* Especificidad: (0,0,4) */
+html body header h1 {
+    font-size: 2.2rem;
+    color: #263238; /* Color de primer plano sin fondo intencionado */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* Especificidad: (0,0,5) */
+html body main section h2 {
+    font-size: 1.5rem;
+    color: #37474f; /* Color de primer plano sin fondo intencionado */
+    margin-top: 1em;
+}
+
+/* Especificidad: (0,0,5) */
+html body main section p {
+    font-size: 1.1rem;
+    color: #424242; /* Color de primer plano sin fondo intencionado */
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Especificidad: (0,0,4) */
+html body footer p {
+    text-align: center;
+    color: #757575; /* Color de primer plano sin fondo intencionado */
+    font-size: 0.95rem;
+    margin-top: 2em;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Especificidad: (0,0,6) */
+html body footer section h3 {
+    text-align: center;
+    color: #37474f; /* Color de primer plano sin fondo intencionado */
+    font-size: 1rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Especificidad: (0,0,6) */
+html body footer section p {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Especificidad: (0,0,7) */
+html body footer section p a {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Especificidad: (0,0,8) */
+html body footer section p a img {
+    border: none;
+    vertical-align: middle;
+    transition: opacity 0.2s;
+}
+
+/* Especificidad: (0,1,8) */
+html body footer section p a:hover img {
+    opacity: 0.8;
+}
+
+/* Especificidad: (0,0,2) */
+html body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fafafa; /* Color de fondo sin primer plano intencionado */
+    margin: 0;
+    min-height: 100vh;
+}

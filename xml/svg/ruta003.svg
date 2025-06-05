@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" xmlns="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <!-- Título -->
+    <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+        Perfil Altimétrico: Sendero de la Sierra del Sueve
+    </text>
+    
+    <!-- Fondo del gráfico -->
+    <rect x="50" y="50" width="700" height="300" 
+          fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    
+    <!-- Líneas de cuadrícula horizontales (altitudes) -->
+    <line x1="50" y1="350.0" x2="750" y2="350.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="354.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        320m
+    </text>
+    <line x1="50" y1="290.0" x2="750" y2="290.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="294.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        402m
+    </text>
+    <line x1="50" y1="230.0" x2="750" y2="230.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="234.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        485m
+    </text>
+    <line x1="50" y1="170.0" x2="750" y2="170.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="174.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        568m
+    </text>
+    <line x1="50" y1="109.99999999999997" x2="750" y2="109.99999999999997" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="113.99999999999997" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        651m
+    </text>
+    <line x1="50" y1="50.0" x2="750" y2="50.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="54.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        734m
+    </text>
+
+    <!-- Líneas de cuadrícula verticales (distancias) -->
+    <line x1="50.0" y1="50" x2="50.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="50.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        0m
+    </text>
+    <line x1="190.0" y1="50" x2="190.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="190.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        1190m
+    </text>
+    <line x1="330.0" y1="50" x2="330.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="330.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        2380m
+    </text>
+    <line x1="470.0" y1="50" x2="470.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="470.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        3570m
+    </text>
+    <line x1="610.0" y1="50" x2="610.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="610.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        4760m
+    </text>
+    <line x1="750.0" y1="50" x2="750.0" y2="350" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="750.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+        5950m
+    </text>
+
+    <!-- Perfil altimétrico -->
+    <polyline points="50.0,350.0 50.0,350.0 179.41176470588235,277.536231884058 391.1764705882353,161.59420289855072 555.8823529411765,110.86956521739131 750.0,50.0" 
+              fill="none" stroke="#007bff" stroke-width="3"/>
+    
+    <!-- Área bajo la curva -->
+    <polygon points="50,350 50.0,350.0 50.0,350.0 179.41176470588235,277.536231884058 391.1764705882353,161.59420289855072 555.8823529411765,110.86956521739131 750.0,50.0 750,350" 
+             fill="rgba(0, 123, 255, 0.3)" stroke="none"/>
+    
+    <!-- Puntos de hitos -->
+    <circle cx="50.0" cy="350.0" r="4" fill="#28a745" stroke="white" stroke-width="2"/>
+    <text x="50.0" y="340.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        0
+    </text>
+    <circle cx="50.0" cy="350.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="50.0" y="340.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        H1
+    </text>
+    <circle cx="179.41176470588235" cy="277.536231884058" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="179.41176470588235" y="267.536231884058" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        H2
+    </text>
+    <circle cx="391.1764705882353" cy="161.59420289855072" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="391.1764705882353" y="151.59420289855072" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        H3
+    </text>
+    <circle cx="555.8823529411765" cy="110.86956521739131" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="555.8823529411765" y="100.86956521739131" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        H4
+    </text>
+    <circle cx="750.0" cy="50.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="750.0" y="40.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+        H5
+    </text>
+
+    <!-- Etiquetas de ejes -->
+    <text x="400" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">
+        Distancia (metros)
+    </text>
+    
+    <text x="20" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" 
+          transform="rotate(-90, 20, 200)">
+        Altitud (metros)
+    </text>
+    
+    <!-- Información estadística -->
+    <text x="50" y="370" font-family="Arial, sans-serif" font-size="10">
+        Distancia total: 5950m | Altitud mín: 320m | Altitud máx: 734m | Desnivel: 414m
+    </text>
+    
+</svg>

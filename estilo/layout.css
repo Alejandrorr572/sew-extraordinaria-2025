@@ -1,0 +1,104 @@
+/* Especificidad: (0,0,1) */
+* {
+    box-sizing: border-box;
+}
+
+/* Especificidad: (0,0,2) */
+html body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Media query para móviles pequeños - redefiniciones para adaptabilidad */
+@media screen and (max-width: 480px) {
+    /* Especificidad: (0,0,2) para dispositivos móviles pequeños */
+    html body {
+        padding-left: 0.5rem; /* Redefinición por media query desde el selector base html body */
+        padding-right: 0.5rem; /* Redefinición por media query desde el selector base html body */
+    }
+}
+
+/* Especificidad: (0,0,3) */
+html body header {
+    background-color: #ffffff; /* Color de fondo blanco - color de primer plano heredado del selector body (estilo.css) */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Especificidad: (0,0,5) */
+html body header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+/* Especificidad: (0,0,6) */
+html body header nav ul li {
+    margin: 0;
+}
+
+/* Especificidad: (0,0,3) */
+html body main {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Especificidad: (0,0,3) */
+html body footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+@media screen and (max-width: 768px) {
+    /* Especificidad: (0,0,5) */
+    html body header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Especificidad: (0,0,7) */
+    html body header nav ul li a {
+        display: block;
+        text-align: center;
+        min-width: 120px;
+    }
+    
+    /* Especificidad: (0,0,4) */
+    html body header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Media query para móviles muy pequeños - propiedades adicionales */
+@media screen and (max-width: 480px) {
+    /* Especificidad: (0,0,4) para títulos más pequeños */
+    html body header h1 {
+        font-size: 1.5rem; /* Redefinición por media query desde el selector base (estilo.css) */
+    }
+    
+    /* Especificidad: (0,0,7) para enlaces compactos */
+    html body header nav ul li a {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        font-size: 0.9rem; /* Redefinición por media query desde el selector base (estilo.css) */
+        /* padding horizontal heredado del selector base */
+    }
+}

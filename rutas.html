@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas Turísticas - Concejo de Siero</title>
+    <meta name="description" content="Descubre las mejores rutas turísticas del concejo de Siero en Asturias">
+    <meta name="keywords" content="rutas, siero, asturias, turismo, senderismo, naturaleza">
+    <meta name="author" content="Turismo Siero">
+      <!-- Estilos CSS -->
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <link rel="stylesheet" href="estilo/layout.css">
+    <link rel="stylesheet" href="estilo/rutas.css">
+      <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- Google Maps API - Development Key for localhost -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDummy_Key_For_Development&libraries=geometry"></script>
+    
+    <!-- Scripts locales -->
+    <script src="js/rutas.js"></script>
+</head>
+<body>
+    <!-- Header y navegación heredados -->
+    <header>
+        <h1>Concejo de Siero</h1>
+        <p>Descubre la belleza natural y cultural de nuestro territorio asturiano</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="gastronomia.html">Gastronomía</a></li>
+            <li><a href="rutas.html" class="active">Rutas</a></li>
+            <li><a href="meteorologia.html">Meteorología</a></li>
+            <li><a href="juego.html">Juego</a></li>
+            <li><a href="ayuda.html">Ayuda</a></li>
+        </ul>
+    </nav>
+    
+    <main class="rutas-container">
+        <h1>Rutas Turísticas de Siero</h1>
+        <p>Explora los senderos más hermosos del concejo de Siero y descubre paisajes únicos, patrimonio histórico y la riqueza natural de Asturias.</p>
+        
+        <!-- Selector de rutas -->
+        <section class="ruta-selector">
+            <h2>Selecciona una Ruta</h2>
+            <div class="ruta-buttons" id="rutaButtons">
+                <!-- Botones de rutas se cargarán dinámicamente -->
+            </div>
+        </section>
+        
+        <!-- Contenido de las rutas -->
+        <section id="rutaContentContainer">
+            <!-- Contenido de rutas se cargará dinámicamente -->
+        </section>
+        
+        <!-- Loading indicator -->
+        <div id="loadingIndicator" class="loading">
+            <p>Cargando rutas...</p>
+        </div>
+        
+        <!-- Error container -->
+        <div id="errorContainer" class="error" style="display: none;">
+            <p>Error al cargar las rutas. Por favor, inténtelo de nuevo.</p>
+        </div>
+    </main>
+      <footer>
+        <p>&copy; 2024 Concejo de Siero - Turismo Asturias</p>
+        <p>Descubre la esencia de Asturias en cada rincón de Siero</p>
+    </footer>
+</body>
+</html>

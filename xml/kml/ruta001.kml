@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+        <name>Ruta de los Palacios Indianos de Siero</name>
+        <description>
+            Descubre el patrimonio indiano del concejo de Siero a través de esta fascinante ruta 
+            que recorre los principales palacios y casas de indianos construidos por emigrantes 
+            asturianos que hicieron fortuna en América. Un viaje por la historia y la arquitectura 
+            que define gran parte del paisaje urbano sierense.
+        </description>
+        
+        <!-- Estilos para puntos -->
+        <Style id="inicio">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
+                </Icon>
+                <scale>1.2</scale>
+            </IconStyle>
+        </Style>
+        
+        <Style id="hito">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href>
+                </Icon>
+                <scale>1.0</scale>
+            </IconStyle>
+        </Style>
+        
+        <Style id="ruta">
+            <LineStyle>
+                <color>ff0000ff</color>
+                <width>3</width>
+            </LineStyle>
+        </Style>
+        
+        <!-- Punto de inicio -->
+        <Placemark>
+            <name>Inicio: Plaza de la Campa - Pola de Siero</name>
+            <description>Punto de inicio de la ruta</description>
+            <styleUrl>#inicio</styleUrl>
+            <Point>
+                <coordinates>
+                    -5.6647,43.3892,185
+                </coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 1 -->
+        <Placemark>
+            <name>Hito 1: Casa Consistorial de Siero</name>
+            <description>
+                    Edificio de estilo ecléctico construido a principios del siglo XX, 
+                    sede del ayuntamiento que combina elementos tradicionales asturianos 
+                    con influencias indianas.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6645,43.3894,186</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 2 -->
+        <Placemark>
+            <name>Hito 2: Palacio de los Álvarez-Buylla</name>
+            <description>
+                    Magnífico ejemplo de arquitectura indiana del siglo XIX, 
+                    construido por la familia Álvarez-Buylla tras su regreso de Cuba. 
+                    Destaca por su torre mirador y sus jardines.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6623,43.3901,188</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 3 -->
+        <Placemark>
+            <name>Hito 3: Villa Indiana "El Retiro"</name>
+            <description>
+                    Casa solariega de finales del XIX con elementos decorativos 
+                    típicos del estilo colonial cubano adaptado al clima asturiano. 
+                    Notable por sus galerías acristaladas y su capilla privada.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6598,43.3915,192</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 4 -->
+        <Placemark>
+            <name>Hito 4: Casa de los Miranda</name>
+            <description>
+                    Edificio de influencia colonial mexicana con característicos 
+                    balcones de hierro forjado y patio interior. Actualmente 
+                    alberga el Centro Cultural del concejo.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6612,43.3928,190</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 5 -->
+        <Placemark>
+            <name>Hito 5: Quinta de San José</name>
+            <description>
+                    Conjunto arquitectónico que incluye palacio, capilla y jardines 
+                    de estilo francés. Construido por un indiano enriquecido en Argentina, 
+                    representa la culminación del estilo palaciego sierense.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6635,43.3885,184</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Línea de ruta -->
+        <Placemark>
+            <name>Recorrido Ruta de los Palacios Indianos de Siero</name>
+            <description>Trazado completo de la ruta</description>
+            <styleUrl>#ruta</styleUrl>
+            <LineString>
+                <tessellate>1</tessellate>
+                <coordinates>
+                    -5.6647,43.3892,185 -5.6645,43.3894,186 -5.6623,43.3901,188 -5.6598,43.3915,192 -5.6612,43.3928,190 -5.6635,43.3885,184
+                </coordinates>
+            </LineString>
+        </Placemark>
+        
+    </Document>
+</kml>
