@@ -2,9 +2,8 @@
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
        xsi:noNamespaceSchemaLocation="rutas.xsd">
-    
-    <ruta id="ruta001">
-        <nombre>Ruta de los Palacios Indianos de Siero</nombre>
+      <ruta id="ruta001">
+        <nombre>Ruta de Palacios Indianos</nombre>
         <tipo>Arquitectura y monumentos</tipo>
         <transporte>A pie</transporte>
         <fechaInicio>2025-06-15</fechaInicio>
@@ -52,8 +51,7 @@
                     <fotografia>ayuntamiento-siero-detalle.jpg</fotografia>
                 </fotografias>
             </hito>
-            
-            <hito>
+              <hito>
                 <nombre>Palacio de los Álvarez-Buylla</nombre>
                 <descripcion>
                     Magnífico ejemplo de arquitectura indiana del siglo XIX, 
@@ -61,11 +59,11 @@
                     Destaca por su torre mirador y sus jardines.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.6623</longitud>
-                    <latitud>43.3901</latitud>
+                    <longitud>-5.6640</longitud>
+                    <latitud>43.3898</latitud>
                     <altitud>188</altitud>
                 </coordenadas>
-                <distancia unidad="metros">280</distancia>
+                <distancia unidad="metros">120</distancia>
                 <fotografias>
                     <fotografia>palacio-alvarez-buylla-principal.jpg</fotografia>
                     <fotografia>palacio-alvarez-buylla-torre.jpg</fotografia>
@@ -84,11 +82,11 @@
                     Notable por sus galerías acristaladas y su capilla privada.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.6598</longitud>
-                    <latitud>43.3915</latitud>
-                    <altitud>192</altitud>
+                    <longitud>-5.6635</longitud>
+                    <latitud>43.3905</latitud>
+                    <altitud>190</altitud>
                 </coordenadas>
-                <distancia unidad="metros">420</distancia>
+                <distancia unidad="metros">180</distancia>
                 <fotografias>
                     <fotografia>villa-el-retiro-fachada.jpg</fotografia>
                     <fotografia>villa-el-retiro-galeria.jpg</fotografia>
@@ -104,11 +102,11 @@
                     alberga el Centro Cultural del concejo.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.6612</longitud>
-                    <latitud>43.3928</latitud>
-                    <altitud>190</altitud>
+                    <longitud>-5.6650</longitud>
+                    <latitud>43.3910</latitud>
+                    <altitud>192</altitud>
                 </coordenadas>
-                <distancia unidad="metros">315</distancia>
+                <distancia unidad="metros">150</distancia>
                 <fotografias>
                     <fotografia>casa-miranda-balcones.jpg</fotografia>
                     <fotografia>casa-miranda-patio.jpg</fotografia>
@@ -127,11 +125,11 @@
                     representa la culminación del estilo palaciego sierense.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.6635</longitud>
-                    <latitud>43.3885</latitud>
-                    <altitud>184</altitud>
+                    <longitud>-5.6655</longitud>
+                    <latitud>43.3888</latitud>
+                    <altitud>187</altitud>
                 </coordenadas>
-                <distancia unidad="metros">650</distancia>
+                <distancia unidad="metros">200</distancia>
                 <fotografias>
                     <fotografia>quinta-san-jose-palacio.jpg</fotografia>
                     <fotografia>quinta-san-jose-capilla.jpg</fotografia>
@@ -144,9 +142,8 @@
             </hito>
         </hitos>
     </ruta>
-    
-    <ruta id="ruta002">
-        <nombre>Ruta Gastronómica de las Sidrerías Tradicionales</nombre>
+      <ruta id="ruta002">
+        <nombre>Ruta de Sidrerías Tradicionales</nombre>
         <tipo>Gastronómica</tipo>
         <transporte>A pie</transporte>
         <duracion>4 horas</duracion>
@@ -277,8 +274,7 @@
             </hito>
         </hitos>
     </ruta>
-    
-    <ruta id="ruta003">
+      <ruta id="ruta003">
         <nombre>Sendero de la Sierra del Sueve</nombre>
         <tipo>Senderismo</tipo>
         <transporte>A pie</transporte>

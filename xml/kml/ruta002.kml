@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
-        <name>Ruta Gastronómica de las Sidrerías Tradicionales</name>
+        <name>Ruta de Sidrerías Tradicionales</name>
         <description>
             Recorrido por las sidrerías más auténticas del concejo de Siero, 
             donde podrás degustar la sidra natural y los platos tradicionales 
@@ -115,7 +115,7 @@
         
         <!-- Línea de ruta -->
         <Placemark>
-            <name>Recorrido Ruta Gastronómica de las Sidrerías Tradicionales</name>
+            <name>Recorrido Ruta de Sidrerías Tradicionales</name>
             <description>Trazado completo de la ruta</description>
             <styleUrl>#ruta</styleUrl>
             <LineString>

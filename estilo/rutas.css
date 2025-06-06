@@ -1,5 +1,9 @@
 /* Estilos específicos para rutas.html */
-/* (0,0,1) - Selector de elemento simple */
+
+/* Asegurar que el nav no sea afectado por estos estilos */
+/* Los estilos de navegación se heredan de estilo.css y layout.css */
+
+/* (0,0,1) - Selector de clase simple */
 .rutas-container {
     max-width: 1200px;
     margin: 2rem auto;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
-        <name>Ruta de los Palacios Indianos de Siero</name>
+        <name>Ruta de Palacios Indianos</name>
         <description>
             Descubre el patrimonio indiano del concejo de Siero a través de esta fascinante ruta 
             que recorre los principales palacios y casas de indianos construidos por emigrantes 
@@ -71,7 +71,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6623,43.3901,188</coordinates>
+                <coordinates>-5.6640,43.3898,188</coordinates>
             </Point>
         </Placemark>
         
@@ -85,7 +85,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6598,43.3915,192</coordinates>
+                <coordinates>-5.6635,43.3905,190</coordinates>
             </Point>
         </Placemark>
         
@@ -99,7 +99,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6612,43.3928,190</coordinates>
+                <coordinates>-5.6650,43.3910,192</coordinates>
             </Point>
         </Placemark>
         
@@ -113,19 +113,19 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6635,43.3885,184</coordinates>
+                <coordinates>-5.6655,43.3888,187</coordinates>
             </Point>
         </Placemark>
         
         <!-- Línea de ruta -->
         <Placemark>
-            <name>Recorrido Ruta de los Palacios Indianos de Siero</name>
+            <name>Recorrido Ruta de Palacios Indianos</name>
             <description>Trazado completo de la ruta</description>
             <styleUrl>#ruta</styleUrl>
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.6647,43.3892,185 -5.6645,43.3894,186 -5.6623,43.3901,188 -5.6598,43.3915,192 -5.6612,43.3928,190 -5.6635,43.3885,184
+                    -5.6647,43.3892,185 -5.6645,43.3894,186 -5.6640,43.3898,188 -5.6635,43.3905,190 -5.6650,43.3910,192 -5.6655,43.3888,187
                 </coordinates>
             </LineString>
         </Placemark>
