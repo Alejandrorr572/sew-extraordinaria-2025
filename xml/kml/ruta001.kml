@@ -42,7 +42,7 @@
             <styleUrl>#inicio</styleUrl>
             <Point>
                 <coordinates>
-                    -5.6647,43.3892,185
+                    -5.664763,43.389194,185
                 </coordinates>
             </Point>
         </Placemark>
@@ -57,7 +57,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6645,43.3894,186</coordinates>
+                <coordinates>-5.664523,43.389421,186</coordinates>
             </Point>
         </Placemark>
         
@@ -71,7 +71,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6640,43.3898,188</coordinates>
+                <coordinates>-5.663987,43.389823,188</coordinates>
             </Point>
         </Placemark>
         
@@ -85,7 +85,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6635,43.3905,190</coordinates>
+                <coordinates>-5.663456,43.390134,190</coordinates>
             </Point>
         </Placemark>
         
@@ -99,7 +99,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6650,43.3910,192</coordinates>
+                <coordinates>-5.664912,43.390567,192</coordinates>
             </Point>
         </Placemark>
         
@@ -113,7 +113,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6655,43.3888,187</coordinates>
+                <coordinates>-5.665534,43.388823,187</coordinates>
             </Point>
         </Placemark>
         
@@ -125,7 +125,7 @@
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.6647,43.3892,185 -5.6645,43.3894,186 -5.6640,43.3898,188 -5.6635,43.3905,190 -5.6650,43.3910,192 -5.6655,43.3888,187
+                    -5.664763,43.389194,185 -5.664523,43.389421,186 -5.663987,43.389823,188 -5.663456,43.390134,190 -5.664912,43.390567,192 -5.665534,43.388823,187
                 </coordinates>
             </LineString>
         </Placemark>

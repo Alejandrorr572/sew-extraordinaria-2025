@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-       xsi:noNamespaceSchemaLocation="rutas.xsd">
-      <ruta id="ruta001">
+       xsi:noNamespaceSchemaLocation="rutas.xsd">                <coordenadas>
+                    <longitud>-5.663421</longitud>
+                    <latitud>43.390187</latitud>
+                    <altitud>189</altitud>
+                </coordenadas>  <ruta id="ruta001">
         <nombre>Ruta de Palacios Indianos</nombre>
         <tipo>Arquitectura y monumentos</tipo>
         <transporte>A pie</transporte>
@@ -18,10 +21,9 @@
         </descripcion>
         <personasAdecuadas>Todas las edades, accesible para familias con niños</personasAdecuadas>
         <lugarInicio>Plaza de la Campa - Pola de Siero</lugarInicio>
-        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>
-        <coordenadasInicio>
-            <longitud>-5.6647</longitud>
-            <latitud>43.3892</latitud>
+        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>        <coordenadasInicio>
+            <longitud>-5.664763</longitud>
+            <latitud>43.389194</latitud>
             <altitud>185</altitud>
         </coordenadasInicio>
         <referencias>
@@ -39,10 +41,9 @@
                     Edificio de estilo ecléctico construido a principios del siglo XX, 
                     sede del ayuntamiento que combina elementos tradicionales asturianos 
                     con influencias indianas.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6645</longitud>
-                    <latitud>43.3894</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.664523</longitud>
+                    <latitud>43.389421</latitud>
                     <altitud>186</altitud>
                 </coordenadas>
                 <distancia unidad="metros">50</distancia>
@@ -57,10 +58,9 @@
                     Magnífico ejemplo de arquitectura indiana del siglo XIX, 
                     construido por la familia Álvarez-Buylla tras su regreso de Cuba. 
                     Destaca por su torre mirador y sus jardines.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6640</longitud>
-                    <latitud>43.3898</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.663987</longitud>
+                    <latitud>43.389823</latitud>
                     <altitud>188</altitud>
                 </coordenadas>
                 <distancia unidad="metros">120</distancia>
@@ -80,10 +80,9 @@
                     Casa solariega de finales del XIX con elementos decorativos 
                     típicos del estilo colonial cubano adaptado al clima asturiano. 
                     Notable por sus galerías acristaladas y su capilla privada.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6635</longitud>
-                    <latitud>43.3905</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.663456</longitud>
+                    <latitud>43.390134</latitud>
                     <altitud>190</altitud>
                 </coordenadas>
                 <distancia unidad="metros">180</distancia>
@@ -100,10 +99,9 @@
                     Edificio de influencia colonial mexicana con característicos 
                     balcones de hierro forjado y patio interior. Actualmente 
                     alberga el Centro Cultural del concejo.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6650</longitud>
-                    <latitud>43.3910</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.664912</longitud>
+                    <latitud>43.390567</latitud>
                     <altitud>192</altitud>
                 </coordenadas>
                 <distancia unidad="metros">150</distancia>
@@ -123,10 +121,9 @@
                     Conjunto arquitectónico que incluye palacio, capilla y jardines 
                     de estilo francés. Construido por un indiano enriquecido en Argentina, 
                     representa la culminación del estilo palaciego sierense.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6655</longitud>
-                    <latitud>43.3888</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.665534</longitud>
+                    <latitud>43.388823</latitud>
                     <altitud>187</altitud>
                 </coordenadas>
                 <distancia unidad="metros">200</distancia>
@@ -156,10 +153,9 @@
         </descripcion>
         <personasAdecuadas>Adultos, tercera edad</personasAdecuadas>
         <lugarInicio>Sidrería La Pola</lugarInicio>
-        <direccionInicio>Calle Marcelino Fernández, 12</direccionInicio>
-        <coordenadasInicio>
-            <longitud>-5.6652</longitud>
-            <latitud>43.3888</latitud>
+        <direccionInicio>Calle Marcelino Fernández, 12</direccionInicio>        <coordenadasInicio>
+            <longitud>-5.665198</longitud>
+            <latitud>43.388734</latitud>
             <altitud>183</altitud>
         </coordenadasInicio>
         <referencias>
@@ -176,10 +172,9 @@
                     Sidrería centenaria que mantiene la tradición del escanciado 
                     y ofrece la auténtica fabada sierense. Ambiente familiar 
                     con decoración tradicional asturiana.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6652</longitud>
-                    <latitud>43.3888</latitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.665198</longitud>
+                    <latitud>43.388734</latitud>
                     <altitud>183</altitud>
                 </coordenadas>
                 <distancia unidad="metros">0</distancia>
@@ -237,13 +232,12 @@
                     Lagar tradicional reconvertido en sidrería que conserva 
                     la maquinaria original de prensado. Ofrece catas de 
                     sidras de diferentes productores locales.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6523</longitud>
-                    <latitud>43.3698</latitud>
-                    <altitud>210</altitud>
+                </descripcion>                <coordenadas>
+                    <longitud>-5.658734</longitud>
+                    <latitud>43.392156</latitud>
+                    <altitud>198</altitud>
                 </coordenadas>
-                <distancia unidad="metros">1200</distancia>
+                <distancia unidad="metros">750</distancia>
                 <fotografias>
                     <fotografia>lagar-aramil-prensa.jpg</fotografia>
                     <fotografia>lagar-aramil-barricas.jpg</fotografia>
@@ -257,13 +251,12 @@
                     Establecimiento moderno que fusiona la cocina tradicional 
                     con técnicas contemporáneas. Su carta de sidras incluye 
                     variedades premium de productores sierenses.
-                </descripción>
-                <coordenadas>
-                    <longitud>-5.7823</longitud>
-                    <latitud>43.4156</latitud>
-                    <altitud>145</altitud>
+                </descripción>                <coordenadas>
+                    <longitud>-5.671234</longitud>
+                    <latitud>43.385678</latitud>
+                    <altitud>175</altitud>
                 </coordenadas>
-                <distancia unidad="metros">2100</distancia>
+                <distancia unidad="metros">1100</distancia>
                 <fotografias>
                     <fotografia>el-lugones-salon.jpg</fotografia>
                     <fotografia>el-lugones-carta-sidras.jpg</fotografia>
@@ -273,142 +266,157 @@
                 </videos>
             </hito>
         </hitos>
-    </ruta>
-      <ruta id="ruta003">
-        <nombre>Sendero de la Sierra del Sueve</nombre>
+    </ruta>      <ruta id="ruta003">
+        <nombre>Sendero Cueva de San Pedrín</nombre>
         <tipo>Senderismo</tipo>
         <transporte>A pie</transporte>
-        <duracion>6 horas</duracion>
+        <fechaInicio>2025-07-01</fechaInicio>
+        <horaInicio>09:00</horaInicio>
+        <duracion>4 horas</duracion>
         <agencia>NaturaSiero</agencia>
         <descripcion>
-            Ruta de senderismo de dificultad media que recorre los paisajes 
-            más espectaculares de la Sierra del Sueve desde el territorio 
-            sierense. Ideal para observar la fauna local y disfrutar de 
-            vistas panorámicas excepcionales del concejo y la costa asturiana.
+            Ruta de senderismo inspirada en el tradicional sendero que conecta 
+            La Piñera con la Cueva y Capilla de San Pedrín, atravesando paisajes 
+            de gran valor natural y cultural en el territorio sierense. Incluye 
+            elementos del patrimonio religioso y natural del concejo.
         </descripcion>
-        <personasAdecuadas>Personas en buena forma física, experiencia en senderismo recomendada</personasAdecuadas>
-        <lugarInicio>Aparcamiento de La Foz</lugarInicio>
-        <direccionInicio>Carretera AS-267, Km 8</direccionInicio>
+        <personasAdecuadas>Personas con experiencia básica en senderismo, no recomendada para niños menores de 10 años</personasAdecuadas>
+        <lugarInicio>La Piñera</lugarInicio>
+        <direccionInicio>Pueblo de La Piñera, Siero</direccionInicio>
         <coordenadasInicio>
-            <longitud>-5.5234</longitud>
-            <latitud>43.4123</latitud>
-            <altitud>320</altitud>
+            <longitud>-5.6234</longitud>
+            <latitud>43.3656</latitud>
+            <altitud>260</altitud>
         </coordenadasInicio>
         <referencias>
-            <referencia>https://www.sierradelsueve.org/senderos</referencia>
-            <referencia>https://www.asturias.es/naturaleza/espacios-naturales/sueve</referencia>
-            <referencia>https://wikiloc.com/hiking-trails/sierra-sueve-siero</referencia>
-            <referencia>https://www.montañasasturianas.com/sueve-oriental</referencia>
+            <referencia>https://www.wikiloc.com/hiking-trails/la-pinera-cueva-y-capilla-de-san-pedrin-pena-careses-fuente-les-xanes-capilla-san-roque-la-pinera-209288266</referencia>
+            <referencia>https://www.asturias.es/patrimonio/ermitas-asturias</referencia>
+            <referencia>https://www.turismosiero.com/senderos-naturales</referencia>
+            <referencia>https://www.senderosdeAsturias.com/cueva-san-pedrin</referencia>
         </referencias>
-        <recomendacion>7</recomendacion>
+        <recomendacion>8</recomendacion>
         
         <hitos>
             <hito>
-                <nombre>Mirador de La Foz</nombre>
+                <nombre>La Piñera - Inicio del sendero</nombre>
                 <descripcion>
-                    Punto de inicio con vistas panorámicas del valle del Nora 
-                    y el concejo de Siero. Área de descanso con paneles 
-                    informativos sobre la flora y fauna de la zona.
+                    Pequeño pueblo sierense punto de partida del sendero. 
+                    Conserva arquitectura tradicional asturiana y ofrece 
+                    últimos servicios antes de iniciar la ruta de montaña.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.5234</longitud>
-                    <latitud>43.4123</latitud>
-                    <altitud>320</altitud>
+                    <longitud>-5.6234</longitud>
+                    <latitud>43.3656</latitud>
+                    <altitud>260</altitud>
                 </coordenadas>
                 <distancia unidad="metros">0</distancia>
                 <fotografias>
-                    <fotografia>mirador-la-foz-panoramica.jpg</fotografia>
-                    <fotografia>mirador-la-foz-panel.jpg</fotografia>
+                    <fotografia>la-pinera-pueblo.jpg</fotografia>
+                    <fotografia>la-pinera-inicio-sendero.jpg</fotografia>
                 </fotografias>
             </hito>
             
             <hito>
-                <nombre>Bosque de Hayas Centenarias</nombre>
+                <nombre>Lavadero del Campón</nombre>
                 <descripcion>
-                    Bosque maduro de hayas con ejemplares de más de 200 años. 
-                    Refugio natural de fauna autóctona y punto de gran valor 
-                    ecológico dentro del territorio sierense.
+                    Antiguo lavadero comunal de piedra donde las mujeres 
+                    del pueblo acudían a lavar la ropa. Ejemplo del 
+                    patrimonio etnográfico sierense conservado.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.5156</longitud>
-                    <latitud>43.4089</latitud>
-                    <altitud>420</altitud>
+                    <longitud>-5.6187</longitud>
+                    <latitud>43.3623</latitud>
+                    <altitud>249</altitud>
                 </coordenadas>
-                <distancia unidad="metros">1100</distancia>
+                <distancia unidad="metros">520</distancia>
                 <fotografias>
-                    <fotografia>bosque-hayas-sendero.jpg</fotografia>
-                    <fotografia>bosque-hayas-ejemplar.jpg</fotografia>
-                    <fotografia>bosque-hayas-fauna.jpg</fotografia>
+                    <fotografia>lavadero-campon-general.jpg</fotografia>
+                    <fotografia>lavadero-campon-detalle.jpg</fotografia>
+                </fotografias>
+            </hito>
+            
+            <hito>
+                <nombre>Túnel de Aveno</nombre>
+                <descripcion>
+                    Túnel excavado en roca que forma parte del antiguo 
+                    trazado del ferrocarril minero. Punto de interés 
+                    histórico y geológico en la ruta.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6156</longitud>
+                    <latitud>43.3598</latitud>
+                    <altitud>306</altitud>
+                </coordenadas>
+                <distancia unidad="metros">780</distancia>
+                <fotografias>
+                    <fotografia>tunel-aveno-entrada.jpg</fotografia>
+                    <fotografia>tunel-aveno-interior.jpg</fotografia>
                 </fotografias>
                 <videos>
-                    <video>bosque-hayas-ambiente.mp4</video>
+                    <video>tunel-aveno-travesia.mp4</video>
                 </videos>
             </hito>
             
             <hito>
-                <nombre>Collado de Los Veneros</nombre>
+                <nombre>Cueva de San Pedrín</nombre>
                 <descripcion>
-                    Puerto de montaña a 580 metros que marca el límite 
-                    natural del concejo. Punto estratégico con vistas 
-                    hacia ambas vertientes de la sierra.
+                    Cueva natural de formación calcárea que alberga la 
+                    ermita de San Pedrín, lugar de peregrinación local 
+                    desde el siglo XVIII. Patrimonio religioso y natural 
+                    del concejo de Siero.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.5089</longitud>
-                    <latitud>43.4034</latitud>
-                    <altitud>580</altitud>
+                    <longitud>-5.6123</longitud>
+                    <latitud>43.3567</latitud>
+                    <altitud>297</altitud>
                 </coordenadas>
-                <distancia unidad="metros">1800</distancia>
+                <distancia unidad="metros">650</distancia>
                 <fotografias>
-                    <fotografia>collado-veneros-cartel.jpg</fotografia>
-                    <fotografia>collado-veneros-vista-norte.jpg</fotografia>
-                    <fotografia>collado-veneros-vista-sur.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Majada de Los Serranos</nombre>
-                <descripcion>
-                    Prado de alta montaña donde tradicionalmente pastaba 
-                    el ganado sierense. Conserva cabañas pastoriles 
-                    de piedra y ofrece vistas espectaculares del concejo.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.5012</longitud>
-                    <latitud>43.3978</latitud>
-                    <altitud>650</altitud>
-                </coordenadas>
-                <distancia unidad="metros">1400</distancia>
-                <fotografias>
-                    <fotografia>majada-serranos-cabañas.jpg</fotografia>
-                    <fotografia>majada-serranos-prado.jpg</fotografia>
+                    <fotografia>cueva-san-pedrin-entrada.jpg</fotografia>
+                    <fotografia>cueva-san-pedrin-interior.jpg</fotografia>
+                    <fotografia>cueva-san-pedrin-capilla.jpg</fotografia>
                 </fotografias>
                 <videos>
-                    <video>majada-serranos-panoramica.mp4</video>
+                    <video>cueva-san-pedrin-recorrido.mp4</video>
                 </videos>
             </hito>
             
             <hito>
-                <nombre>Pico Siero</nombre>
+                <nombre>Capilla de San Pedrín</nombre>
                 <descripcion>
-                    Cumbre que da nombre al concejo, con 734 metros de altitud. 
-                    Vistas de 360 grados que abarcan desde la costa cantábrica 
-                    hasta los Picos de Europa. Punto culminante de la ruta.
+                    Pequeña ermita construida en el interior de la cueva 
+                    natural. Centro de devoción popular y ejemplo único 
+                    de arquitectura religiosa rupestre en Asturias.
                 </descripcion>
                 <coordenadas>
-                    <longitud>-5.4956</longitud>
-                    <latitud>43.3923</latitud>
-                    <altitud>734</altitud>
+                    <longitud>-5.6119</longitud>
+                    <latitud>43.3564</latitud>
+                    <altitud>303</altitud>
                 </coordenadas>
-                <distancia unidad="metros">1650</distancia>
+                <distancia unidad="metros">180</distancia>
                 <fotografias>
-                    <fotografia>pico-siero-cumbre.jpg</fotografia>
-                    <fotografia>pico-siero-vista-costa.jpg</fotografia>
-                    <fotografia>pico-siero-vista-picos.jpg</fotografia>
-                    <fotografia>pico-siero-grupo.jpg</fotografia>
+                    <fotografia>capilla-san-pedrin-altar.jpg</fotografia>
+                    <fotografia>capilla-san-pedrin-santos.jpg</fotografia>
                 </fotografias>
-                <videos>
-                    <video>pico-siero-360-grados.mp4</video>
-                </videos>
+            </hito>
+            
+            <hito>
+                <nombre>Fuente Les Xanes</nombre>
+                <descripcion>
+                    Manantial natural de aguas cristalinas rodeado de 
+                    leyendas locales sobre seres mitológicos asturianos. 
+                    Punto de descanso y avituallamiento en la ruta.
+                </descripcion>
+                <coordenadas>
+                    <longitud>-5.6089</longitud>
+                    <latitud>43.3523</latitud>
+                    <altitud>298</altitud>
+                </coordenadas>
+                <distancia unidad="metros">620</distancia>
+                <fotografias>
+                    <fotografia>fuente-les-xanes-manantial.jpg</fotografia>
+                    <fotografia>fuente-les-xanes-entorno.jpg</fotografia>
+                </fotografias>
             </hito>
         </hitos>
     </ruta>

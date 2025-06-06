@@ -42,7 +42,7 @@
             <styleUrl>#inicio</styleUrl>
             <Point>
                 <coordinates>
-                    -5.6652,43.3888,183
+                    -5.665198,43.388734,183
                 </coordinates>
             </Point>
         </Placemark>
@@ -57,7 +57,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6652,43.3888,183</coordinates>
+                <coordinates>-5.665198,43.388734,183</coordinates>
             </Point>
         </Placemark>
         
@@ -99,7 +99,7 @@
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6523,43.3698,210</coordinates>
+                <coordinates>-5.658734,43.392156,198</coordinates>
             </Point>
         </Placemark>
         
@@ -109,7 +109,7 @@
             <description>Sin descripción disponible</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.7823,43.4156,145</coordinates>
+                <coordinates>-5.671234,43.385678,175</coordinates>
             </Point>
         </Placemark>
         
@@ -121,7 +121,7 @@
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.6652,43.3888,183 -5.6652,43.3888,183 -5.6634,43.3902,187 -5.6789,43.3756,195 -5.6523,43.3698,210 -5.7823,43.4156,145
+                    -5.665198,43.388734,183 -5.665198,43.388734,183 -5.6634,43.3902,187 -5.6789,43.3756,195 -5.658734,43.392156,198 -5.671234,43.385678,175
                 </coordinates>
             </LineString>
         </Placemark>

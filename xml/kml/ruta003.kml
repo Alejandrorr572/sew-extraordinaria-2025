@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
-        <name>Sendero de la Sierra del Sueve</name>
+        <name>Sendero Cueva de San Pedrín</name>
         <description>
-            Ruta de senderismo de dificultad media que recorre los paisajes 
-            más espectaculares de la Sierra del Sueve desde el territorio 
-            sierense. Ideal para observar la fauna local y disfrutar de 
-            vistas panorámicas excepcionales del concejo y la costa asturiana.
+            Ruta de senderismo inspirada en el tradicional sendero que conecta 
+            La Piñera con la Cueva y Capilla de San Pedrín, atravesando paisajes 
+            de gran valor natural y cultural en el territorio sierense. Incluye 
+            elementos del patrimonio religioso y natural del concejo.
         </description>
         
         <!-- Estilos para puntos -->
@@ -37,95 +37,110 @@
         
         <!-- Punto de inicio -->
         <Placemark>
-            <name>Inicio: Aparcamiento de La Foz</name>
+            <name>Inicio: La Piñera</name>
             <description>Punto de inicio de la ruta</description>
             <styleUrl>#inicio</styleUrl>
             <Point>
                 <coordinates>
-                    -5.5234,43.4123,320
+                    -5.6234,43.3656,260
                 </coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 1 -->
         <Placemark>
-            <name>Hito 1: Mirador de La Foz</name>
+            <name>Hito 1: La Piñera - Inicio del sendero</name>
             <description>
-                    Punto de inicio con vistas panorámicas del valle del Nora 
-                    y el concejo de Siero. Área de descanso con paneles 
-                    informativos sobre la flora y fauna de la zona.
+                    Pequeño pueblo sierense punto de partida del sendero. 
+                    Conserva arquitectura tradicional asturiana y ofrece 
+                    últimos servicios antes de iniciar la ruta de montaña.
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.5234,43.4123,320</coordinates>
+                <coordinates>-5.6234,43.3656,260</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 2 -->
         <Placemark>
-            <name>Hito 2: Bosque de Hayas Centenarias</name>
+            <name>Hito 2: Lavadero del Campón</name>
             <description>
-                    Bosque maduro de hayas con ejemplares de más de 200 años. 
-                    Refugio natural de fauna autóctona y punto de gran valor 
-                    ecológico dentro del territorio sierense.
+                    Antiguo lavadero comunal de piedra donde las mujeres 
+                    del pueblo acudían a lavar la ropa. Ejemplo del 
+                    patrimonio etnográfico sierense conservado.
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.5156,43.4089,420</coordinates>
+                <coordinates>-5.6187,43.3623,249</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 3 -->
         <Placemark>
-            <name>Hito 3: Collado de Los Veneros</name>
+            <name>Hito 3: Túnel de Aveno</name>
             <description>
-                    Puerto de montaña a 580 metros que marca el límite 
-                    natural del concejo. Punto estratégico con vistas 
-                    hacia ambas vertientes de la sierra.
+                    Túnel excavado en roca que forma parte del antiguo 
+                    trazado del ferrocarril minero. Punto de interés 
+                    histórico y geológico en la ruta.
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.5089,43.4034,580</coordinates>
+                <coordinates>-5.6156,43.3598,306</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 4 -->
         <Placemark>
-            <name>Hito 4: Majada de Los Serranos</name>
+            <name>Hito 4: Cueva de San Pedrín</name>
             <description>
-                    Prado de alta montaña donde tradicionalmente pastaba 
-                    el ganado sierense. Conserva cabañas pastoriles 
-                    de piedra y ofrece vistas espectaculares del concejo.
+                    Cueva natural de formación calcárea que alberga la 
+                    ermita de San Pedrín, lugar de peregrinación local 
+                    desde el siglo XVIII. Patrimonio religioso y natural 
+                    del concejo de Siero.
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.5012,43.3978,650</coordinates>
+                <coordinates>-5.6123,43.3567,297</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 5 -->
         <Placemark>
-            <name>Hito 5: Pico Siero</name>
+            <name>Hito 5: Capilla de San Pedrín</name>
             <description>
-                    Cumbre que da nombre al concejo, con 734 metros de altitud. 
-                    Vistas de 360 grados que abarcan desde la costa cantábrica 
-                    hasta los Picos de Europa. Punto culminante de la ruta.
+                    Pequeña ermita construida en el interior de la cueva 
+                    natural. Centro de devoción popular y ejemplo único 
+                    de arquitectura religiosa rupestre en Asturias.
                 </description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.4956,43.3923,734</coordinates>
+                <coordinates>-5.6119,43.3564,303</coordinates>
+            </Point>
+        </Placemark>
+        
+        <!-- Hito 6 -->
+        <Placemark>
+            <name>Hito 6: Fuente Les Xanes</name>
+            <description>
+                    Manantial natural de aguas cristalinas rodeado de 
+                    leyendas locales sobre seres mitológicos asturianos. 
+                    Punto de descanso y avituallamiento en la ruta.
+                </description>
+            <styleUrl>#hito</styleUrl>
+            <Point>
+                <coordinates>-5.6089,43.3523,298</coordinates>
             </Point>
         </Placemark>
         
         <!-- Línea de ruta -->
         <Placemark>
-            <name>Recorrido Sendero de la Sierra del Sueve</name>
+            <name>Recorrido Sendero Cueva de San Pedrín</name>
             <description>Trazado completo de la ruta</description>
             <styleUrl>#ruta</styleUrl>
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.5234,43.4123,320 -5.5234,43.4123,320 -5.5156,43.4089,420 -5.5089,43.4034,580 -5.5012,43.3978,650 -5.4956,43.3923,734
+                    -5.6234,43.3656,260 -5.6234,43.3656,260 -5.6187,43.3623,249 -5.6156,43.3598,306 -5.6123,43.3567,297 -5.6119,43.3564,303 -5.6089,43.3523,298
                 </coordinates>
             </LineString>
         </Placemark>
