@@ -109,3 +109,645 @@ html body {
     margin: 0;
     min-height: 100vh;
 }
+
+/* ========== CARRUSEL TURÍSTICO ========== */
+
+/* Especificidad: (0,0,1) */
+.carrusel-wrapper {
+    margin: 2em auto;
+    max-width: 900px;
+    position: relative;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background: #ffffff; /* Color de fondo blanco */
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-slider {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    display: none;
+}
+
+/* Especificidad: (0,0,2) */
+.carrusel-slide.active {
+    opacity: 1;
+    display: block;
+}
+
+/* Especificidad: (0,0,2) */
+.carrusel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Gradiente de fondo */
+    color: #ffffff; /* Color de primer plano blanco */
+    padding: 2em 1.5em 1.5em;
+    text-align: left;
+}
+
+/* Especificidad: (0,0,2) */
+.carrusel-caption h3 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5em 0;
+    color: #ffffff; /* Color de primer plano blanco */
+}
+
+/* Especificidad: (0,0,2) */
+.carrusel-caption p {
+    font-size: 1rem;
+    margin: 0;
+    color: #e0e0e0; /* Color de primer plano gris claro */
+    line-height: 1.4;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-controles {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    pointer-events: none;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-btn {
+    background: rgba(255, 255, 255, 0.9); /* Color de fondo blanco semi-transparente */
+    color: #1a237e; /* Color de primer plano azul */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Especificidad: (0,1,1) */
+.carrusel-btn:hover {
+    background: #ffffff; /* Color de fondo blanco sólido */
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-indicadores {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5em;
+}
+
+/* Especificidad: (0,0,1) */
+.carrusel-indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Borde blanco semi-transparente */
+    background: transparent; /* Sin fondo por defecto */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Especificidad: (0,0,2) */
+.carrusel-indicador.active {
+    background: #ffffff; /* Color de fondo blanco */
+    border-color: #ffffff; /* Borde blanco */
+}
+
+/* Especificidad: (0,1,1) */
+.carrusel-indicador:hover {
+    background: rgba(255, 255, 255, 0.6); /* Color de fondo blanco semi-transparente */
+}
+
+/* ========== SECCIÓN DE NOTICIAS ========== */
+
+/* Especificidad: (0,0,1) */
+.noticias-wrapper {
+    margin: 2em auto;
+    max-width: 1200px;
+}
+
+/* Especificidad: (0,0,1) */
+.noticias-loading {
+    text-align: center;
+    padding: 3em;
+    color: #666666; /* Color de primer plano gris */
+}
+
+/* Especificidad: (0,0,1) */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0; /* Borde gris claro */
+    border-top: 4px solid #1a237e; /* Borde superior azul */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1em auto;
+}
+
+/* Especificidad: (0,0,0) - Animación */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Especificidad: (0,0,1) */
+.noticias-container {
+    background: #ffffff; /* Color de fondo blanco */
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Especificidad: (0,0,1) */
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin-bottom: 2em;
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-card {
+    background: #f8f9fa; /* Color de fondo gris muy claro */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: none; /* Oculto por defecto para animación */
+}
+
+/* Especificidad: (0,1,1) */
+.noticia-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-imagen {
+    height: 200px;
+    overflow: hidden;
+}
+
+/* Especificidad: (0,0,2) */
+.noticia-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Especificidad: (0,1,3) */
+.noticia-card:hover .noticia-imagen img {
+    transform: scale(1.05);
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-contenido {
+    padding: 1.5em;
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-titulo {
+    margin: 0 0 1em 0;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+/* Especificidad: (0,0,2) */
+.noticia-titulo a {
+    color: #1a237e; /* Color de primer plano azul */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Especificidad: (0,1,2) */
+.noticia-titulo a:hover {
+    color: #3949ab; /* Color de primer plano azul más claro */
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-descripcion {
+    color: #555555; /* Color de primer plano gris oscuro */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 1em 0;
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #777777; /* Color de primer plano gris */
+    border-top: 1px solid #e0e0e0; /* Borde superior gris claro */
+    padding-top: 1em;
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-fecha {
+    font-weight: 500;
+    color: #1a237e; /* Color de primer plano azul */
+}
+
+/* Especificidad: (0,0,1) */
+.noticia-fuente {
+    font-style: italic;
+}
+
+/* Especificidad: (0,0,1) */
+.noticias-footer {
+    text-align: center;
+    padding-top: 1em;
+    border-top: 1px solid #e0e0e0; /* Borde superior gris claro */
+}
+
+/* Especificidad: (0,0,1) */
+.btn-cargar-mas {
+    background: #1a237e; /* Color de fondo azul */
+    color: #ffffff; /* Color de primer plano blanco */
+    border: none;
+    border-radius: 6px;
+    padding: 0.8em 2em;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Especificidad: (0,1,1) */
+.btn-cargar-mas:hover {
+    background: #3949ab; /* Color de fondo azul más claro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
+}
+
+/* Especificidad: (0,0,1) */
+.noticias-error {
+    text-align: center;
+    padding: 3em;
+    color: #d32f2f; /* Color de primer plano rojo */
+    background: #ffebee; /* Color de fondo rojo muy claro */
+    border-radius: 8px;
+}
+
+/* Especificidad: (0,0,2) */
+.noticias-error h3 {
+    color: #d32f2f; /* Color de primer plano rojo */
+    margin-bottom: 1em;
+}
+
+/* Especificidad: (0,0,1) */
+.btn-reintentar {
+    background: #d32f2f; /* Color de fondo rojo */
+    color: #ffffff; /* Color de primer plano blanco */
+    border: none;
+    border-radius: 6px;
+    padding: 0.8em 2em;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1em;
+    transition: background 0.3s ease;
+}
+
+/* Especificidad: (0,1,1) */
+.btn-reintentar:hover {
+    background: #f44336; /* Color de fondo rojo más claro */
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Especificidad: (0,0,0) - Media Query */
+@media (max-width: 768px) {
+    /* Especificidad: (0,0,1) */
+    .carrusel-slider {
+        height: 300px;
+    }
+    
+    /* Especificidad: (0,0,1) */
+    .carrusel-caption {
+        padding: 1.5em 1em 1em;
+    }
+    
+    /* Especificidad: (0,0,2) */
+    .carrusel-caption h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Especificidad: (0,0,2) */
+    .carrusel-caption p {
+        font-size: 0.9rem;
+    }
+    
+    /* Especificidad: (0,0,1) */
+    .carrusel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    /* Especificidad: (0,0,1) */
+    .noticias-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+    
+    /* Especificidad: (0,0,1) */
+    .noticias-container {
+        padding: 1.5em;
+        margin: 1em;
+    }
+    
+    /* Especificidad: (0,0,1) */
+    .noticia-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em;
+    }
+}
+
+/* ========== ESTILOS ESPECÍFICOS PARA RUTAS ========== */
+
+/* (0,0,1) - Selector de clase simple */
+.rutas-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-selector {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.btn-ruta {
+    background: #007bff; /* Color heredado del esquema de colores principal */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* (0,1,1) - Selector de pseudo-clase :hover con clase */
+.btn-ruta:hover {
+    background: #0056b3; /* Variación más oscura del color principal */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* (0,1,1) - Selector de clase con modificador .active */
+.btn-ruta.active {
+    background: #28a745; /* Color verde para estado activo */
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* (0,1,1) - Selector de clase con modificador .active */
+.ruta-content.active {
+    display: block;
+}
+
+/* Animación personalizada para efectos de transición */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-info {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-tabs {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.tab-button {
+    flex: 1;
+    background: #e9ecef;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+/* (0,1,1) - Selector de pseudo-clase :hover con clase */
+.tab-button:hover {
+    background: #dee2e6;
+}
+
+/* (0,1,1) - Selector de clase con modificador .active */
+.tab-button.active {
+    background: #007bff; /* Color principal del esquema de colores */
+    color: white;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.tab-content {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    min-height: 400px;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.tab-panel {
+    display: none;
+}
+
+/* (0,1,1) - Selector de clase con modificador .active */
+.tab-panel.active {
+    display: block;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.mapa-container {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.svg-container {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.ruta-detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.detalle-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 4px solid #007bff; /* Borde con color principal */
+}
+
+/* (0,0,1) - Selector de clase simple */
+.detalle-label {
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.hitos-list {
+    margin-top: 1rem;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.hito-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* (0,0,1) - Selector de clase simple */
+.hito-nombre {
+    font-weight: bold;
+    color: #007bff; /* Color principal heredado */
+    margin-bottom: 0.5rem;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.loading-indicator {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+/* (0,0,1) - Selector de clase simple */
+.error-container {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+/* Tabla de restaurantes */
+/* (0,0,1) - Selector de clase simple */
+.tabla-restaurantes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+/* (0,0,2) - Selectores de etiqueta con clase */
+.tabla-restaurantes th,
+.tabla-restaurantes td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+/* (0,0,2) - Selector de etiqueta con clase */
+.tabla-restaurantes th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* (0,0,3) - Selector de etiqueta con clase */
+.tabla-restaurantes tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* (0,0,3) - Selector de hover */
+.tabla-restaurantes tbody tr:hover {
+    background-color: #e9ecef;
+}

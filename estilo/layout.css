@@ -13,6 +13,42 @@ html body {
     padding-right: 1rem;
 }
 
+/* ========== ESTILOS RESPONSIVOS PARA MULTIMEDIA ========== */
+
+/* Especificidad: (0,0,1) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: (0,0,1) */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: (0,0,1) */
+audio {
+    max-width: 100%;
+}
+
+/* Especificidad: (0,0,1) */
+[hidden] {
+    display: none;
+}
+
+/* Especificidad: (0,2,0) */
+[aria-current="page"] {
+    background: #e3e3e3;
+    border-radius: 0.5em;
+}
+
+/* Especificidad: (0,0,1) */
+table {
+    width: 100%;
+    max-width: 600px;
+}
+
 /* Media query para móviles pequeños - redefiniciones para adaptabilidad */
 @media screen and (max-width: 480px) {
     /* Especificidad: (0,0,2) para dispositivos móviles pequeños */

@@ -1,0 +1,302 @@
+/* ========== CARRUSEL TURÍSTICO ========== */
+
+/* Especificidad: (0,1,1) */
+section[role="region"][aria-label="Carrusel de imágenes"] {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background: #ffffff; /* Color de fondo blanco */
+    margin: 2em auto;
+    max-width: 900px;
+}
+
+/* Especificidad: (0,2,1) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="presentation"] {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* Especificidad: (0,2,1) */
+section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Especificidad: (0,2,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Especificidad: (0,2,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Gradiente de fondo */
+    color: #ffffff; /* Color de primer plano blanco */
+    padding: 2em 1.5em 1.5em;
+    text-align: left;
+}
+
+/* Especificidad: (0,2,3) */
+section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption h3 {
+    font-size: 1.4rem;
+    margin: 0 0 0.5em 0;
+    color: #ffffff; /* Color de primer plano blanco */
+}
+
+/* Especificidad: (0,2,3) */
+section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption p {
+    font-size: 1rem;
+    margin: 0;
+    color: #e0e0e0; /* Color de primer plano gris claro */
+    line-height: 1.4;
+}
+
+/* Especificidad: (0,2,1) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:first-of-type {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    pointer-events: none;
+}
+
+/* Especificidad: (0,2,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:first-of-type button {
+    background: rgba(255, 255, 255, 0.9); /* Color de fondo blanco semi-transparente */
+    color: #1a237e; /* Color de primer plano azul */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Especificidad: (0,3,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:first-of-type button:hover {
+    background: #ffffff; /* Color de fondo blanco sólido */
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Especificidad: (0,2,1) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:last-of-type {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5em;
+}
+
+/* Especificidad: (0,2,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:last-of-type button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Borde blanco semi-transparente */
+    background: transparent; /* Sin fondo por defecto */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Especificidad: (0,3,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:last-of-type button[aria-selected="true"] {
+    background: #ffffff; /* Color de fondo blanco */
+    border-color: #ffffff; /* Borde blanco */
+}
+
+/* Especificidad: (0,3,2) */
+section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:last-of-type button:hover {
+    background: rgba(255, 255, 255, 0.6); /* Color de fondo blanco semi-transparente */
+}
+
+/* ========== RUTAS TURÍSTICAS ========== */
+
+main div[role="region"] {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section[role="region"][aria-labelledby="ruta-title"] {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button[aria-selected="true"] {
+    background: #28a745;
+}
+
+article[role="tabpanel"] {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+article[role="tabpanel"] > section[role="region"][aria-label="Información general"] {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+article[role="tabpanel"] dl[role="list"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+article[role="tabpanel"] dt {
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+article[role="tabpanel"] dd {
+    margin: 0;
+    padding: 0 1rem;
+}
+
+article[role="tabpanel"] nav[role="tablist"] {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+article[role="tabpanel"] nav[role="tablist"] button {
+    flex: 1;
+    background: #e9ecef;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+article[role="tabpanel"] nav[role="tablist"] button:hover {
+    background: #dee2e6;
+}
+
+article[role="tabpanel"] nav[role="tablist"] button[aria-selected="true"] {
+    background: #007bff;
+    color: white;
+}
+
+article[role="tabpanel"] > div[role="tabpanel"] {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    min-height: 400px;
+}
+
+#mapa-ruta001, #mapa-ruta002, #mapa-ruta003 {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+div[role="img"][aria-label="Perfil altimétrico"] {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    section[role="region"][aria-label="Carrusel de imágenes"] > div[role="presentation"] {
+        height: 300px;
+    }
+    
+    section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption {
+        padding: 1.5em 1em 1em;
+    }
+    
+    section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption h3 {
+        font-size: 1.2rem;
+    }
+    
+    section[role="region"][aria-label="Carrusel de imágenes"] figure[role="group"] figcaption p {
+        font-size: 0.9rem;
+    }
+    
+    section[role="region"][aria-label="Carrusel de imágenes"] > div[role="group"]:first-of-type button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}

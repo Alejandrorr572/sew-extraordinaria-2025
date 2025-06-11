@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:noNamespaceSchemaLocation="rutas.xsd">
+  <ruta id="ruta001">
+        <nombre>Ruta de Palacios Indianos</nombre>
+        <tipo>Arquitectura y monumentos</tipo>
+        <transporte>A pie</transporte>
+        <fechaInicio>2025-06-15</fechaInicio>
+        <horaInicio>10:00</horaInicio>
+        <duracion>3 horas</duracion>
+        <agencia>TurismoSiero</agencia>
+        <descripcion>
+            Descubre el patrimonio indiano del concejo de Siero a través de esta fascinante ruta 
+            que recorre los principales palacios y casas de indianos construidos por emigrantes 
+            asturianos que hicieron fortuna en América. Un viaje por la historia y la arquitectura 
+            que define gran parte del paisaje urbano sierense.
+        </descripcion>
+        <personasAdecuadas>Todas las edades, accesible para familias con niños</personasAdecuadas>
+        <lugarInicio>Plaza de la Campa - Pola de Siero</lugarInicio>
+        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>        
+        <coordenadasInicio>
+            <longitud>-5.664763</longitud>
+            <latitud>43.389194</latitud>
+            <altitud>185</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.turismosiero.com/patrimonio-indiano</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Arquitectura_indiana_en_Asturias</referencia>
+            <referencia>http://www.siero.es/turismo/rutas-culturales</referencia>
+            <referencia>https://www.asturias.es/patrimonio/palacios-indianos</referencia>
+        </referencias>
+        <recomendaciones>
+            <recomendacion>Se recomienda llevar calzado cómodo para caminar</recomendacion>
+            <recomendacion>Traer cámara para fotografiar los detalles arquitectónicos</recomendacion>
+        </recomendaciones>
+        <hitos>
+            <hito>
+                <nombre>Casa Consistorial de Siero</nombre>
+                <descripcion>Edificio de estilo ecléctico construido a principios del siglo XX</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.664763</longitud>
+                    <latitud>43.389194</latitud>
+                    <altitud>185</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Palacio de los Arguelles</nombre>
+                <descripcion>Palacio indiano de finales del siglo XIX con elementos neoclásicos</descripcion>
+                <distancia>450</distancia>
+                <coordenadas>
+                    <longitud>-5.662367</longitud>
+                    <latitud>43.391582</latitud>
+                    <altitud>187</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Casa de los Leones</nombre>
+                <descripcion>Magnífica casona con detalles modernistas y esculturas de leones</descripcion>
+                <distancia>850</distancia>
+                <coordenadas>
+                    <longitud>-5.659658</longitud>
+                    <latitud>43.393286</latitud>
+                    <altitud>190</altitud>
+                </coordenadas>
+            </hito>
+        </hitos>
+    </ruta>
+    
+    <ruta id="ruta002">
+        <nombre>Senda Verde del Río Nora</nombre>
+        <tipo>Naturaleza y paisajismo</tipo>
+        <transporte>A pie o bicicleta</transporte>
+        <fechaInicio>2025-06-20</fechaInicio>
+        <horaInicio>09:30</horaInicio>
+        <duracion>4 horas</duracion>
+        <agencia>EcoSendas Asturias</agencia>
+        <descripcion>
+            Recorrido a lo largo del río Nora que atraviesa el concejo de Siero ofreciendo 
+            un entorno natural privilegiado con bosques autóctonos, prados y ecosistemas 
+            fluviales. Ideal para observación de aves y fotografía de naturaleza.
+        </descripcion>
+        <personasAdecuadas>Todas las edades, recomendada para amantes de la naturaleza</personasAdecuadas>
+        <lugarInicio>Área Recreativa de La Fresneda</lugarInicio>
+        <direccionInicio>Camino del Río, s/n - La Fresneda</direccionInicio>        
+        <coordenadasInicio>
+            <longitud>-5.794639</longitud>
+            <latitud>43.396077</latitud>
+            <altitud>165</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.sendaverde.es/rio-nora</referencia>
+            <referencia>https://www.siero.es/espacios-naturales/rio-nora</referencia>
+            <referencia>https://www.asturias.es/rutas-verdes</referencia>
+        </referencias>
+        <recomendaciones>
+            <recomendacion>Llevar calzado impermeable en temporada de lluvias</recomendacion>
+            <recomendacion>Recomendable llevar prismáticos para observación de aves</recomendacion>
+            <recomendacion>En bicicleta, respetar a los senderistas</recomendacion>
+        </recomendaciones>
+        <hitos>
+            <hito>
+                <nombre>Área Recreativa La Fresneda</nombre>
+                <descripcion>Punto de inicio con merenderos y área de descanso</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.794639</longitud>
+                    <latitud>43.396077</latitud>
+                    <altitud>165</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Puente Medieval de Colloto</nombre>
+                <descripcion>Antiguo puente de piedra que atraviesa el río Nora</descripcion>
+                <distancia>1200</distancia>
+                <coordenadas>
+                    <longitud>-5.782548</longitud>
+                    <latitud>43.389913</latitud>
+                    <altitud>158</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Bosque de Ribera</nombre>
+                <descripcion>Zona de especial interés ecológico con alisos y sauces centenarios</descripcion>
+                <distancia>2500</distancia>
+                <coordenadas>
+                    <longitud>-5.767092</longitud>
+                    <latitud>43.384826</latitud>
+                    <altitud>152</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Mirador del Meandro</nombre>
+                <descripcion>Vista panorámica del meandro del río y la vega circundante</descripcion>
+                <distancia>4800</distancia>
+                <coordenadas>
+                    <longitud>-5.747918</longitud>
+                    <latitud>43.379451</latitud>
+                    <altitud>175</altitud>
+                </coordenadas>
+            </hito>
+        </hitos>
+    </ruta>
+    
+    <ruta id="ruta003">
+        <nombre>Ruta Gastronómica de Siero</nombre>
+        <tipo>Gastronomía y tradiciones</tipo>
+        <transporte>A pie</transporte>
+        <fechaInicio>2025-06-25</fechaInicio>
+        <horaInicio>12:00</horaInicio>
+        <duracion>5 horas</duracion>
+        <agencia>Sabores de Asturias</agencia>
+        <descripcion>
+            Un recorrido por las sidrerías, restaurantes y mercados tradicionales de Pola de Siero 
+            para descubrir la auténtica gastronomía asturiana. Incluye degustaciones de productos 
+            típicos y demostración de escanciado de sidra.
+        </descripcion>
+        <personasAdecuadas>Adultos (mayores de 18 años)</personasAdecuadas>
+        <lugarInicio>Mercado de Abastos - Pola de Siero</lugarInicio>
+        <direccionInicio>Plaza del Mercado, 4 - Pola de Siero</direccionInicio>        
+        <coordenadasInicio>
+            <longitud>-5.663763</longitud>
+            <latitud>43.388971</latitud>
+            <altitud>183</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.saboresasturianos.com/rutas/siero</referencia>
+            <referencia>https://www.sidrerias-asturias.com/pola-siero</referencia>
+            <referencia>https://www.gastronomiaasturiana.org</referencia>
+        </referencias>
+        <recomendaciones>
+            <recomendacion>Venir con apetito, las degustaciones son abundantes</recomendacion>
+            <recomendacion>Se recomienda no conducir después de la ruta (degustación de sidra)</recomendacion>
+        </recomendaciones>
+        <hitos>
+            <hito>
+                <nombre>Mercado de Abastos</nombre>
+                <descripcion>Mercado tradicional con productos locales y artesanales</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.663763</longitud>
+                    <latitud>43.388971</latitud>
+                    <altitud>183</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Sidrería El Madreñeru</nombre>
+                <descripcion>Sidrería tradicional con demostración de escanciado</descripcion>
+                <distancia>250</distancia>
+                <coordenadas>
+                    <longitud>-5.663128</longitud>
+                    <latitud>43.390353</latitud>
+                    <altitud>184</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Restaurante La Pola</nombre>
+                <descripcion>Establecimiento especializado en fabada y cachopos</descripcion>
+                <distancia>450</distancia>
+                <coordenadas>
+                    <longitud>-5.661249</longitud>
+                    <latitud>43.389218</latitud>
+                    <altitud>186</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Confitería Cardin</nombre>
+                <descripcion>Elaboración artesanal de dulces asturianos</descripcion>
+                <distancia>650</distancia>
+                <coordenadas>
+                    <longitud>-5.664892</longitud>
+                    <latitud>43.387659</latitud>
+                    <altitud>182</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Llagar de sidra</nombre>
+                <descripcion>Visita a un llagar tradicional con explicación del proceso de elaboración</descripcion>
+                <distancia>1200</distancia>
+                <coordenadas>
+                    <longitud>-5.668749</longitud>
+                    <latitud>43.385367</latitud>
+                    <altitud>190</altitud>
+                </coordenadas>
+            </hito>
+        </hitos>
+    </ruta>
+</rutas>

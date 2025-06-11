@@ -6,11 +6,9 @@
     <title>Rutas Turísticas - Concejo de Siero</title>
     <meta name="description" content="Descubre las mejores rutas turísticas del concejo de Siero en Asturias">
     <meta name="keywords" content="rutas, siero, asturias, turismo, senderismo, naturaleza">
-    <meta name="author" content="Turismo Siero">
-      <!-- Estilos CSS -->
+    <meta name="author" content="Turismo Siero">      <!-- Estilos CSS -->
     <link rel="stylesheet" href="estilo/estilo.css">
-    <link rel="stylesheet" href="estilo/layout.css">
-    <link rel="stylesheet" href="estilo/rutas.css">    <!-- jQuery -->
+    <link rel="stylesheet" href="estilo/layout.css">    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <!-- Google Maps API -->
@@ -22,47 +20,44 @@
 <body>
     <!-- Header y navegación heredados -->
     <header>
-        <h1>Concejo de Siero</h1>
-        <p>Descubre la belleza natural y cultural de nuestro territorio asturiano</p>
+        <h1>Descubre Siero</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rutas.html" aria-current="page">Rutas</a></li>
+                <li><a href="gastronomia.html">Gastronomía</a></li>
+                <li><a href="meteorologia.html">Clima</a></li>
+                <li><a href="juego.html">Juegos</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="reservas.php">Reservas</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="gastronomia.html">Gastronomía</a></li>
-            <li><a href="rutas.html" class="active">Rutas</a></li>
-            <li><a href="meteorologia.html">Meteorología</a></li>
-            <li><a href="juego.html">Juego</a></li>
-            <li><a href="ayuda.html">Ayuda</a></li>
-        </ul>
-    </nav>
-    
-    <main class="rutas-container">
-        <h1>Rutas Turísticas de Siero</h1>
-        <p>Explora los senderos más hermosos del concejo de Siero y descubre paisajes únicos, patrimonio histórico y la riqueza natural de Asturias.</p>
-        
-        <!-- Selector de rutas -->
-        <section class="ruta-selector">
-            <h2>Selecciona una Ruta</h2>
-            <div class="ruta-buttons" id="rutaButtons">
-                <!-- Botones de rutas se cargarán dinámicamente -->
-            </div>
-        </section>
-        
-        <!-- Contenido de las rutas -->
-        <section id="rutaContentContainer">
-            <!-- Contenido de rutas se cargará dinámicamente -->
-        </section>
-        
-        <!-- Loading indicator -->
-        <div id="loadingIndicator" class="loading">
-            <p>Cargando rutas...</p>
-        </div>
-        
-        <!-- Error container -->
-        <div id="errorContainer" class="error" style="display: none;">
-            <p>Error al cargar las rutas. Por favor, inténtelo de nuevo.</p>
-        </div>
+      <main>
+        <article>
+            <h1>Rutas Turísticas de Siero</h1>
+            <p>Explora los senderos más hermosos del concejo de Siero y descubre paisajes únicos, patrimonio histórico y la riqueza natural de Asturias.</p>
+                  <!-- Selector de rutas -->
+            <section role="region" aria-labelledby="ruta-title">
+                <h2 id="ruta-title">Selecciona una Ruta</h2>
+                <nav role="navigation" aria-label="Selector de rutas">
+                    <!-- Botones de rutas se cargarán dinámicamente -->
+                </nav>
+            </section>
+              <!-- Contenido de las rutas -->
+            <section role="region" aria-label="Detalles de ruta">
+                <!-- Contenido de rutas se cargará dinámicamente -->
+            </section>
+            
+            <!-- Loading indicator -->
+            <aside role="status" aria-live="polite">
+                <p>Cargando rutas...</p>
+            </aside>
+            
+            <!-- Error container -->
+            <aside role="alert" aria-live="assertive" hidden>                <p>Error al cargar las rutas. Por favor, inténtelo de nuevo.</p>
+            </aside>
+        </article>
     </main>
       <footer>
         <p>&copy; 2024 Concejo de Siero - Turismo Asturias</p>
