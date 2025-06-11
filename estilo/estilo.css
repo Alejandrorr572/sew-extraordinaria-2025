@@ -751,3 +751,282 @@ html body {
 .tabla-restaurantes tbody tr:hover {
     background-color: #e9ecef;
 }
+
+/* ========== ESTILOS PARA RUTAS TURÍSTICAS ========== */
+
+/* Contenedor principal de rutas */
+main article {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Selector de rutas */
+section[role="region"][aria-labelledby="ruta-title"] {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section[role="region"][aria-labelledby="ruta-title"] h2 {
+    color: #1a237e;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Navegación de selector de rutas */
+nav[role="navigation"][aria-label="Selector de rutas"] {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav[role="navigation"][aria-label="Selector de rutas"] button[aria-selected="true"] {
+    background: #28a745;
+    transform: translateY(-1px);
+}
+
+/* Contenedor de detalles de ruta */
+section[role="region"][aria-label="Detalles de ruta"] {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Artículos de ruta individuales */
+article[role="tabpanel"] {
+    animation: fadeIn 0.5s ease-in;
+    padding: 2rem;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Información general de la ruta */
+article[role="tabpanel"] > section[role="region"][aria-label="Información general"] {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+article[role="tabpanel"] > section[role="region"][aria-label="Información general"] h2 {
+    color: #1a237e;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+article[role="tabpanel"] > section[role="region"][aria-label="Información general"] p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Lista de definiciones para detalles de ruta */
+article[role="tabpanel"] dl[role="list"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 0;
+}
+
+article[role="tabpanel"] dt {
+    font-weight: bold;
+    color: #495057;
+    background: #e9ecef;
+    padding: 0.75rem 1rem 0.25rem 1rem;
+    border-radius: 5px 5px 0 0;
+    border-left: 4px solid #007bff;
+    margin: 0;
+}
+
+article[role="tabpanel"] dd {
+    background: white;
+    padding: 0.5rem 1rem 0.75rem 1rem;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    margin: 0;
+    color: #6c757d;
+}
+
+/* Navegación de pestañas */
+nav[role="tablist"] {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+nav[role="tablist"] button {
+    flex: 1;
+    background: #e9ecef;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    color: #495057;
+}
+
+nav[role="tablist"] button:hover {
+    background: #dee2e6;
+}
+
+nav[role="tablist"] button[aria-selected="true"] {
+    background: #007bff;
+    color: white;
+}
+
+/* Contenido de pestañas */
+article[role="tabpanel"] > div[role="tabpanel"] {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    min-height: 400px;
+}
+
+/* Secciones de contenido de pestañas */
+section[role="tabpanel"] {
+    margin: 0;
+}
+
+section[role="tabpanel"] h3 {
+    color: #1a237e;
+    margin-bottom: 1rem;
+}
+
+section[role="tabpanel"] ol[role="list"] {
+    list-style: none;
+    counter-reset: hito-counter;
+    padding: 0;
+}
+
+section[role="tabpanel"] ol[role="list"] li {
+    counter-increment: hito-counter;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+section[role="tabpanel"] ol[role="list"] li::before {
+    content: counter(hito-counter);
+    position: absolute;
+    left: -15px;
+    top: 1rem;
+    background: #007bff;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+section[role="tabpanel"] ol[role="list"] li h4 {
+    color: #007bff;
+    margin: 0 0 0.5rem 20px;
+    font-size: 1.1rem;
+}
+
+section[role="tabpanel"] ol[role="list"] li p {
+    margin: 0 0 0.5rem 20px;
+    color: #6c757d;
+    line-height: 1.5;
+}
+
+section[role="tabpanel"] ol[role="list"] li p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mapas */
+div[role="img"][aria-label="Mapa de ruta"] {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+/* SVG/Altimetría */
+div[role="img"][aria-label="Perfil altimétrico"] {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+/* Estados de carga y error */
+aside[role="status"] {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+aside[role="alert"] {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border: 1px solid #f5c6cb;
+}
