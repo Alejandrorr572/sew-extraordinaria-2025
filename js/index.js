@@ -181,22 +181,34 @@ class CarruselFotos {
 /**
  * Clase para gestionar noticias turísticas externas vía API
  */
-class GestorNoticias {
-    constructor() {
+class GestorNoticias {    constructor() {
         this.$container = $('section[role="region"][aria-label="Noticias turísticas"]');
-        // Usar RSS feeds públicos de medios asturianos
+          // Usar configuración global si está disponible
+        if (window.SieroConfig) {
+            this.modoDemo = window.SieroConfig.MODO_DEMO;
+            this.intentarAPIs = window.SieroConfig.noticias.intentarAPIs;
+            this.tiempoTimeout = window.SieroConfig.noticias.tiempoTimeout;
+        } else {
+            // Configuración por defecto si no hay config.js
+            this.modoDemo = false; // Intentar APIs por defecto
+            this.intentarAPIs = true;
+            this.tiempoTimeout = 5000;
+        }
+        
+        // APIs disponibles (solo se usan si intentarAPIs = true)
         this.fuentes = [
             {
-                nombre: 'La Nueva España',
-                url: 'https://rss-bridge.github.io/rss-bridge/?action=display&bridge=LaNuevaEspanaBridge&format=Json',
+                nombre: 'Europa Press Asturias',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6',
                 backup: true
             },
             {
                 nombre: 'El Comercio',
-                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.elcomercio.es/rss/2.0/?section=asturias',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.elcomercio.es/rss/2.0/?section=asturias&count=6',
                 backup: true
             }
         ];
+        
         this.noticias = [];
         this.cargando = false;
         
@@ -244,38 +256,61 @@ class GestorNoticias {
         this.$container.find('button[aria-label="Ver más noticias"]').click(function() {
             self.cargarMasNoticias();
         });
-    }
-      async cargarNoticias() {
+    }    async cargarNoticias() {
         if (this.cargando) return;
         
         this.cargando = true;
         this.mostrarCargando();
         
+        // Solo usar modo demo si está explícitamente configurado
+        if (this.modoDemo && !this.intentarAPIs) {
+            console.log('🎭 Modo demo configurado - Mostrando noticias de ejemplo');
+            setTimeout(() => {
+                this.mostrarNoticiasEjemplo();
+                this.cargando = false;
+                this.ocultarCargando();
+            }, 1500);
+            return;
+        }
+        
+        // Intentar conectar con APIs reales
+        console.log('🌐 Intentando conectar con APIs de noticias reales...');
+        
         try {
-            // Intentar con RSS2JSON API (más confiable para CORS)
-            const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6');
+            // Crear promise con timeout
+            const fetchPromise = fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6');
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Timeout de API')), this.tiempoTimeout)
+            );
             
-            if (response.ok) {
-                const data = await response.json();
-                if (data.status === 'ok' && data.items) {
-                    this.noticias = data.items.map(item => ({
-                        title: item.title,
-                        description: item.description ? item.description.substring(0, 200) + '...' : 'Sin descripción disponible',
-                        publishedAt: item.pubDate,
-                        source: { name: 'Europa Press Asturias' },
-                        url: item.link,
-                        urlToImage: item.enclosure && item.enclosure.link ? item.enclosure.link : null
-                    }));
-                    this.mostrarNoticias();
-                    return;
-                }
+            const response = await Promise.race([fetchPromise, timeoutPromise]);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
             
-            throw new Error('Error en la respuesta de la API');
+            const data = await response.json();
+            
+            if (data.status === 'ok' && data.items && data.items.length > 0) {
+                this.noticias = data.items.map(item => ({
+                    title: item.title,
+                    description: item.description ? item.description.substring(0, 200) + '...' : 'Sin descripción disponible',
+                    publishedAt: item.pubDate,
+                    source: { name: 'Europa Press Asturias' },
+                    url: item.link,
+                    urlToImage: item.enclosure && item.enclosure.link ? item.enclosure.link : null
+                }));
+                console.log('✅ Noticias reales cargadas exitosamente:', this.noticias.length);
+                this.mostrarNoticias();
+                return;
+            } else {
+                throw new Error('Respuesta de API sin datos válidos');
+            }
             
         } catch (error) {
-            console.warn('API de noticias no disponible, usando noticias de ejemplo:', error);
-            this.mostrarNoticiasEjemplo(); // Fallback con noticias de ejemplo
+            console.error('❌ Error al cargar noticias desde API:', error.message);
+            console.log('🔄 Cambiando a noticias de ejemplo como fallback');
+            this.mostrarNoticiasEjemplo();
         } finally {
             this.cargando = false;
             this.ocultarCargando();
@@ -373,13 +408,13 @@ class GestorNoticias {
         ];
         
         this.noticias = noticiasEjemplo;
-        this.mostrarNoticias();
-        
-        // Añadir mensaje informativo
+        this.mostrarNoticias();        // Añadir mensaje informativo apropiado
         this.$container.find('section[role="feed"]').prepend(`
             <aside role="note" aria-label="Información sobre las noticias">
-                <p><strong>ℹ️ Modo Demo:</strong> Se muestran noticias de ejemplo. 
-                En producción se cargarían noticias reales desde feeds RSS de medios asturianos.</p>
+                <p><strong>⚠️ API NO DISPONIBLE - FALLBACK ACTIVADO</strong></p>
+                <p>No se pudieron cargar noticias reales desde las APIs externas (posibles causas: CORS, límites de API, conectividad). 
+                Se muestran noticias de ejemplo realistas sobre turismo en Siero y Asturias.</p>
+                <p><em>En un entorno de producción con servidor proxy, se cargarían noticias reales desde medios asturianos.</em></p>
             </aside>
         `);
     }

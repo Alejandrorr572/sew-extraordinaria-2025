@@ -1115,23 +1115,52 @@ nav[role="navigation"][aria-label="Controles meteorológicos"] button:hover {
 
 /* Mensajes informativos y de demostración */
 aside[role="note"] {
-    background: rgba(255, 193, 7, 0.1);
-    border: 1px solid rgba(255, 193, 7, 0.3);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    color: #856404;
-    font-size: 0.9rem;
-    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border: 2px solid rgba(255, 193, 7, 0.4);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    color: #b8860b;
+    font-size: 0.95rem;
+    text-align: left;
     backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+    animation: slideInDemo 0.5s ease-out;
+}
+
+@keyframes slideInDemo {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 aside[role="note"] p {
-    margin: 0;
+    margin: 0.5rem 0;
+}
+
+aside[role="note"] p:first-child {
+    margin-top: 0;
+}
+
+aside[role="note"] p:last-child {
+    margin-bottom: 0;
 }
 
 aside[role="note"] strong {
-    color: #b8860b;
+    color: #d68910;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+aside[role="note"] em {
+    color: #a6751c;
+    font-style: italic;
 }
 
 /* Información adicional */

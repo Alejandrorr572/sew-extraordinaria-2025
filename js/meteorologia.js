@@ -9,20 +9,29 @@
  * Implementa el patrón de orientación a objetos requerido
  */
 class ServicioMeteorologico {    constructor() {
-        // Configuración de APIs meteorológicas        // API Key de OpenWeatherMap (gratuita hasta 1000 llamadas/día)
-        this.apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // API key válida de OpenWeatherMap
+        // Usar configuración global si está disponible
+        if (window.SieroConfig) {
+            this.modoDemo = window.SieroConfig.MODO_DEMO;
+            this.intentarAPIs = window.SieroConfig.meteorologia.intentarAPIs;
+            this.tiempoTimeout = window.SieroConfig.meteorologia.tiempoTimeout;
+            this.apiKey = window.SieroConfig.meteorologia.apis.openWeather.key;
+            this.coordenadas = window.SieroConfig.meteorologia.coordenadas;
+        } else {
+            // Configuración por defecto si no hay config.js
+            this.modoDemo = false; // Intentar APIs por defecto
+            this.intentarAPIs = true;
+            this.tiempoTimeout = 8000;
+            this.apiKey = 'bd5e378503939ddaee76f12ad7a97608';
+            this.coordenadas = {
+                latitud: 43.3906,
+                longitud: -5.6644,
+                ciudad: 'Pola de Siero',
+                region: 'Asturias, ES'
+            };
+        }
         
-        // APIs de respaldo para mayor confiabilidad
-        this.apiAlternativa = {
-            url: 'https://api.open-meteo.com/v1/forecast',
-            requiresKey: false
-        };
-        this.coordenadas = {
-            latitud: 43.3906,  // Pola de Siero aproximado
-            longitud: -5.6644  // Pola de Siero aproximado
-        };
-        this.ciudad = 'Pola de Siero';
-        this.region = 'Asturias, ES';
+        this.ciudad = this.coordenadas.ciudad || 'Pola de Siero';
+        this.region = this.coordenadas.region || 'Asturias, ES';
         
         // URLs de las APIs
         this.apiUrls = {
@@ -54,8 +63,7 @@ class ServicioMeteorologico {    constructor() {
         this.cargarPrevisiones();
         this.configurarActualizaciones();
     }
-    
-    /**
+      /**
      * Carga el tiempo actual desde la API
      */
     async cargarTiempoActual() {
@@ -63,15 +71,33 @@ class ServicioMeteorologico {    constructor() {
         
         this.cargando = true;
         this.mostrarCargandoActual();
+          // Solo usar modo demo si está explícitamente configurado
+        if (this.modoDemo && !this.intentarAPIs) {
+            console.log('🎭 Modo demo meteorológico configurado - Mostrando datos de ejemplo');
+            setTimeout(() => {
+                this.cargarTiempoRespaldo();
+            }, 1200);
+            return;
+        }
+        
+        // Intentar conectar con API meteorológica real
+        console.log('🌐 Intentando conectar con API meteorológica real...');
         
         try {
-            // Intentar con OpenWeatherMap primero
-            const datos = await this.obtenerTiempoActualAPI();
+            // Crear promise con timeout
+            const fetchPromise = this.obtenerTiempoActualAPI();
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Timeout de API meteorológica')), this.tiempoTimeout)
+            );
+            
+            const datos = await Promise.race([fetchPromise, timeoutPromise]);
             this.datosActuales = datos;
             this.mostrarTiempoActual();
+            console.log('✅ Datos meteorológicos reales cargados exitosamente');
             
         } catch (error) {
-            console.error('Error cargando tiempo actual:', error);
+            console.error('❌ Error al cargar datos meteorológicos desde API:', error.message);
+            console.log('🔄 Cambiando a datos de ejemplo como fallback');
             await this.cargarTiempoRespaldo();
         } finally {
             this.cargando = false;
@@ -104,20 +130,38 @@ class ServicioMeteorologico {    constructor() {
             throw error;
         }
     }
-    
-    /**
+      /**
      * Carga previsiones de 7 días
      */
     async cargarPrevisiones() {
         this.mostrarCargandoPrevisiones();
+          // Solo usar modo demo si está explícitamente configurado
+        if (this.modoDemo && !this.intentarAPIs) {
+            console.log('🎭 Modo demo previsiones configurado - Generando previsiones de ejemplo');
+            setTimeout(() => {
+                this.cargarPrevisionesRespaldo();
+            }, 1500);
+            return;
+        }
+        
+        // Intentar conectar con API meteorológica real
+        console.log('🌐 Intentando obtener previsiones reales...');
         
         try {
-            const datos = await this.obtenerPrevisionesAPI();
+            // Crear promise con timeout
+            const fetchPromise = this.obtenerPrevisionesAPI();
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Timeout de API de previsiones')), this.tiempoTimeout)
+            );
+            
+            const datos = await Promise.race([fetchPromise, timeoutPromise]);
             this.datosPrevisiones = datos;
             this.mostrarPrevisiones();
+            console.log('✅ Previsiones reales cargadas exitosamente');
             
         } catch (error) {
-            console.error('Error cargando previsiones:', error);
+            console.error('❌ Error al cargar previsiones desde API:', error.message);
+            console.log('🔄 Cambiando a previsiones de ejemplo como fallback');
             await this.cargarPrevisionesRespaldo();
         } finally {
             this.ocultarCargandoPrevisiones();
@@ -464,13 +508,15 @@ class ServicioMeteorologico {    constructor() {
      * Muestra mensaje informativo sobre datos de demostración
      */    mostrarMensajeDemo(tipo) {
         const mensaje = tipo === 'tiempo' 
-            ? 'Mostrando datos meteorológicos de demostración para Pola de Siero basados en el clima típico de Asturias'
-            : 'Mostrando previsiones de demostración basadas en el clima típico de Asturias en junio';
-            
-        const $mensajeDemo = $(`
+            ? 'Datos meteorológicos de demostración para Pola de Siero basados en el clima típico de Asturias en junio'
+            : 'Previsiones de demostración basadas en el clima atlántico típico de Asturias';
+              const $mensajeDemo = $(`
             <aside role="note" aria-label="Información sobre datos de demostración">
-                <p>ℹ️ <strong>Modo demostración:</strong> ${mensaje}. 
-                En producción se conectaría con APIs meteorológicas reales.</p>
+                <p><strong>⚠️ API METEOROLÓGICA NO DISPONIBLE - FALLBACK ACTIVADO</strong></p>
+                <p>${mensaje}.</p>
+                <p>No se pudieron obtener datos reales desde OpenWeatherMap (posibles causas: límites de API, CORS, conectividad). 
+                En un entorno de producción con servidor proxy, se obtendrían datos meteorológicos reales.</p>
+                <p><em>Los datos mostrados son representativos del clima real de la zona.</em></p>
             </aside>
         `);
         
@@ -480,12 +526,12 @@ class ServicioMeteorologico {    constructor() {
             this.$previsionLista.after($mensajeDemo);
         }
         
-        // Auto-remover después de 15 segundos
+        // Auto-remover después de 20 segundos para que se pueda leer
         setTimeout(() => {
             $mensajeDemo.fadeOut(1000, function() {
                 $(this).remove();
             });
-        }, 15000);
+        }, 20000);
     }
     
     /**
