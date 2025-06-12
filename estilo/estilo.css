@@ -220,40 +220,46 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     text-align: center;
 }
 
-/* Lista de definiciones para detalles de ruta */
-article[role="tabpanel"] dl[role="list"] {
+/* Grid de información de ruta */
+.info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1.5rem;
-    margin: 0;
+    margin: 2rem 0;
 }
 
-article[role="tabpanel"] dt {
-    font-weight: 700;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
-    padding: 1rem;
-    border-radius: 8px 8px 0 0;
-    margin: 0;
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-article[role="tabpanel"] dd {
-    background: #f8f9fa;
-    padding: 1rem;
-    border-radius: 0 0 8px 8px;
+.info-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border: 2px solid #3498db;
-    border-top: none;
-    margin: 0;
-    color: #555;
-    font-weight: 500;
+    border-radius: 12px;
+    padding: 1.5rem;
     text-align: center;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+}
+
+.info-card h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.8rem 0;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.info-card p {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* Navegación de pestañas */
@@ -601,9 +607,9 @@ footer section p a:hover img {
     nav[role="tablist"] button:last-child {
         border-bottom: none;
     }
-    
-    article[role="tabpanel"] dl[role="list"] {
+      .info-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
     }
     
     section[role="tabpanel"] ol[role="list"] li {

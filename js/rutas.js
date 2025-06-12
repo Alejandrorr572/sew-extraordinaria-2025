@@ -193,20 +193,27 @@ class GestorRutas {    constructor() {
                 <section role="region" aria-label="Información general">
                     <h2>${info.nombre}</h2>
                     <p>${info.descripcion}</p>
-                    
-                    <dl role="list">
-                        <dt>Tipo de Ruta</dt>
-                        <dd>${info.tipo}</dd>
+                      <div role="list" class="info-grid">
+                        <div role="listitem" class="info-card">
+                            <h3>Tipo de Ruta</h3>
+                            <p>${info.tipo}</p>
+                        </div>
                         
-                        <dt>Transporte</dt>
-                        <dd>${info.transporte}</dd>
+                        <div role="listitem" class="info-card">
+                            <h3>Transporte</h3>
+                            <p>${info.transporte}</p>
+                        </div>
                         
-                        <dt>Duración Estimada</dt>
-                        <dd>${info.duracion}</dd>
+                        <div role="listitem" class="info-card">
+                            <h3>Duración Estimada</h3>
+                            <p>${info.duracion}</p>
+                        </div>
                         
-                        <dt>Punto de Inicio</dt>
-                        <dd>${info.lugarInicio}</dd>
-                    </dl>
+                        <div role="listitem" class="info-card">
+                            <h3>Punto de Inicio</h3>
+                            <p>${info.lugarInicio}</p>
+                        </div>
+                    </div>
                 </section>
                 
                 <nav role="tablist" aria-label="Información de ruta">
