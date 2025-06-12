@@ -9,9 +9,14 @@
  * Implementa el patrón de orientación a objetos requerido
  */
 class ServicioMeteorologico {    constructor() {
-        // Configuración de APIs meteorológicas
-        // API Key de OpenWeatherMap (gratuita hasta 1000 llamadas/día)
-        this.apiKey = '6e8e93461765cdde142d2ea1c908eb6f'; // API key pública de demostración
+        // Configuración de APIs meteorológicas        // API Key de OpenWeatherMap (gratuita hasta 1000 llamadas/día)
+        this.apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // API key válida de OpenWeatherMap
+        
+        // APIs de respaldo para mayor confiabilidad
+        this.apiAlternativa = {
+            url: 'https://api.open-meteo.com/v1/forecast',
+            requiresKey: false
+        };
         this.coordenadas = {
             latitud: 43.3906,  // Pola de Siero aproximado
             longitud: -5.6644  // Pola de Siero aproximado
@@ -457,29 +462,17 @@ class ServicioMeteorologico {    constructor() {
     
     /**
      * Muestra mensaje informativo sobre datos de demostración
-     */
-    mostrarMensajeDemo(tipo) {
+     */    mostrarMensajeDemo(tipo) {
         const mensaje = tipo === 'tiempo' 
-            ? 'Mostrando datos meteorológicos de demostración para Pola de Siero'
-            : 'Mostrando previsiones de demostración basadas en el clima típico de Asturias';
+            ? 'Mostrando datos meteorológicos de demostración para Pola de Siero basados en el clima típico de Asturias'
+            : 'Mostrando previsiones de demostración basadas en el clima típico de Asturias en junio';
             
         const $mensajeDemo = $(`
             <aside role="note" aria-label="Información sobre datos de demostración">
-                <p>ℹ️ <strong>Modo demostración:</strong> ${mensaje}</p>
+                <p>ℹ️ <strong>Modo demostración:</strong> ${mensaje}. 
+                En producción se conectaría con APIs meteorológicas reales.</p>
             </aside>
         `);
-        
-        // Agregar estilos inline para el mensaje
-        $mensajeDemo.css({
-            'background': 'rgba(255, 193, 7, 0.1)',
-            'border': '1px solid rgba(255, 193, 7, 0.3)',
-            'border-radius': '8px',
-            'padding': '1rem',
-            'margin': '1rem 0',
-            'color': '#856404',
-            'font-size': '0.9rem',
-            'text-align': 'center'
-        });
         
         if (tipo === 'tiempo') {
             this.$tiempoActualDatos.after($mensajeDemo);
@@ -487,12 +480,12 @@ class ServicioMeteorologico {    constructor() {
             this.$previsionLista.after($mensajeDemo);
         }
         
-        // Auto-remover después de 10 segundos
+        // Auto-remover después de 15 segundos
         setTimeout(() => {
-            $mensajeDemo.fadeOut(500, function() {
+            $mensajeDemo.fadeOut(1000, function() {
                 $(this).remove();
             });
-        }, 10000);
+        }, 15000);
     }
     
     /**

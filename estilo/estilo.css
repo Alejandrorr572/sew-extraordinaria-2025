@@ -966,268 +966,223 @@ aside[role="note"][aria-label="Información sobre el servicio meteorológico"] p
 /* Secciones de tiempo actual y previsión */
 section[role="region"][aria-label="Tiempo actual"],
 section[role="region"][aria-label="Previsión de 7 días"] {
-    background: #fff;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     padding: 2rem;
     margin: 2rem 0;
-    border: 1px solid #e1e8ed;
+    color: white;
+    box-shadow: 0 8px 32px rgba(116, 185, 255, 0.3);
 }
 
 section[role="region"][aria-label="Tiempo actual"] h2,
 section[role="region"][aria-label="Previsión de 7 días"] h2 {
-    color: #2c3e50;
-    margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.5rem;
-}
-
-/* Estados de carga */
-section[role="status"] {
-    text-align: center;
-    padding: 1rem;
-    background: rgba(52, 152, 219, 0.05);
-    border-radius: 8px;
-    margin: 1rem 0;
-    color: #3498db;
-    font-style: italic;
-}
-
-/* Datos meteorológicos actuales */
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] {
-    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
     color: white;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(116, 185, 255, 0.3);
-}
-
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] header h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
     font-size: 1.8rem;
-    margin: 0 0 0.5rem 0;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] header time {
-    font-size: 0.9rem;
-    opacity: 0.9;
+/* Tiempo actual */
+section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* Secciones de datos meteorológicos */
-section[role="group"][aria-label="Temperatura"],
-section[role="group"][aria-label="Condiciones"],
-section[role="group"][aria-label="Detalles atmosféricos"] {
+section[role="group"][aria-label="Datos meteorológicos actuales"] header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+section[role="group"][aria-label="Datos meteorológicos actuales"] section[role="group"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 1.5rem 0;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-section[role="group"][aria-label="Detalles atmosféricos"] {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
-
-section[role="group"][aria-label="Temperatura"] article,
-section[role="group"][aria-label="Condiciones"] article,
-section[role="group"][aria-label="Detalles atmosféricos"] article {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
+section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="text"] {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
     padding: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
-section[role="group"][aria-label="Temperatura"] article h4,
-section[role="group"][aria-label="Condiciones"] article h4,
-section[role="group"][aria-label="Detalles atmosféricos"] article h4 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-section[role="group"][aria-label="Temperatura"] article p,
-section[role="group"][aria-label="Condiciones"] article p,
-section[role="group"][aria-label="Detalles atmosféricos"] article p {
-    margin: 0;
+section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="text"] h4 {
     font-size: 1.1rem;
-    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
 }
 
-/* Lista de previsiones diarias */
+/* Previsiones 7 días */
 section[role="list"][aria-label="Lista de previsiones diarias"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"] {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid #e1e8ed;
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
 }
 
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"]:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"] header h3 {
-    color: #2c3e50;
-    margin: 0 0 0.5rem 0;
+section[role="list"][aria-label="Lista de previsiones diarias"] header h3 {
     font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
     text-transform: capitalize;
 }
 
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"] header time {
-    color: #7f8c8d;
-    font-size: 0.85rem;
+section[role="list"][aria-label="Lista de previsiones diarias"] time {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
     text-transform: capitalize;
 }
 
 section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
     margin-top: 1rem;
 }
 
-section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] article {
-    background: rgba(52, 152, 219, 0.05);
-    border-radius: 8px;
-    padding: 0.75rem;
+section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] {
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 0.8rem;
     text-align: center;
-    border: 1px solid rgba(52, 152, 219, 0.1);
 }
 
-section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] article h4 {
-    margin: 0 0 0.25rem 0;
-    font-size: 1.2rem;
-    color: #2c3e50;
+section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
 }
 
-section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] article p {
-    margin: 0;
+section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] p {
     font-size: 0.9rem;
-    color: #34495e;
-    font-weight: 600;
+    margin: 0;
+}
+
+/* Estados de carga */
+section[role="status"][aria-label="Estado de carga del tiempo actual"],
+section[role="status"][aria-label="Estado de carga de la previsión"] {
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+    margin: 1rem 0;
 }
 
 /* Botón de actualización */
 nav[role="navigation"][aria-label="Controles meteorológicos"] {
     text-align: center;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 nav[role="navigation"][aria-label="Controles meteorológicos"] button {
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
-    border: none;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
     border-radius: 25px;
-    padding: 0.75rem 2rem;
+    color: white;
+    padding: 0.8rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 nav[role="navigation"][aria-label="Controles meteorológicos"] button:hover {
+    background: rgba(255,255,255,0.3);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-nav[role="navigation"][aria-label="Controles meteorológicos"] button:active {
-    transform: translateY(0);
+/* Mensajes informativos y de demostración */
+aside[role="note"] {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #856404;
+    font-size: 0.9rem;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+aside[role="note"] p {
+    margin: 0;
+}
+
+aside[role="note"] strong {
+    color: #b8860b;
 }
 
 /* Información adicional */
 section[role="region"][aria-label="Información adicional"] {
-    background: #fff;
+    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     padding: 2rem;
     margin: 2rem 0;
-    border: 1px solid #e1e8ed;
+    color: white;
 }
 
 section[role="region"][aria-label="Información adicional"] h2 {
-    color: #2c3e50;
-    margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #27ae60;
-    padding-bottom: 0.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 section[role="region"][aria-label="Información adicional"] article {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background: rgba(39, 174, 96, 0.05);
+    background: rgba(255,255,255,0.1);
     border-radius: 8px;
-    border-left: 4px solid #27ae60;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(5px);
 }
 
-section[role="region"][aria-label="Información adicional"] article h3 {
-    color: #27ae60;
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
-}
-
-section[role="region"][aria-label="Información adicional"] article p {
-    margin: 0.5rem 0;
-    line-height: 1.6;
-    color: #2c3e50;
-}
-
-/* Mensajes de error */
-article[role="alert"] {
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-    color: white;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
-}
-
-article[role="alert"] h3 {
-    margin: 0 0 1rem 0;
+section[role="region"][aria-label="Información adicional"] h3 {
+    color: #fff;
+    margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
-article[role="alert"] p {
-    margin: 0;
-    font-size: 1rem;
-    opacity: 0.9;
+section[role="region"][aria-label="Información adicional"] strong {
+    color: #fff;
+    font-weight: 600;
 }
 
-/* ========== RESPONSIVE PARA METEOROLOGÍA ========== */
-
+/* Responsive para meteorología */
 @media (max-width: 768px) {
     section[role="region"][aria-label="Tiempo actual"],
-    section[role="region"][aria-label="Previsión de 7 días"],
-    section[role="region"][aria-label="Información adicional"] {
-        padding: 1rem;
+    section[role="region"][aria-label="Previsión de 7 días"] {
+        padding: 1.5rem;
         margin: 1rem 0;
     }
     
-    section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] {
-        padding: 1.5rem;
-    }
-    
-    section[role="group"][aria-label="Temperatura"],
-    section[role="group"][aria-label="Condiciones"],
-    section[role="group"][aria-label="Detalles atmosféricos"] {
+    section[role="group"][aria-label="Datos meteorológicos actuales"] section[role="group"] {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
     
     section[role="list"][aria-label="Lista de previsiones diarias"] {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
     
     section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {

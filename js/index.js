@@ -184,9 +184,19 @@ class CarruselFotos {
 class GestorNoticias {
     constructor() {
         this.$container = $('section[role="region"][aria-label="Noticias turísticas"]');
-        this.apiKey = 'd7e7317c28fc4e93a1a125ac99b08185';
-        this.apiUrl = 'https://newsapi.org/v2/everything';
-        this.consultaBusqueda = 'turismo+asturias+OR+siero+OR+"costa+verde"+OR+sidra';
+        // Usar RSS feeds públicos de medios asturianos
+        this.fuentes = [
+            {
+                nombre: 'La Nueva España',
+                url: 'https://rss-bridge.github.io/rss-bridge/?action=display&bridge=LaNuevaEspanaBridge&format=Json',
+                backup: true
+            },
+            {
+                nombre: 'El Comercio',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.elcomercio.es/rss/2.0/?section=asturias',
+                backup: true
+            }
+        ];
         this.noticias = [];
         this.cargando = false;
         
@@ -235,27 +245,36 @@ class GestorNoticias {
             self.cargarMasNoticias();
         });
     }
-    
-    async cargarNoticias() {
+      async cargarNoticias() {
         if (this.cargando) return;
         
         this.cargando = true;
         this.mostrarCargando();
         
         try {
-            // Usando NewsAPI - alternativa gratuita
-            const response = await fetch(`${this.apiUrl}?q=${this.consultaBusqueda}&language=es&sortBy=publishedAt&pageSize=6&apiKey=${this.apiKey}`);
+            // Intentar con RSS2JSON API (más confiable para CORS)
+            const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6');
             
-            if (!response.ok) {
-                throw new Error('Error en la respuesta de la API');
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status === 'ok' && data.items) {
+                    this.noticias = data.items.map(item => ({
+                        title: item.title,
+                        description: item.description ? item.description.substring(0, 200) + '...' : 'Sin descripción disponible',
+                        publishedAt: item.pubDate,
+                        source: { name: 'Europa Press Asturias' },
+                        url: item.link,
+                        urlToImage: item.enclosure && item.enclosure.link ? item.enclosure.link : null
+                    }));
+                    this.mostrarNoticias();
+                    return;
+                }
             }
             
-            const data = await response.json();
-            this.noticias = data.articles || [];
-            this.mostrarNoticias();
+            throw new Error('Error en la respuesta de la API');
             
         } catch (error) {
-            console.error('Error cargando noticias:', error);
+            console.warn('API de noticias no disponible, usando noticias de ejemplo:', error);
             this.mostrarNoticiasEjemplo(); // Fallback con noticias de ejemplo
         } finally {
             this.cargando = false;
@@ -299,35 +318,70 @@ class GestorNoticias {
         
         $contenedor.html(noticiasHTML);
     }
-    
-    mostrarNoticiasEjemplo() {
-        // Noticias de ejemplo cuando falla la API
+      mostrarNoticiasEjemplo() {
+        // Noticias de ejemplo realistas cuando falla la API
+        const fechaHoy = new Date();
         const noticiasEjemplo = [
             {
                 title: "Siero impulsa nuevas rutas turísticas por la Sierra del Sueve",
-                description: "El concejo presenta un ambicioso plan para promocionar el turismo de naturaleza con nuevos senderos señalizados.",
-                publishedAt: new Date().toISOString(),
+                description: "El concejo presenta un ambicioso plan para promocionar el turismo de naturaleza con nuevos senderos señalizados y miradores panorámicos que ofrecen vistas espectaculares de la costa asturiana.",
+                publishedAt: fechaHoy.toISOString(),
                 source: { name: "Turismo Asturias" },
-                url: "#"
+                url: "#",
+                urlToImage: "multimedia/images/sierra-sueve-siero.jpg"
             },
             {
-                title: "La gastronomía asturiana protagonista en las ferias de turismo",
-                description: "La fabada y la sidra de Siero destacan en las últimas ferias gastronómicas europeas.",
-                publishedAt: new Date(Date.now() - 86400000).toISOString(),
+                title: "La gastronomía asturiana protagonista en las ferias de turismo europeas",
+                description: "La fabada, el cachopo y la sidra de Siero destacan en las últimas ferias gastronómicas celebradas en París y Londres, atrayendo el interés de tour operadores internacionales.",
+                publishedAt: new Date(fechaHoy.getTime() - 86400000).toISOString(),
                 source: { name: "La Nueva España" },
-                url: "#"
+                url: "#",
+                urlToImage: "multimedia/images/fabada-siero.jpg"
             },
             {
                 title: "Record de visitantes en los palacios indianos de Asturias",
-                description: "El patrimonio indiano bate records de visitas con rutas organizadas desde Siero.",
-                publishedAt: new Date(Date.now() - 172800000).toISOString(),
+                description: "El patrimonio indiano bate records de visitas con rutas organizadas desde Siero. Los palacios construidos por emigrantes retornados de América son el nuevo reclamo turístico.",
+                publishedAt: new Date(fechaHoy.getTime() - 172800000).toISOString(),
                 source: { name: "El Comercio" },
-                url: "#"
+                url: "#",
+                urlToImage: "multimedia/images/palacio-indiano-siero.jpg"
+            },
+            {
+                title: "Siero apuesta por el turismo sostenible y de proximidad",
+                description: "El Ayuntamiento de Siero presenta su nueva estrategia de turismo responsable, promoviendo actividades respetuosas con el medio ambiente y el patrimonio cultural local.",
+                publishedAt: new Date(fechaHoy.getTime() - 259200000).toISOString(),
+                source: { name: "RTPA" },
+                url: "#",
+                urlToImage: "multimedia/images/pola-siero-centro.jpg"
+            },
+            {
+                title: "La sidra de Siero, embajadora de Asturias en el mundo",
+                description: "Las sidrerías del concejo participan en una campaña internacional para promocionar la sidra asturiana como producto turístico y gastronómico de referencia.",
+                publishedAt: new Date(fechaHoy.getTime() - 345600000).toISOString(),
+                source: { name: "Asturias24" },
+                url: "#",
+                urlToImage: "multimedia/images/sidreria-tradicional-siero.jpg"
+            },
+            {
+                title: "Nuevas tecnologías al servicio del turismo en Siero",
+                description: "El concejo estrena una app móvil con realidad aumentada para descubrir el patrimonio histórico y natural, convirtiendo cada visita en una experiencia interactiva única.",
+                publishedAt: new Date(fechaHoy.getTime() - 432000000).toISOString(),
+                source: { name: "Turismo Digital" },
+                url: "#",
+                urlToImage: null
             }
         ];
         
         this.noticias = noticiasEjemplo;
         this.mostrarNoticias();
+        
+        // Añadir mensaje informativo
+        this.$container.find('section[role="feed"]').prepend(`
+            <aside role="note" aria-label="Información sobre las noticias">
+                <p><strong>ℹ️ Modo Demo:</strong> Se muestran noticias de ejemplo. 
+                En producción se cargarían noticias reales desde feeds RSS de medios asturianos.</p>
+            </aside>
+        `);
     }
     
     async cargarMasNoticias() {
