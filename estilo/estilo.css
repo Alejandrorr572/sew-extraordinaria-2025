@@ -1991,34 +1991,6 @@ section[aria-label="Resultados del juego"] aside p {
     line-height: 1.6;
 }
 
-/* Botones de acción en resultados */
-nav[aria-label="Acciones del juego"] {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-nav[aria-label="Acciones del juego"] button {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 2px solid rgba(255,255,255,0.3);
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-nav[aria-label="Acciones del juego"] button:hover {
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-
 /* Responsive para el juego */
 @media (max-width: 768px) {
     section[aria-label="Pantalla de inicio del juego"],
@@ -2061,20 +2033,9 @@ nav[aria-label="Acciones del juego"] button:hover {
     
     section[aria-label="Resultados del juego"] h2 {
         font-size: 2rem;
-    }
-    
+    }    
     div[role="status"][aria-label*="Puntuación"] p {
         font-size: 2.5rem;
-    }
-    
-    nav[aria-label="Acciones del juego"] {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav[aria-label="Acciones del juego"] button {
-        width: 100%;
-        max-width: 300px;
     }
 }
 

@@ -372,17 +372,7 @@ class InterfazJuego {
                 <div>
                     <strong>${estadisticas.tiempoSegundos}s</strong>
                     <span>Tiempo</span>
-                </div>
-            </section>
-
-            <nav aria-label="Acciones del juego">
-                <button onclick="reiniciarJuego()" aria-label="Jugar de nuevo">
-                    🔄 Jugar de Nuevo
-                </button>
-                <button onclick="volverAlInicio()" aria-label="Volver al sitio web">
-                    🏠 Volver al Inicio
-                </button>
-            </nav>
+                </div>            </section>
         `;
         
         this.pantallaResultados.innerHTML = html;
