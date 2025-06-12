@@ -184,7 +184,7 @@ class CarruselFotos {
 class GestorNoticias {
     constructor() {
         this.$container = $('section[role="region"][aria-label="Noticias turísticas"]');
-        this.apiKey = 'tu_api_key_aqui'; // Reemplazar con API key real
+        this.apiKey = 'd7e7317c28fc4e93a1a125ac99b08185';
         this.apiUrl = 'https://newsapi.org/v2/everything';
         this.consultaBusqueda = 'turismo+asturias+OR+siero+OR+"costa+verde"+OR+sidra';
         this.noticias = [];

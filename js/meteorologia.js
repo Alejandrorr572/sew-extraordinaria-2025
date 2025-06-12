@@ -11,7 +11,7 @@
 class ServicioMeteorologico {    constructor() {
         // Configuración de APIs meteorológicas
         // API Key de OpenWeatherMap (gratuita hasta 1000 llamadas/día)
-        this.apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // API key pública de demostración
+        this.apiKey = '6e8e93461765cdde142d2ea1c908eb6f'; // API key pública de demostración
         this.coordenadas = {
             latitud: 43.3906,  // Pola de Siero aproximado
             longitud: -5.6644  // Pola de Siero aproximado
@@ -23,7 +23,7 @@ class ServicioMeteorologico {    constructor() {
         this.apiUrls = {
             openWeather: 'https://api.openweathermap.org/data/2.5',
             weatherApi: 'https://api.weatherapi.com/v1',
-            backup: 'https://wttr.in' // API de respaldo sin API key
+            backup: 'https://wttr.in' // Usado como respaldo para datos de demostración
         };
         
         // Elementos DOM con jQuery
