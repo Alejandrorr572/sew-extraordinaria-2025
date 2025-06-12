@@ -286,12 +286,16 @@ class GestorRutas {    constructor() {
             $article.find('nav[role="tablist"] button[role="tab"]').attr('aria-selected', 'false');
             $button.attr('aria-selected', 'true');
             
-            // Actualizar paneles - ocultar todos primero
-            $article.find('section[role="tabpanel"]').not($article.find('nav').next()).attr('hidden', 'hidden');
+            // Obtener el contenedor de paneles (el section que está después del nav)
+            const $panelContainer = $article.find('nav[role="tablist"]').next('section[role="tabpanel"]');
+            const $allPanels = $panelContainer.children('section[role="tabpanel"]');
+            
+            // Ocultar todos los paneles
+            $allPanels.attr('hidden', 'hidden');
             
             // Mostrar panel correspondiente basado en el índice del botón
             const buttonIndex = $article.find('nav[role="tablist"] button[role="tab"]').index($button);
-            const $targetPanel = $article.find('section[role="tabpanel"]').not($article.find('nav').next()).eq(buttonIndex);
+            const $targetPanel = $allPanels.eq(buttonIndex);
             $targetPanel.removeAttr('hidden');
             
             // Cargar contenido específico según la pestaña
@@ -300,7 +304,8 @@ class GestorRutas {    constructor() {
                     self.cargarMapa(rutaId, self.extraerInformacionRuta($(self.rutasData).find(`ruta[id="${rutaId}"]`)));
                 }, 100);
             } else if (controlsId === 'tab-altimetria') {
-                if ($targetPanel.find('section[role="img"]').children().length <= 1) {
+                const $svgSection = $targetPanel.find('section[role="img"]');
+                if ($svgSection.children().length <= 1) {
                     self.cargarSVG(rutaId);
                 }
             }
@@ -312,7 +317,7 @@ class GestorRutas {    constructor() {
                 }, 100);
             }
         });
-    }    cargarMapa(rutaId, rutaInfo) {
+    }cargarMapa(rutaId, rutaInfo) {
         const mapDiv = document.querySelector(`section[aria-label="Mapa de ruta ${rutaId}"]`);
         
         if (!mapDiv) {

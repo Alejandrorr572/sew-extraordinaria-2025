@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteorología - Tiempo en Siero | Descubre Siero</title>
+    <meta name="description" content="Información meteorológica actual y pronóstico del tiempo para los próximos 7 días en Pola de Siero, Asturias">
+    <meta name="keywords" content="tiempo, meteorología, Siero, Pola de Siero, Asturias, pronóstico, clima">
+    <meta name="author" content="Descubre Siero">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <link rel="stylesheet" href="estilo/layout.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Script local de meteorología -->
+    <script src="js/meteorologia.js"></script>
+</head>
+<body>
+    <!-- Header y navegación -->
+    <header>
+        <h1>Descubre Siero</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="gastronomia.html">Gastronomía</a></li>
+                <li><a href="meteorologia.html" aria-current="page">Clima</a></li>
+                <li><a href="juego.html">Juegos</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="reservas.php">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Información Meteorológica de Siero</h1>
+            <p>Consulta el tiempo actual y la previsión meteorológica para Pola de Siero y sus alrededores. 
+               Información actualizada en tiempo real para planificar tus actividades turísticas.</p>
+            
+            <!-- Tiempo actual -->
+            <section role="region" aria-label="Tiempo actual">
+                <h2>Tiempo Actual en Pola de Siero</h2>
+                <section role="status" aria-label="Estado de carga del tiempo actual" aria-live="polite">
+                    <p>⏳ Cargando información meteorológica actual...</p>
+                </section>
+                <section role="group" aria-label="Datos meteorológicos actuales">
+                    <!-- Contenido generado dinámicamente -->
+                </section>
+            </section>
+            
+            <!-- Previsión 7 días -->
+            <section role="region" aria-label="Previsión de 7 días">
+                <h2>Previsión para los Próximos 7 Días</h2>
+                <section role="status" aria-label="Estado de carga de la previsión" aria-live="polite">
+                    <p>⏳ Cargando previsión meteorológica...</p>
+                </section>
+                <section role="list" aria-label="Lista de previsiones diarias">
+                    <!-- Contenido generado dinámicamente -->
+                </section>
+            </section>
+            
+            <!-- Información adicional -->
+            <section role="region" aria-label="Información adicional">
+                <h2>Información Climática de Siero</h2>
+                <article>
+                    <h3>Clima Atlántico</h3>
+                    <p>Siero disfruta de un clima atlántico templado, caracterizado por temperaturas suaves 
+                       durante todo el año y precipitaciones regulares que mantienen el paisaje verde.</p>
+                </article>
+                <article>
+                    <h3>Mejores Épocas para Visitar</h3>
+                    <p><strong>Primavera (marzo-mayo):</strong> Temperaturas agradables, ideal para senderismo.</p>
+                    <p><strong>Verano (junio-agosto):</strong> Época más seca y cálida, perfecta para actividades al aire libre.</p>
+                    <p><strong>Otoño (septiembre-noviembre):</strong> Paisajes dorados y temperaturas suaves.</p>
+                    <p><strong>Invierno (diciembre-febrero):</strong> Época más húmeda, ideal para turismo gastronómico.</p>
+                </article>
+            </section>
+        </article>
+    </main>
+    
+    <!-- Footer heredado -->
+    <footer>
+        <p>&copy; 2025 Descubre Siero - Portal Turístico del Concejo. Todos los derechos reservados.</p>
+        <section>
+            <h3>Certificaciones de Calidad</h3>
+            <p>
+                <a href="https://validator.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/valid-html5.png" 
+                         alt="Válido HTML5 - Verificado por W3C">
+                </a>
+                <a href="https://jigsaw.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/vcss-blue.png" 
+                         alt="CSS Válido - Verificado por W3C">
+                </a>
+            </p>
+        </section>
+    </footer>
+</body>
+</html>

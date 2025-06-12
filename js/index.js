@@ -1,477 +1,370 @@
 /**
- * Sistema de gestión turística de Siero
- *                </article>
-                <nav class="carrusel-controles">
-                    <button class="carrusel-btn carrusel-prev" aria-label="Imagen anterior">‹</button>
-                    <button class="carrusel-btn carrusel-next" aria-label="Imagen siguiente">›</button>
-                </nav>
-                <nav class="carrusel-indicadores">
-                    ${this.fotos.map((_, index) => `
-                        <button class="carrusel-indicador ${index === 0 ? 'active' : ''}" 
-                                data-index="${index}" aria-label="Ir a imagen ${index + 1}">
-                        </button>
-                    `).join('')}
-                </nav>
-            </section>ón orientada a objetos con jQuery
- * @author Descubre Siero
- * @version 1.0
+ * Gestor Principal del Index - Siero Turismo
+ * Implementa carrusel de fotos locales y noticias externas vía API
+ * Cumple con estándares estrictos: sin IDs, clases, ni data-* attributes
  */
 
 /**
- * Clase para gestionar el carrusel de fotos turísticas
+ * Clase para gestionar el carrusel de fotos turísticas locales
  */
-class CarruselTuristico {    constructor(contenedorSelector, opciones = {}) {
-        this.$contenedor = $(contenedorSelector);
-        this.fotos = opciones.fotos || [];
-        this.indiceActual = 0;
-        this.intervaloAuto = opciones.intervaloAuto || 4000;
-        this.autoPlay = opciones.autoPlay !== false;
-        this.timerAuto = null;
-        
-        this.init();
-    }
-    
-    /**
-     * Inicializa el carrusel
-     */
-    init() {
-        this.crearEstructuraHTML();
-        this.configurarEventos();
-        if (this.autoPlay) {
-            this.iniciarAutoplay();
-        }
-        this.mostrarFoto(0);
-    }
-      /**
-     * Crea la estructura HTML del carrusel
-     */    crearEstructuraHTML() {
-        const htmlCarrusel = `
-            <section role="region" aria-label="Carrusel de imágenes">
-                <div role="presentation">
-                    ${this.fotos.map((foto, index) => `
-                        <figure id="slide-${index}" role="group" aria-labelledby="titulo-${index}" ${index === 0 ? '' : 'hidden'}>
-                            <img src="${foto.src}" alt="${foto.alt}">
-                            <figcaption>
-                                <h3 id="titulo-${index}">${foto.titulo}</h3>
-                                <p>${foto.descripcion}</p>
-                            </figcaption>
-                        </figure>
-                    `).join('')}
-                </div>
-                <div role="group">
-                    <button aria-label="Imagen anterior">‹</button>
-                    <button aria-label="Imagen siguiente">›</button>
-                </div>
-                <div role="group">
-                    ${this.fotos.map((_, index) => `
-                        <button role="button" 
-                                aria-controls="slide-${index}" 
-                                aria-selected="${index === 0 ? 'true' : 'false'}"
-                                aria-label="Ir a imagen ${index + 1}">
-                        </button>
-                    `).join('')}
-                </div>
-            </section>
-        `;
-        
-        this.$contenedor.html(htmlCarrusel);
-    }
-      /**
-     * Configura los eventos de interacción
-     */
-    configurarEventos() {
-        // Botón anterior
-        this.$contenedor.find('[aria-label="Imagen anterior"]').on('click', () => {
-            this.anterior();
-        });
-        
-        // Botón siguiente
-        this.$contenedor.find('[aria-label="Imagen siguiente"]').on('click', () => {
-            this.siguiente();
-        });
-        
-        // Indicadores
-        this.$contenedor.find('[role="button"][aria-controls^="slide"]').on('click', (e) => {
-            const indice = parseInt($(e.currentTarget).attr('aria-controls').replace('slide-', ''));
-            this.mostrarFoto(indice);
-        });
-        
-        // Pausar autoplay al hacer hover
-        this.$contenedor.on('mouseenter', () => {
-            this.pausarAutoplay();
-        });
-        
-        this.$contenedor.on('mouseleave', () => {
-            if (this.autoPlay) {
-                this.iniciarAutoplay();
-            }
-        });
-        
-        // Navegación con teclado
-        $(document).on('keydown', (e) => {
-            if (this.$contenedor.is(':visible')) {
-                if (e.key === 'ArrowLeft') {
-                    this.anterior();
-                } else if (e.key === 'ArrowRight') {
-                    this.siguiente();
-                }
-            }
-        });
-    }
-      /**
-     * Muestra una foto específica
-     * @param {number} indice - Índice de la foto a mostrar
-     */
-    mostrarFoto(indice) {
-        if (indice < 0 || indice >= this.fotos.length) return;
-        
-        // Actualizar slides
-        this.$contenedor.find('figure[role="group"]').attr('hidden', 'hidden');
-        this.$contenedor.find(`#slide-${indice}`).removeAttr('hidden');
-        
-        // Actualizar indicadores
-        this.$contenedor.find('[role="button"][aria-controls^="slide"]').attr('aria-selected', 'false');
-        this.$contenedor.find(`[aria-controls="slide-${indice}"]`).attr('aria-selected', 'true');
-        
-        this.indiceActual = indice;
-    }
-    
-    /**
-     * Ir a la imagen anterior
-     */
-    anterior() {
-        const nuevoIndice = this.indiceActual > 0 ? this.indiceActual - 1 : this.fotos.length - 1;
-        this.mostrarFoto(nuevoIndice);
-    }
-    
-    /**
-     * Ir a la imagen siguiente
-     */
-    siguiente() {
-        const nuevoIndice = this.indiceActual < this.fotos.length - 1 ? this.indiceActual + 1 : 0;
-        this.mostrarFoto(nuevoIndice);
-    }
-    
-    /**
-     * Iniciar el autoplay
-     */
-    iniciarAutoplay() {
-        this.pausarAutoplay();
-        this.timerAuto = setInterval(() => {
-            this.siguiente();
-        }, this.intervaloAuto);
-    }
-    
-    /**
-     * Pausar el autoplay
-     */
-    pausarAutoplay() {
-        if (this.timerAuto) {
-            clearInterval(this.timerAuto);
-            this.timerAuto = null;
-        }
-    }
-}
-
-/**
- * Clase para gestionar las noticias turísticas
- */
-class NoticiasManager {
-    constructor(contenedorId, opciones = {}) {
-        this.$contenedor = $(contenedorId);
-        this.apiKey = opciones.apiKey || '';
-        this.maxNoticias = opciones.maxNoticias || 5;
-        this.categoria = opciones.categoria || 'turismo';
-        this.region = opciones.region || 'Asturias';
-        
-        this.init();
-    }
-    
-    /**
-     * Inicializa el gestor de noticias
-     */
-    init() {
-        this.mostrarCargando();
-        this.cargarNoticias();
-    }
-    
-    /**
-     * Muestra el indicador de carga
-     */    mostrarCargando() {
-        this.$contenedor.html(`
-            <section class="noticias-loading">
-                <figure class="loading-spinner"></figure>
-                <p>Cargando últimas noticias turísticas...</p>
-            </section>
-        `);
-    }
-    
-    /**
-     * Carga las noticias desde servicios web
-     */
-    async cargarNoticias() {
-        try {
-            // Simulamos llamada a API de noticias (NewsAPI, RSS feeds, etc.)
-            // En una implementación real, aquí iría la llamada real a la API
-            const noticias = await this.simularAPICall();
-            this.renderizarNoticias(noticias);
-        } catch (error) {
-            this.mostrarError(error);
-        }
-    }
-    
-    /**
-     * Simula una llamada a API de noticias
-     * En una implementación real, esto sería una llamada fetch() a una API real
-     */
-    async simularAPICall() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve([
-                    {
-                        titulo: "Nuevo sendero interpretativo en la Sierra del Sueve",
-                        descripcion: "El Concejo de Siero inaugura una nueva ruta de senderismo que conecta diversos miradores naturales...",
-                        fecha: "2025-06-08",
-                        fuente: "Turismo Asturias",
-                        url: "#",
-                        imagen: "multimedia/images/sierra-sueve-siero.jpg"
-                    },
-                    {
-                        titulo: "Festival Gastronómico de Sidra y Fabada en Pola de Siero",
-                        descripcion: "Del 15 al 17 de junio se celebrará el tradicional festival que reúne a los mejores productores locales...",
-                        fecha: "2025-06-07",
-                        fuente: "La Voz de Asturias",
-                        url: "#",
-                        imagen: "multimedia/images/fabada-siero.jpg"
-                    },
-                    {
-                        titulo: "Restauración del Palacio de los Álvarez-Buylla",
-                        descripcion: "Concluyen las obras de restauración de uno de los edificios indianos más emblemáticos del concejo...",
-                        fecha: "2025-06-06",
-                        fuente: "El Comercio",
-                        url: "#",
-                        imagen: "multimedia/images/palacio-indiano-siero.jpg"
-                    },
-                    {
-                        titulo: "Nuevas rutas de cicloturismo conectan Siero con concejos limítrofes",
-                        descripcion: "Se han señalizado tres nuevas rutas ciclistas que permiten descubrir el patrimonio natural y cultural...",
-                        fecha: "2025-06-05",
-                        fuente: "Cadena SER Asturias",
-                        url: "#",
-                        imagen: "multimedia/images/pola-siero-centro.jpg"
-                    },
-                    {
-                        titulo: "Siero se posiciona como destino de turismo rural sostenible",
-                        descripcion: "El concejo recibe la certificación de destino turístico sostenible por sus iniciativas medioambientales...",
-                        fecha: "2025-06-04",
-                        fuente: "RTPA",
-                        url: "#",
-                        imagen: "multimedia/images/sidreria-tradicional-siero.jpg"
-                    }
-                ]);
-            }, 1500);
-        });
-    }
-    
-    /**
-     * Renderiza las noticias en el DOM
-     * @param {Array} noticias - Array de objetos noticia
-     */    renderizarNoticias(noticias) {
-        const htmlNoticias = `
-            <section class="noticias-container">
-                <section class="noticias-grid">
-                    ${noticias.slice(0, this.maxNoticias).map(noticia => `
-                        <article class="noticia-card">
-                            <figure class="noticia-imagen">
-                                <img src="${noticia.imagen}" alt="${noticia.titulo}" loading="lazy">
-                            </figure>
-                            <section class="noticia-contenido">
-                                <h3 class="noticia-titulo">
-                                    <a href="${noticia.url}" target="_blank" rel="noopener noreferrer">
-                                        ${noticia.titulo}
-                                    </a>
-                                </h3>
-                                <p class="noticia-descripcion">${noticia.descripcion}</p>
-                                <footer class="noticia-meta">
-                                    <time class="noticia-fecha">${this.formatearFecha(noticia.fecha)}</time>
-                                    <cite class="noticia-fuente">${noticia.fuente}</cite>
-                                </footer>
-                            </section>
-                        </article>
-                    `).join('')}
-                </section>
-                <footer class="noticias-footer">
-                    <button class="btn-cargar-mas" onclick="noticiasManager.cargarMasNoticias()">
-                        Cargar más noticias
-                    </button>
-                </footer>
-            </section>
-        `;
-        
-        this.$contenedor.html(htmlNoticias);
-        this.aplicarEfectos();
-    }
-    
-    /**
-     * Aplica efectos de animación a las noticias
-     */
-    aplicarEfectos() {
-        this.$contenedor.find('.noticia-card').each((index, elemento) => {
-            $(elemento).delay(index * 200).fadeIn(500);
-        });
-    }
-    
-    /**
-     * Formatea una fecha para mostrar
-     * @param {string} fecha - Fecha en formato YYYY-MM-DD
-     * @returns {string} Fecha formateada
-     */
-    formatearFecha(fecha) {
-        const opciones = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        };
-        return new Date(fecha).toLocaleDateString('es-ES', opciones);
-    }
-    
-    /**
-     * Muestra mensaje de error
-     * @param {Error} error - Error ocurrido
-     */    mostrarError(error) {
-        this.$contenedor.html(`
-            <section class="noticias-error">
-                <h3>Error al cargar las noticias</h3>
-                <p>No se pudieron cargar las últimas noticias. Por favor, inténtalo más tarde.</p>
-                <button onclick="noticiasManager.cargarNoticias()" class="btn-reintentar">
-                    Reintentar
-                </button>
-            </section>
-        `);
-    }
-    
-    /**
-     * Carga más noticias (funcionalidad futura)
-     */
-    cargarMasNoticias() {
-        // Implementación futura para paginación
-        console.log('Cargando más noticias...');
-    }
-}
-
-/**
- * Clase principal de la aplicación
- */
-class AplicacionSiero {
+class CarruselFotos {
     constructor() {
-        this.carrusel = null;
-        this.noticiasManager = null;
-        
-        this.init();
-    }
-    
-    /**
-     * Inicializa la aplicación
-     */
-    init() {
-        $(document).ready(() => {
-            this.configurarCarrusel();
-            this.configurarNoticias();
-            this.configurarEfectosGenerales();
-        });
-    }
-    
-    /**
-     * Configura el carrusel de fotos
-     */
-    configurarCarrusel() {
-        const fotosCarrusel = [
-            {
-                src: 'multimedia/images/mapa-siero.jpg',
-                alt: 'Mapa de situación del Concejo de Siero en Asturias',
-                titulo: 'Ubicación de Siero',
-                descripcion: 'Concejo ubicado en el centro de Asturias, puerta de entrada a la región'
-            },
+        this.$container = $('section[role="region"][aria-label="Galería fotográfica"]');
+        this.fotos = [
             {
                 src: 'multimedia/images/pola-siero-centro.jpg',
-                alt: 'Centro urbano de Pola de Siero',
-                titulo: 'Pola de Siero',
-                descripcion: 'Capital del concejo, centro neurálgico de actividad comercial y administrativa'
+                alt: 'Vista del centro de Pola de Siero',
+                titulo: 'Centro de Pola de Siero',
+                descripcion: 'El corazón urbano del concejo con su arquitectura tradicional asturiana'
             },
             {
                 src: 'multimedia/images/palacio-indiano-siero.jpg',
-                alt: 'Palacio indiano histórico en Siero',
+                alt: 'Palacio indiano histórico de Siero',
                 titulo: 'Patrimonio Indiano',
-                descripcion: 'Arquitectura única que refleja la historia de emigración a América'
+                descripcion: 'Magnífico ejemplo de arquitectura indiana del siglo XIX'
             },
             {
                 src: 'multimedia/images/sierra-sueve-siero.jpg',
-                alt: 'Paisajes naturales de la Sierra del Sueve',
+                alt: 'Paisaje natural de la Sierra del Sueve',
                 titulo: 'Sierra del Sueve',
-                descripcion: 'Paisajes montañosos ideales para senderismo y turismo natural'
+                descripcion: 'Impresionantes vistas naturales y rutas de senderismo'
             },
             {
                 src: 'multimedia/images/sidreria-tradicional-siero.jpg',
-                alt: 'Sidrería tradicional asturiana en Siero',
-                titulo: 'Gastronomía Tradicional',
-                descripcion: 'Sidrerías y restaurantes que mantienen viva la tradición culinaria'
+                alt: 'Sidrería tradicional asturiana',
+                titulo: 'Tradición Sidrera',
+                descripcion: 'Auténtica cultura sidrera en el corazón de Asturias'
             },
             {
                 src: 'multimedia/images/fabada-siero.jpg',
-                alt: 'Fabada asturiana tradicional de Siero',
-                titulo: 'Fabada Sierense',
-                descripcion: 'El plato más representativo de la gastronomía local'
+                alt: 'Plato típico de fabada asturiana',
+                titulo: 'Gastronomía Local',
+                descripcion: 'Sabores auténticos de la cocina tradicional asturiana'
             }
         ];
-          this.carrusel = new CarruselTuristico('.carrusel-turistico', {
-            fotos: fotosCarrusel,
-            intervaloAuto: 5000,
-            autoPlay: true
-        });
+        this.indiceActual = 0;
+        this.intervalo = null;
+        this.tiempoTransicion = 4000; // 4 segundos
+        
+        this.init();
     }
     
-    /**
-     * Configura el gestor de noticias
-     */
-    configurarNoticias() {
-        this.noticiasManager = new NoticiasManager('.noticias-turisticas', {
-            maxNoticias: 5,
-            categoria: 'turismo',
-            region: 'Asturias'
-        });
+    init() {
+        if (this.$container.length === 0) {
+            console.warn('No se encontró el contenedor del carrusel');
+            return;
+        }
+        
+        this.crearEstructuraCarrusel();
+        this.configurarEventos();
+        this.iniciarCarruselAutomatico();
     }
     
-    /**
-     * Configura efectos generales de la página
-     */
-    configurarEfectosGenerales() {
-        // Efecto de aparición suave para secciones
-        $('section').each((index, elemento) => {
-            $(elemento).delay(index * 300).fadeIn(800);
+    crearEstructuraCarrusel() {
+        const carruselHTML = `
+            <h2>Descubre Siero en Imágenes</h2>
+            <figure role="img" aria-label="Carrusel de fotos turísticas">
+                <section role="group" aria-label="Imagen principal">
+                    <img src="${this.fotos[0].src}" 
+                         alt="${this.fotos[0].alt}"
+                         role="img">
+                    <figcaption>
+                        <h3>${this.fotos[0].titulo}</h3>
+                        <p>${this.fotos[0].descripcion}</p>
+                    </figcaption>
+                </section>
+                
+                <nav role="navigation" aria-label="Controles de carrusel">
+                    <button role="button" aria-label="Imagen anterior">❮</button>
+                    <section role="group" aria-label="Indicadores de posición">
+                        ${this.fotos.map((_, index) => 
+                            `<button role="button" aria-label="Ir a imagen ${index + 1}" 
+                                     aria-pressed="${index === 0 ? 'true' : 'false'}">●</button>`
+                        ).join('')}
+                    </section>
+                    <button role="button" aria-label="Imagen siguiente">❯</button>
+                </nav>
+            </figure>
+        `;
+        
+        this.$container.html(carruselHTML);
+    }
+    
+    configurarEventos() {
+        const self = this;
+        
+        // Botón anterior
+        this.$container.find('nav[role="navigation"] button[aria-label="Imagen anterior"]').click(function() {
+            self.imagenAnterior();
         });
         
-        // Scroll suave para enlaces internos
-        $('a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-            const target = $(this.getAttribute('href'));
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 100
-                }, 800);
-            }
+        // Botón siguiente
+        this.$container.find('nav[role="navigation"] button[aria-label="Imagen siguiente"]').click(function() {
+            self.imagenSiguiente();
         });
+        
+        // Indicadores de posición
+        this.$container.find('section[role="group"][aria-label="Indicadores de posición"] button').each(function(index) {
+            $(this).click(function() {
+                self.irAImagen(index);
+            });
+        });
+        
+        // Pausar en hover
+        this.$container.find('figure').hover(
+            function() {
+                self.pausarCarrusel();
+            },
+            function() {
+                self.reanudarCarrusel();
+            }
+        );
+    }
+    
+    imagenAnterior() {
+        this.indiceActual = (this.indiceActual - 1 + this.fotos.length) % this.fotos.length;
+        this.actualizarImagen();
+    }
+    
+    imagenSiguiente() {
+        this.indiceActual = (this.indiceActual + 1) % this.fotos.length;
+        this.actualizarImagen();
+    }
+    
+    irAImagen(indice) {
+        this.indiceActual = indice;
+        this.actualizarImagen();
+    }
+    
+    actualizarImagen() {
+        const foto = this.fotos[this.indiceActual];
+        const $imagen = this.$container.find('img[role="img"]');
+        const $titulo = this.$container.find('figcaption h3');
+        const $descripcion = this.$container.find('figcaption p');
+        const $indicadores = this.$container.find('section[role="group"][aria-label="Indicadores de posición"] button');
+        
+        // Efecto de transición
+        $imagen.fadeOut(300, function() {
+            $(this).attr('src', foto.src)
+                   .attr('alt', foto.alt);
+            $titulo.text(foto.titulo);
+            $descripcion.text(foto.descripcion);
+            $(this).fadeIn(300);
+        });
+        
+        // Actualizar indicadores
+        $indicadores.attr('aria-pressed', 'false');
+        $indicadores.eq(this.indiceActual).attr('aria-pressed', 'true');
+    }
+    
+    iniciarCarruselAutomatico() {
+        const self = this;
+        this.intervalo = setInterval(function() {
+            self.imagenSiguiente();
+        }, this.tiempoTransicion);
+    }
+    
+    pausarCarrusel() {
+        if (this.intervalo) {
+            clearInterval(this.intervalo);
+            this.intervalo = null;
+        }
+    }
+    
+    reanudarCarrusel() {
+        if (!this.intervalo) {
+            this.iniciarCarruselAutomatico();
+        }
     }
 }
 
-// Instancia global de la aplicación
-let app;
-let noticiasManager; // Para acceso desde botones
+/**
+ * Clase para gestionar noticias turísticas externas vía API
+ */
+class GestorNoticias {
+    constructor() {
+        this.$container = $('section[role="region"][aria-label="Noticias turísticas"]');
+        this.apiKey = 'tu_api_key_aqui'; // Reemplazar con API key real
+        this.apiUrl = 'https://newsapi.org/v2/everything';
+        this.consultaBusqueda = 'turismo+asturias+OR+siero+OR+"costa+verde"+OR+sidra';
+        this.noticias = [];
+        this.cargando = false;
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.$container.length === 0) {
+            console.warn('No se encontró el contenedor de noticias');
+            return;
+        }
+        
+        this.crearEstructuraNoticias();
+        this.cargarNoticias();
+    }
+    
+    crearEstructuraNoticias() {
+        const noticiasHTML = `
+            <h2>Últimas Noticias Turísticas</h2>
+            <section role="status" aria-label="Estado de carga" aria-live="polite">
+                <p>🔄 Cargando las últimas noticias turísticas...</p>
+            </section>
+            <section role="feed" aria-label="Lista de noticias">
+                <!-- Las noticias se cargarán aquí dinámicamente -->
+            </section>
+            <nav role="navigation" aria-label="Controles de noticias">
+                <button role="button" aria-label="Actualizar noticias">🔄 Actualizar</button>
+                <button role="button" aria-label="Ver más noticias">📰 Ver más</button>
+            </nav>
+        `;
+        
+        this.$container.html(noticiasHTML);
+        this.configurarEventosNoticias();
+    }
+    
+    configurarEventosNoticias() {
+        const self = this;
+        
+        // Botón actualizar
+        this.$container.find('button[aria-label="Actualizar noticias"]').click(function() {
+            self.cargarNoticias();
+        });
+        
+        // Botón ver más
+        this.$container.find('button[aria-label="Ver más noticias"]').click(function() {
+            self.cargarMasNoticias();
+        });
+    }
+    
+    async cargarNoticias() {
+        if (this.cargando) return;
+        
+        this.cargando = true;
+        this.mostrarCargando();
+        
+        try {
+            // Usando NewsAPI - alternativa gratuita
+            const response = await fetch(`${this.apiUrl}?q=${this.consultaBusqueda}&language=es&sortBy=publishedAt&pageSize=6&apiKey=${this.apiKey}`);
+            
+            if (!response.ok) {
+                throw new Error('Error en la respuesta de la API');
+            }
+            
+            const data = await response.json();
+            this.noticias = data.articles || [];
+            this.mostrarNoticias();
+            
+        } catch (error) {
+            console.error('Error cargando noticias:', error);
+            this.mostrarNoticiasEjemplo(); // Fallback con noticias de ejemplo
+        } finally {
+            this.cargando = false;
+            this.ocultarCargando();
+        }
+    }
+    
+    mostrarNoticias() {
+        const $contenedor = this.$container.find('section[role="feed"]');
+        
+        if (this.noticias.length === 0) {
+            $contenedor.html('<p role="alert">No se encontraron noticias recientes.</p>');
+            return;
+        }
+        
+        const noticiasHTML = this.noticias.map((noticia, index) => `
+            <article role="article" aria-label="Noticia ${index + 1}">
+                <header>
+                    <h3>
+                        <a href="${noticia.url}" target="_blank" rel="noopener noreferrer">
+                            ${noticia.title}
+                        </a>
+                    </h3>
+                    <time datetime="${noticia.publishedAt}" role="text">
+                        ${this.formatearFecha(noticia.publishedAt)}
+                    </time>
+                    <cite role="text">📰 ${noticia.source.name}</cite>
+                </header>
+                <section role="text">
+                    ${noticia.urlToImage ? `<img src="${noticia.urlToImage}" alt="Imagen de la noticia" role="img">` : ''}
+                    <p>${noticia.description || 'Descripción no disponible.'}</p>
+                </section>
+                <footer>
+                    <a href="${noticia.url}" target="_blank" rel="noopener noreferrer" 
+                       aria-label="Leer noticia completa en nueva pestaña">
+                        Leer más →
+                    </a>
+                </footer>
+            </article>
+        `).join('');
+        
+        $contenedor.html(noticiasHTML);
+    }
+    
+    mostrarNoticiasEjemplo() {
+        // Noticias de ejemplo cuando falla la API
+        const noticiasEjemplo = [
+            {
+                title: "Siero impulsa nuevas rutas turísticas por la Sierra del Sueve",
+                description: "El concejo presenta un ambicioso plan para promocionar el turismo de naturaleza con nuevos senderos señalizados.",
+                publishedAt: new Date().toISOString(),
+                source: { name: "Turismo Asturias" },
+                url: "#"
+            },
+            {
+                title: "La gastronomía asturiana protagonista en las ferias de turismo",
+                description: "La fabada y la sidra de Siero destacan en las últimas ferias gastronómicas europeas.",
+                publishedAt: new Date(Date.now() - 86400000).toISOString(),
+                source: { name: "La Nueva España" },
+                url: "#"
+            },
+            {
+                title: "Record de visitantes en los palacios indianos de Asturias",
+                description: "El patrimonio indiano bate records de visitas con rutas organizadas desde Siero.",
+                publishedAt: new Date(Date.now() - 172800000).toISOString(),
+                source: { name: "El Comercio" },
+                url: "#"
+            }
+        ];
+        
+        this.noticias = noticiasEjemplo;
+        this.mostrarNoticias();
+    }
+    
+    async cargarMasNoticias() {
+        // Implementar paginación si se requiere
+        console.log('Cargando más noticias...');
+    }
+    
+    mostrarCargando() {
+        this.$container.find('section[role="status"]').show();
+    }
+    
+    ocultarCargando() {
+        this.$container.find('section[role="status"]').hide();
+    }
+    
+    formatearFecha(fechaISO) {
+        const fecha = new Date(fechaISO);
+        const opciones = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        return fecha.toLocaleDateString('es-ES', opciones);
+    }
+}
 
-// Inicializar la aplicación cuando el DOM esté listo
-$(document).ready(() => {
-    app = new AplicacionSiero();
-    // Hacer disponible el noticiasManager globalmente para los botones
-    setTimeout(() => {
-        noticiasManager = app.noticiasManager;
-    }, 100);
+/**
+ * Inicialización cuando el documento esté listo
+ */
+$(document).ready(function() {
+    console.log('Inicializando gestor del index...');
+    
+    // Crear instancias de los gestores
+    window.carruselFotos = new CarruselFotos();
+    window.gestorNoticias = new GestorNoticias();
+    
+    console.log('Carrusel y noticias inicializados correctamente');
 });
