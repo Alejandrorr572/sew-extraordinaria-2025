@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juego de preguntas sobre Siero - Pon a prueba tus conocimientos sobre el concejo asturiano">
+    <meta name="keywords" content="Siero, Asturias, juego, preguntas, test, conocimiento, turismo">
+    <title>Juego: ¿Cuánto sabes de Siero? - Descubre Siero</title>    <link rel="stylesheet" href="estilo/estilo.css">
+    <link rel="stylesheet" href="estilo/layout.css">
+</head>
+<body>
+    <header>
+        <h1>Descubre Siero</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="gastronomia.html">Gastronomía</a></li>
+                <li><a href="meteorologia.html">Clima</a></li>
+                <li><a href="juego.html" aria-current="page">Juegos</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="reservas.php">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section role="region">
+            <!-- Pantalla de inicio del juego -->
+            <section aria-label="Pantalla de inicio del juego" role="region">
+                <h2>🎯 ¿Cuánto sabes sobre Siero?</h2>
+                <p>Pon a prueba tus conocimientos sobre el concejo asturiano con este divertido juego de preguntas.</p>
+                
+                <aside>
+                    <h3>📋 Instrucciones del Juego</h3>
+                    <ul>
+                        <li><strong>10 preguntas</strong> sobre información contenida en este sitio web</li>
+                        <li>Cada pregunta tiene <strong>5 opciones</strong> de respuesta</li>
+                        <li>Solo <strong>una respuesta</strong> es correcta por pregunta</li>
+                        <li>Debes <strong>responder todas</strong> las preguntas para obtener tu puntuación</li>
+                        <li>Cada respuesta correcta vale <strong>1 punto</strong></li>
+                        <li>Tu puntuación final será de <strong>0 a 10 puntos</strong></li>
+                    </ul>
+                </aside>
+
+                <button onclick="iniciarJuego()" aria-label="Comenzar juego">
+                    🚀 Comenzar Juego
+                </button>
+            </section>
+
+            <!-- Pantalla del juego -->
+            <section aria-label="Área de juego" role="region" hidden>
+                <!-- Barra de progreso -->
+                <div role="progressbar" aria-label="Progreso del juego">
+                    <div></div>
+                </div>
+
+                <!-- Contenedor de preguntas -->
+                <section>
+                    <!-- Las preguntas se cargarán dinámicamente aquí -->
+                </section>
+
+                <!-- Controles de navegación -->
+                <nav aria-label="Controles de navegación">
+                    <button onclick="preguntaAnterior()" aria-label="Pregunta anterior" hidden>
+                        ← Anterior
+                    </button>
+                    
+                    <button onclick="preguntaSiguiente()" aria-label="Siguiente pregunta" disabled>
+                        Siguiente →
+                    </button>
+                    
+                    <button onclick="finalizarJuego()" aria-label="Finalizar juego" hidden disabled>
+                        🏁 Finalizar Juego
+                    </button>
+                </nav>
+            </section>
+
+            <!-- Pantalla de resultados -->
+            <section aria-label="Resultados del juego" role="region" hidden>
+                <!-- Los resultados se cargarán dinámicamente aquí -->
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Descubre Siero - Portal Turístico del Concejo. Todos los derechos reservados.</p>
+        <section>
+            <h3>Certificaciones de Calidad</h3>
+            <p>
+                <a href="https://validator.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/valid-html5.png" 
+                         alt="Válido HTML5 - Verificado por W3C">
+                </a>
+                <a href="https://jigsaw.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/vcss-blue.png" 
+                         alt="CSS Válido - Verificado por W3C">
+                </a>
+            </p>
+        </section>
+    </footer>
+
+    <!-- Script del juego -->
+    <script src="js/juego.js"></script>
+</body>
+</html>
