@@ -8,8 +8,7 @@
  * Clase principal para gestionar las rutas turísticas
  * Implementa el patrón de orientación a objetos requerido
  */
-class GestorRutas {
-    constructor() {
+class GestorRutas {    constructor() {
         this.$container = $('section[role="region"][aria-label="Detalles de ruta"]');
         this.$buttons = $('nav[role="navigation"][aria-label="Selector de rutas"]');
         this.$loading = $('aside[role="status"]');
@@ -19,10 +18,12 @@ class GestorRutas {
         this.mapas = new Map(); // Almacenar instancias de mapas
         
         // Debug info
+        console.log('jQuery available:', typeof $ !== 'undefined');
         console.log('Container found:', this.$container.length);
         console.log('Buttons found:', this.$buttons.length);
         console.log('Loading found:', this.$loading.length);
         console.log('Error found:', this.$error.length);
+        console.log('Document ready:', document.readyState);
         
         this.init();
     }
@@ -92,19 +93,19 @@ class GestorRutas {
         this.seleccionarRuta(primeraRuta);
     }    /**
      * Selecciona y muestra una ruta específica
-     */
-    seleccionarRuta(rutaId) {
+     */    seleccionarRuta(rutaId) {
         // Actualizar botones activos
         this.$buttons.find('button').attr('aria-selected', 'false');
         this.$buttons.find(`button[aria-controls="ruta-${rutaId}"]`).attr('aria-selected', 'true');
         
         // Ocultar contenido anterior
         this.$container.find('article').attr('hidden', 'hidden');
-          // Mostrar nueva ruta
-        if (this.$container.find(`article[id="ruta-${rutaId}"]`).length === 0) {
+        
+        // Mostrar nueva ruta
+        if (this.$container.find(`article[data-ruta="${rutaId}"]`).length === 0) {
             this.crearContenidoRuta(rutaId);
         } else {
-            this.$container.find(`article[id="ruta-${rutaId}"]`).removeAttr('hidden');
+            this.$container.find(`article[data-ruta="${rutaId}"]`).removeAttr('hidden');
         }
         
         this.rutaActual = rutaId;
@@ -188,7 +189,7 @@ class GestorRutas {
      * Genera el HTML para mostrar una ruta
      */    generarHTMLRuta(rutaId, info) {
         const $content = $(`
-            <article id="ruta-${rutaId}" role="tabpanel">
+            <article data-ruta="${rutaId}" role="tabpanel">
                 <section role="region" aria-label="Información general">
                     <h2>${info.nombre}</h2>
                     <p>${info.descripcion}</p>
@@ -209,20 +210,20 @@ class GestorRutas {
                 </section>
                 
                 <nav role="tablist" aria-label="Información de ruta">
-                    <button role="tab" aria-selected="true" aria-controls="tab-informacion-${rutaId}">Información</button>
-                    <button role="tab" aria-selected="false" aria-controls="tab-mapa-${rutaId}">Planimetría (KML)</button>
-                    <button role="tab" aria-selected="false" aria-controls="tab-altimetria-${rutaId}">Altimetría (SVG)</button>
+                    <button role="tab" aria-selected="true" data-tab="informacion">Información</button>
+                    <button role="tab" aria-selected="false" data-tab="mapa">Planimetría (KML)</button>
+                    <button role="tab" aria-selected="false" data-tab="altimetria">Altimetría (SVG)</button>
                 </nav>
                 
                 <div role="tabpanel">
-                    <section id="tab-informacion-${rutaId}" role="tabpanel" aria-labelledby="tab-informacion">
+                    <section data-tab-content="informacion" role="tabpanel">
                         ${this.generarTabInformacion(info)}
                     </section>
-                    <section id="tab-mapa-${rutaId}" role="tabpanel" aria-labelledby="tab-mapa" hidden>
-                        <div id="mapa-${rutaId}" role="img" aria-label="Mapa de ruta"></div>
+                    <section data-tab-content="mapa" role="tabpanel" hidden>
+                        <div data-mapa="${rutaId}" role="img" aria-label="Mapa de ruta"></div>
                     </section>
-                    <section id="tab-altimetria-${rutaId}" role="tabpanel" aria-labelledby="tab-altimetria" hidden>
-                        <div id="svg-${rutaId}" role="img" aria-label="Perfil altimétrico">
+                    <section data-tab-content="altimetria" role="tabpanel" hidden>
+                        <div data-svg="${rutaId}" role="img" aria-label="Perfil altimétrico">
                             <p>Cargando perfil altimétrico...</p>
                         </div>
                     </section>
@@ -269,36 +270,48 @@ class GestorRutas {
         return html;
     }    /**
      * Configura el funcionamiento de las pestañas
-     */
-    configurarPestanas(rutaId) {
+     */    configurarPestanas(rutaId) {
         const self = this;
         
-        $(`#ruta-${rutaId} [role="tab"]`).click(function() {
+        // Configurar eventos para las pestañas dentro de este artículo específico
+        $(`article[data-ruta="${rutaId}"] nav[role="tablist"] button[role="tab"]`).click(function() {
             const $button = $(this);
-            const tabId = $button.attr('aria-controls');
+            const tabType = $button.attr('data-tab');
+            const $article = $button.closest('article[data-ruta]');
             
             // Actualizar botones
-            $button.siblings().attr('aria-selected', 'false');
+            $article.find('nav[role="tablist"] button[role="tab"]').attr('aria-selected', 'false');
             $button.attr('aria-selected', 'true');
             
             // Actualizar paneles
-            $(`#ruta-${rutaId} [role="tabpanel"]`).attr('hidden', 'hidden');
-            $(`#${tabId}`).removeAttr('hidden');
+            $article.find('section[data-tab-content]').attr('hidden', 'hidden');
+            $article.find(`section[data-tab-content="${tabType}"]`).removeAttr('hidden');
+            
+            // Cargar contenido específico según la pestaña
+            if (tabType === 'mapa' && !self.mapas.has(rutaId)) {
+                setTimeout(() => {
+                    self.cargarMapa(rutaId, self.extraerInformacionRuta($(self.rutasData).find(`ruta[id="${rutaId}"]`)));
+                }, 100);
+            } else if (tabType === 'altimetria') {
+                if ($article.find(`div[data-svg="${rutaId}"]`).children().length <= 1) {
+                    self.cargarSVG(rutaId);
+                }
+            }
             
             // Redimensionar mapa si es necesario
-            if (tabId.includes('mapa') && self.mapas.has(rutaId)) {
+            if (tabType === 'mapa' && self.mapas.has(rutaId)) {
                 setTimeout(() => {
                     google.maps.event.trigger(self.mapas.get(rutaId), 'resize');
                 }, 100);
             }
         });
-    }    /**
-     * Carga y muestra el mapa con datos KML
-     */
-    cargarMapa(rutaId, rutaInfo) {
-        const mapDiv = document.querySelector(`#mapa-${rutaId}`);
+    }    cargarMapa(rutaId, rutaInfo) {
+        const mapDiv = document.querySelector(`div[data-mapa="${rutaId}"]`);
         
-        if (!mapDiv) return;
+        if (!mapDiv) {
+            console.error(`No se encontró el contenedor del mapa para la ruta ${rutaId}`);
+            return;
+        }
         
         // Configurar mapa centrado en el punto de inicio
         const map = new google.maps.Map(mapDiv, {
@@ -312,9 +325,6 @@ class GestorRutas {
         
         // Guardar referencia del mapa
         this.mapas.set(rutaId, map);
-        
-        // Cargar archivo KML
-        const kmlUrl = `xml/kml/${rutaId}.kml`;
         
         // Crear marcador para punto de inicio
         new google.maps.Marker({
@@ -380,8 +390,7 @@ class GestorRutas {
     }
       /**
      * Carga y muestra el archivo SVG de altimetría
-     */
-    cargarSVG(rutaId) {
+     */    cargarSVG(rutaId) {
         const self = this;
         const svgUrl = `xml/svg/${rutaId}.svg`;
         
@@ -392,10 +401,10 @@ class GestorRutas {
             success: function(svgData) {
                 // Modificar SVG para añadir línea de nivel del mar
                 const svgModificado = self.modificarSVGAltimetria(svgData);
-                $(`#svg-${rutaId}`).html(svgModificado);
+                $(`div[data-svg="${rutaId}"]`).html(svgModificado);
             },
             error: function() {
-                $(`#svg-${rutaId}`).html('<p role="alert">Error al cargar el perfil altimétrico</p>');
+                $(`div[data-svg="${rutaId}"]`).html('<p role="alert">Error al cargar el perfil altimétrico</p>');
             }
         });
     }
