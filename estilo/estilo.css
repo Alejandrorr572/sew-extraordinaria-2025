@@ -1085,7 +1085,6 @@ section[role="status"][aria-label="Estado de carga de la previsión"] {
     padding: 1rem;
     text-align: center;
     color: rgba(255,255,255,0.9);
-    margin: 1rem 0;
 }
 
 /* Botón de actualización */
@@ -1234,3 +1233,321 @@ section[role="region"][aria-label="Información adicional"] strong {
         font-size: 1.3rem;
     }
 }
+
+/* ========== GESTOR DE NOTICIAS CON API FILE ========== */
+
+/* Contenedor principal del gestor de noticias */
+section[aria-label="Gestor de noticias locales"] {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+section[aria-label="Gestor de noticias locales"] h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Estilos para fieldsets */
+section[aria-label="Gestor de noticias locales"] fieldset {
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: white;
+}
+
+section[aria-label="Gestor de noticias locales"] legend {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Estilos para input de archivo */
+input[type="file"][aria-label="Cargar archivo de noticias"] {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    background: #f8f9fa;
+    font-size: 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"][aria-label="Cargar archivo de noticias"]:hover {
+    border-color: #2980b9;
+    background: #e3f2fd;
+}
+
+input[type="file"][aria-label="Cargar archivo de noticias"]:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Formulario de nueva noticia */
+div[role="group"][aria-label="Formulario de nueva noticia"] > div {
+    margin-bottom: 1rem;
+}
+
+div[role="group"][aria-label="Formulario de nueva noticia"] label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+div[role="group"][aria-label="Formulario de nueva noticia"] input,
+div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+div[role="group"][aria-label="Formulario de nueva noticia"] input:focus,
+div[role="group"][aria-label="Formulario de nueva noticia"] textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botón de añadir noticia */
+button[aria-label="Añadir noticia manual"] {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+button[aria-label="Añadir noticia manual"]:hover {
+    background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button[aria-label="Añadir noticia manual"]:active {
+    transform: translateY(0);
+}
+
+/* Área de mensajes del sistema */
+section[role="status"][aria-label="Mensajes del sistema"] {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+section[role="status"][aria-label="Mensajes del sistema"] p[role="alert"] {
+    margin: 0;
+    color: #155724;
+}
+
+/* Contenedor de noticias cargadas */
+section[aria-label="Noticias desde archivo"] {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+section[aria-label="Noticias desde archivo"] h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+/* Estilos para artículos de noticias */
+section[aria-label="Noticias desde archivo"] article {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+section[aria-label="Noticias desde archivo"] article:hover {
+    background: #e3f2fd;
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+section[aria-label="Noticias desde archivo"] article header {
+    background: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    box-shadow: none;
+}
+
+section[aria-label="Noticias desde archivo"] article header h3 {
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+section[aria-label="Noticias desde archivo"] article cite {
+    display: inline-block;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+
+section[aria-label="Noticias desde archivo"] article span[aria-label="Origen"] {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+section[aria-label="Noticias desde archivo"] article section[role="text"] p {
+    color: #34495e;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+section[aria-label="Noticias desde archivo"] article footer {
+    background: none;
+    padding: 0;
+    text-align: right;
+    border-top: 1px solid #dee2e6;
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+}
+
+section[aria-label="Noticias desde archivo"] article footer time {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Panel de controles */
+nav[aria-label="Controles del gestor de noticias"] {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #dee2e6;
+}
+
+nav[aria-label="Controles del gestor de noticias"] button {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav[aria-label="Controles del gestor de noticias"] button:hover {
+    background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Texto de ayuda */
+section[aria-label="Gestor de noticias locales"] small {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    section[aria-label="Gestor de noticias locales"] {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    section[aria-label="Gestor de noticias locales"] fieldset {
+        padding: 1rem;
+    }
+    
+    div[role="group"][aria-label="Formulario de nueva noticia"] input,
+    div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    section[aria-label="Noticias desde archivo"] {
+        max-height: 400px;
+    }
+}
+
+/* Animaciones para la carga de noticias */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section[aria-label="Noticias desde archivo"] article {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Estados de error para compatibilidad de navegador */
+aside[role="alert"][aria-label="Error de compatibilidad"] {
+    background: #f8d7da;
+    border: 2px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+aside[role="alert"][aria-label="Error de compatibilidad"] h2 {
+    color: #721c24;
+    margin-bottom: 1rem;
+}
+
+aside[role="alert"][aria-label="Error de compatibilidad"] p {
+    color: #721c24;
+    margin: 0.5rem 0;
+}
+
+/* ========== FIN GESTOR DE NOTICIAS ========== */
