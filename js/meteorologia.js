@@ -73,19 +73,31 @@ class ServicioMeteorologico {    constructor() {
             this.ocultarCargandoActual();
         }
     }
-    
-    /**
+      /**
      * Obtiene el tiempo actual de OpenWeatherMap
      */
     async obtenerTiempoActualAPI() {
         const url = `${this.apiUrls.openWeather}/weather?lat=${this.coordenadas.latitud}&lon=${this.coordenadas.longitud}&appid=${this.apiKey}&units=metric&lang=es`;
         
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Error API: ${response.status}`);
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error('API key inválida - usando datos de demostración');
+                } else if (response.status === 429) {
+                    throw new Error('Límite de API excedido - usando datos de demostración');
+                } else {
+                    throw new Error(`Error API: ${response.status}`);
+                }
+            }
+            
+            const data = await response.json();
+            console.log('Datos meteorológicos obtenidos exitosamente:', data);
+            return data;
+        } catch (error) {
+            console.warn('Error obteniendo datos de API:', error.message);
+            throw error;
         }
-        
-        return await response.json();
     }
     
     /**
@@ -106,83 +118,115 @@ class ServicioMeteorologico {    constructor() {
             this.ocultarCargandoPrevisiones();
         }
     }
-    
-    /**
+      /**
      * Obtiene previsiones de 7 días de OpenWeatherMap
      */
     async obtenerPrevisionesAPI() {
         const url = `${this.apiUrls.openWeather}/forecast?lat=${this.coordenadas.latitud}&lon=${this.coordenadas.longitud}&appid=${this.apiKey}&units=metric&lang=es&cnt=56`; // 7 días * 8 mediciones
         
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Error API: ${response.status}`);
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                if (response.status === 401) {
+                    throw new Error('API key inválida - usando previsiones de demostración');
+                } else if (response.status === 429) {
+                    throw new Error('Límite de API excedido - usando previsiones de demostración');
+                } else {
+                    throw new Error(`Error API: ${response.status}`);
+                }
+            }
+            
+            const data = await response.json();
+            console.log('Previsiones obtenidas exitosamente:', data);
+            return data;
+        } catch (error) {
+            console.warn('Error obteniendo previsiones de API:', error.message);
+            throw error;
         }
-        
-        return await response.json();
     }
-    
-    /**
+      /**
      * Carga datos de respaldo cuando falla la API principal
      */
     async cargarTiempoRespaldo() {
         try {
-            // Datos simulados para demostración
+            console.log('Cargando datos meteorológicos de demostración para Siero...');
+            
+            // Datos simulados pero realistas para Pola de Siero en junio
             this.datosActuales = {
                 name: 'Pola de Siero',
                 main: {
-                    temp: 16.5,
-                    feels_like: 15.8,
-                    temp_min: 12.3,
-                    temp_max: 19.7,
-                    pressure: 1016,
-                    humidity: 78
+                    temp: 18.5,
+                    feels_like: 17.8,
+                    temp_min: 14.3,
+                    temp_max: 22.7,
+                    pressure: 1018,
+                    humidity: 72
                 },
                 weather: [{
                     main: 'Clouds',
-                    description: 'nublado',
+                    description: 'muy nuboso',
                     icon: '04d'
                 }],
                 wind: {
-                    speed: 3.2,
-                    deg: 250
+                    speed: 2.8,
+                    deg: 270
                 },
-                visibility: 10000,
+                visibility: 12000,
                 dt: Date.now() / 1000
             };
-            
+
             this.mostrarTiempoActual();
+            
+            // Mostrar mensaje informativo
+            this.mostrarMensajeDemo('tiempo');
+            
         } catch (error) {
+            console.error('Error cargando datos de respaldo:', error);
             this.mostrarErrorTiempoActual();
         }
     }
-    
-    /**
+      /**
      * Carga previsiones de respaldo
      */
     async cargarPrevisionesRespaldo() {
         try {
-            // Generar previsiones simuladas para 7 días
+            console.log('Generando previsiones de demostración para Siero...');
+            
+            // Generar previsiones simuladas pero realistas para 7 días
             const previsiones = [];
             const hoy = new Date();
+            
+            // Condiciones típicas de Asturias en junio
+            const condicionesAsturias = [
+                { temp_min: 12, temp_max: 20, condicion: 'Clouds', desc: 'muy nuboso', icon: '04d', humedad: 75 },
+                { temp_min: 14, temp_max: 18, condicion: 'Rain', desc: 'lluvia ligera', icon: '10d', humedad: 85 },
+                { temp_min: 15, temp_max: 22, condicion: 'Clear', desc: 'soleado', icon: '01d', humedad: 65 },
+                { temp_min: 13, temp_max: 19, condicion: 'Clouds', desc: 'nublado', icon: '03d', humedad: 70 },
+                { temp_min: 16, temp_max: 24, condicion: 'Clear', desc: 'despejado', icon: '01d', humedad: 60 },
+                { temp_min: 14, temp_max: 21, condicion: 'Clouds', desc: 'parcialmente nublado', icon: '02d', humedad: 68 },
+                { temp_min: 15, temp_max: 20, condicion: 'Rain', desc: 'chubascos', icon: '09d', humedad: 80 }
+            ];
             
             for (let i = 0; i < 7; i++) {
                 const fecha = new Date(hoy);
                 fecha.setDate(fecha.getDate() + i);
                 
+                const condicion = condicionesAsturias[i];
+                
                 previsiones.push({
                     dt: fecha.getTime() / 1000,
                     main: {
-                        temp_min: 8 + Math.random() * 6,
-                        temp_max: 15 + Math.random() * 8,
-                        humidity: 65 + Math.random() * 20
+                        temp_min: condicion.temp_min,
+                        temp_max: condicion.temp_max,
+                        humidity: condicion.humedad
                     },
                     weather: [{
-                        main: ['Clear', 'Clouds', 'Rain'][Math.floor(Math.random() * 3)],
-                        description: ['soleado', 'nublado', 'lluvia'][Math.floor(Math.random() * 3)],
-                        icon: ['01d', '04d', '10d'][Math.floor(Math.random() * 3)]
+                        main: condicion.condicion,
+                        description: condicion.desc,
+                        icon: condicion.icon
                     }],
                     wind: {
-                        speed: 2 + Math.random() * 4
+                        speed: 1.5 + Math.random() * 3.5 // Viento típico de 1.5-5 m/s
                     }
                 });
             }
@@ -190,7 +234,11 @@ class ServicioMeteorologico {    constructor() {
             this.datosPrevisiones = { list: previsiones };
             this.mostrarPrevisiones();
             
+            // Mostrar mensaje informativo
+            this.mostrarMensajeDemo('previsiones');
+            
         } catch (error) {
+            console.error('Error generando previsiones de respaldo:', error);
             this.mostrarErrorPrevisiones();
         }
     }
@@ -398,14 +446,53 @@ class ServicioMeteorologico {    constructor() {
             </article>
         `);
     }
-    
-    mostrarErrorPrevisiones() {
+      mostrarErrorPrevisiones() {
         this.$previsionLista.html(`
             <article role="alert">
                 <h3>⚠️ Error al cargar las previsiones</h3>
                 <p>No se pudo obtener la previsión meteorológica. Por favor, inténtalo más tarde.</p>
             </article>
         `);
+    }
+    
+    /**
+     * Muestra mensaje informativo sobre datos de demostración
+     */
+    mostrarMensajeDemo(tipo) {
+        const mensaje = tipo === 'tiempo' 
+            ? 'Mostrando datos meteorológicos de demostración para Pola de Siero'
+            : 'Mostrando previsiones de demostración basadas en el clima típico de Asturias';
+            
+        const $mensajeDemo = $(`
+            <aside role="note" aria-label="Información sobre datos de demostración">
+                <p>ℹ️ <strong>Modo demostración:</strong> ${mensaje}</p>
+            </aside>
+        `);
+        
+        // Agregar estilos inline para el mensaje
+        $mensajeDemo.css({
+            'background': 'rgba(255, 193, 7, 0.1)',
+            'border': '1px solid rgba(255, 193, 7, 0.3)',
+            'border-radius': '8px',
+            'padding': '1rem',
+            'margin': '1rem 0',
+            'color': '#856404',
+            'font-size': '0.9rem',
+            'text-align': 'center'
+        });
+        
+        if (tipo === 'tiempo') {
+            this.$tiempoActualDatos.after($mensajeDemo);
+        } else {
+            this.$previsionLista.after($mensajeDemo);
+        }
+        
+        // Auto-remover después de 10 segundos
+        setTimeout(() => {
+            $mensajeDemo.fadeOut(500, function() {
+                $(this).remove();
+            });
+        }, 10000);
     }
     
     /**
