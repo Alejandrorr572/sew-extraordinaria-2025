@@ -100,12 +100,11 @@ class GestorRutas {    constructor() {
         
         // Ocultar contenido anterior
         this.$container.find('article').attr('hidden', 'hidden');
-        
-        // Mostrar nueva ruta
-        if (this.$container.find(`article[data-ruta="${rutaId}"]`).length === 0) {
+          // Mostrar nueva ruta
+        if (this.$container.find(`article[aria-label="Ruta ${rutaId}"]`).length === 0) {
             this.crearContenidoRuta(rutaId);
         } else {
-            this.$container.find(`article[data-ruta="${rutaId}"]`).removeAttr('hidden');
+            this.$container.find(`article[aria-label="Ruta ${rutaId}"]`).removeAttr('hidden');
         }
         
         this.rutaActual = rutaId;
@@ -187,54 +186,50 @@ class GestorRutas {    constructor() {
     }
       /**
      * Genera el HTML para mostrar una ruta
-     */    generarHTMLRuta(rutaId, info) {
-        const $content = $(`
-            <article data-ruta="${rutaId}" role="tabpanel">
+     */    generarHTMLRuta(rutaId, info) {        const $content = $(`
+            <article role="tabpanel" aria-label="Ruta ${rutaId}">
                 <section role="region" aria-label="Información general">
                     <h2>${info.nombre}</h2>
-                    <p>${info.descripcion}</p>
-                      <div role="list" class="info-grid">
-                        <div role="listitem" class="info-card">
+                    <p>${info.descripcion}</p>                    <section role="list" aria-label="Información de ruta">
+                        <article role="listitem" aria-label="Tipo de ruta">
                             <h3>Tipo de Ruta</h3>
                             <p>${info.tipo}</p>
-                        </div>
+                        </article>
                         
-                        <div role="listitem" class="info-card">
+                        <article role="listitem" aria-label="Transporte">
                             <h3>Transporte</h3>
                             <p>${info.transporte}</p>
-                        </div>
+                        </article>
                         
-                        <div role="listitem" class="info-card">
+                        <article role="listitem" aria-label="Duración">
                             <h3>Duración Estimada</h3>
                             <p>${info.duracion}</p>
-                        </div>
+                        </article>
                         
-                        <div role="listitem" class="info-card">
+                        <article role="listitem" aria-label="Punto de inicio">
                             <h3>Punto de Inicio</h3>
                             <p>${info.lugarInicio}</p>
-                        </div>
-                    </div>
+                        </article>
+                    </section>
                 </section>
-                
-                <nav role="tablist" aria-label="Información de ruta">
-                    <button role="tab" aria-selected="true" data-tab="informacion">Información</button>
-                    <button role="tab" aria-selected="false" data-tab="mapa">Planimetría (KML)</button>
-                    <button role="tab" aria-selected="false" data-tab="altimetria">Altimetría (SVG)</button>
+                  <nav role="tablist" aria-label="Información de ruta">
+                    <button role="tab" aria-selected="true" aria-controls="tab-informacion">Información</button>
+                    <button role="tab" aria-selected="false" aria-controls="tab-mapa">Planimetría (KML)</button>
+                    <button role="tab" aria-selected="false" aria-controls="tab-altimetria">Altimetría (SVG)</button>
                 </nav>
-                
-                <div role="tabpanel">
-                    <section data-tab-content="informacion" role="tabpanel">
+                  <section role="tabpanel">
+                    <section role="tabpanel" aria-labelledby="tab-informacion">
                         ${this.generarTabInformacion(info)}
                     </section>
-                    <section data-tab-content="mapa" role="tabpanel" hidden>
-                        <div data-mapa="${rutaId}" role="img" aria-label="Mapa de ruta"></div>
+                    <section role="tabpanel" aria-labelledby="tab-mapa" hidden>
+                        <section role="img" aria-label="Mapa de ruta ${rutaId}"></section>
                     </section>
-                    <section data-tab-content="altimetria" role="tabpanel" hidden>
-                        <div data-svg="${rutaId}" role="img" aria-label="Perfil altimétrico">
+                    <section role="tabpanel" aria-labelledby="tab-altimetria" hidden>
+                        <section role="img" aria-label="Perfil altimétrico ${rutaId}">
                             <p>Cargando perfil altimétrico...</p>
-                        </div>
+                        </section>
                     </section>
-                </div>
+                </section>
             </article>
         `);
         
@@ -277,43 +272,48 @@ class GestorRutas {    constructor() {
         return html;
     }    /**
      * Configura el funcionamiento de las pestañas
-     */    configurarPestanas(rutaId) {
+     */
+    configurarPestanas(rutaId) {
         const self = this;
         
         // Configurar eventos para las pestañas dentro de este artículo específico
-        $(`article[data-ruta="${rutaId}"] nav[role="tablist"] button[role="tab"]`).click(function() {
+        $(`article[aria-label="Ruta ${rutaId}"] nav[role="tablist"] button[role="tab"]`).click(function() {
             const $button = $(this);
-            const tabType = $button.attr('data-tab');
-            const $article = $button.closest('article[data-ruta]');
+            const controlsId = $button.attr('aria-controls');
+            const $article = $button.closest('article[role="tabpanel"]');
             
             // Actualizar botones
             $article.find('nav[role="tablist"] button[role="tab"]').attr('aria-selected', 'false');
             $button.attr('aria-selected', 'true');
             
-            // Actualizar paneles
-            $article.find('section[data-tab-content]').attr('hidden', 'hidden');
-            $article.find(`section[data-tab-content="${tabType}"]`).removeAttr('hidden');
+            // Actualizar paneles - ocultar todos primero
+            $article.find('section[role="tabpanel"]').not($article.find('nav').next()).attr('hidden', 'hidden');
+            
+            // Mostrar panel correspondiente basado en el índice del botón
+            const buttonIndex = $article.find('nav[role="tablist"] button[role="tab"]').index($button);
+            const $targetPanel = $article.find('section[role="tabpanel"]').not($article.find('nav').next()).eq(buttonIndex);
+            $targetPanel.removeAttr('hidden');
             
             // Cargar contenido específico según la pestaña
-            if (tabType === 'mapa' && !self.mapas.has(rutaId)) {
+            if (controlsId === 'tab-mapa' && !self.mapas.has(rutaId)) {
                 setTimeout(() => {
                     self.cargarMapa(rutaId, self.extraerInformacionRuta($(self.rutasData).find(`ruta[id="${rutaId}"]`)));
                 }, 100);
-            } else if (tabType === 'altimetria') {
-                if ($article.find(`div[data-svg="${rutaId}"]`).children().length <= 1) {
+            } else if (controlsId === 'tab-altimetria') {
+                if ($targetPanel.find('section[role="img"]').children().length <= 1) {
                     self.cargarSVG(rutaId);
                 }
             }
             
             // Redimensionar mapa si es necesario
-            if (tabType === 'mapa' && self.mapas.has(rutaId)) {
+            if (controlsId === 'tab-mapa' && self.mapas.has(rutaId)) {
                 setTimeout(() => {
                     google.maps.event.trigger(self.mapas.get(rutaId), 'resize');
                 }, 100);
             }
         });
     }    cargarMapa(rutaId, rutaInfo) {
-        const mapDiv = document.querySelector(`div[data-mapa="${rutaId}"]`);
+        const mapDiv = document.querySelector(`section[aria-label="Mapa de ruta ${rutaId}"]`);
         
         if (!mapDiv) {
             console.error(`No se encontró el contenedor del mapa para la ruta ${rutaId}`);
@@ -404,14 +404,13 @@ class GestorRutas {    constructor() {
         $.ajax({
             url: svgUrl,
             type: 'GET',
-            dataType: 'text',
-            success: function(svgData) {
+            dataType: 'text',            success: function(svgData) {
                 // Modificar SVG para añadir línea de nivel del mar
                 const svgModificado = self.modificarSVGAltimetria(svgData);
-                $(`div[data-svg="${rutaId}"]`).html(svgModificado);
+                $(`section[aria-label="Perfil altimétrico ${rutaId}"]`).html(svgModificado);
             },
             error: function() {
-                $(`div[data-svg="${rutaId}"]`).html('<p role="alert">Error al cargar el perfil altimétrico</p>');
+                $(`section[aria-label="Perfil altimétrico ${rutaId}"]`).html('<p role="alert">Error al cargar el perfil altimétrico</p>');
             }
         });
     }

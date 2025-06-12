@@ -221,7 +221,7 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
 }
 
 /* Grid de información de ruta */
-.info-grid {
+section[role="list"][aria-label="Información de ruta"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -229,7 +229,7 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     margin: 2rem 0;
 }
 
-.info-card {
+article[role="listitem"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border: 2px solid #3498db;
     border-radius: 12px;
@@ -238,12 +238,12 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-card:hover {
+article[role="listitem"]:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
 }
 
-.info-card h3 {
+article[role="listitem"] h3 {
     color: #2c3e50;
     font-size: 1.1rem;
     font-weight: 700;
@@ -254,7 +254,7 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     background-clip: text;
 }
 
-.info-card p {
+article[role="listitem"] p {
     color: #555;
     font-size: 1rem;
     font-weight: 600;
@@ -415,7 +415,7 @@ section[role="tabpanel"] ul[role="list"] li:hover {
 
 /* ========== MAPAS Y SVG ========== */
 
-div[role="img"][aria-label="Mapa de ruta"] {
+section[role="img"][aria-label*="Mapa de ruta"] {
     width: 100%;
     height: 500px;
     border: 3px solid #34495e;
@@ -431,13 +431,13 @@ div[role="img"][aria-label="Mapa de ruta"] {
     position: relative;
 }
 
-div[role="img"][aria-label="Mapa de ruta"]::before {
+section[role="img"][aria-label*="Mapa de ruta"]::before {
     content: '🗺️';
     font-size: 3rem;
     margin-right: 1rem;
 }
 
-div[role="img"][aria-label="Perfil altimétrico"] {
+section[role="img"][aria-label*="Perfil altimétrico"] {
     width: 100%;
     text-align: center;
     padding: 2rem;
@@ -454,7 +454,7 @@ div[role="img"][aria-label="Perfil altimétrico"] {
     position: relative;
 }
 
-div[role="img"][aria-label="Perfil altimétrico"]::before {
+section[role="img"][aria-label*="Perfil altimétrico"]::before {
     content: '📊';
     font-size: 3rem;
     margin-right: 1rem;
@@ -606,8 +606,7 @@ footer section p a:hover img {
     
     nav[role="tablist"] button:last-child {
         border-bottom: none;
-    }
-      .info-grid {
+    }    section[role="list"][aria-label="Información de ruta"] {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
     }
@@ -621,14 +620,12 @@ footer section p a:hover img {
         width: 35px;
         height: 35px;
         font-size: 1rem;
-    }
-    
-    div[role="img"][aria-label="Mapa de ruta"] {
+    }    section[role="img"][aria-label*="Mapa de ruta"] {
         height: 300px;
         font-size: 1rem;
     }
     
-    div[role="img"][aria-label="Perfil altimétrico"] {
+    section[role="img"][aria-label*="Perfil altimétrico"] {
         min-height: 250px;
         font-size: 1rem;
     }
