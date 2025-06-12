@@ -194,17 +194,26 @@ class GestorNoticias {    constructor() {
             this.intentarAPIs = true;
             this.tiempoTimeout = 5000;
         }
-        
-        // APIs disponibles (solo se usan si intentarAPIs = true)
+          // APIs disponibles con múltiples fuentes de respaldo
         this.fuentes = [
             {
-                nombre: 'Europa Press Asturias',
-                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6',
-                backup: true
+                nombre: 'El Comercio Asturias',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.elcomercio.es/rss/2.0/&count=5',
+                backup: false
             },
             {
-                nombre: 'El Comercio',
-                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.elcomercio.es/rss/2.0/?section=asturias&count=6',
+                nombre: 'La Nueva España',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.lne.es/rss/2.0/&count=5',
+                backup: false
+            },
+            {
+                nombre: 'RTPA Noticias',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://www.rtpa.es/rss.xml&count=5',
+                backup: false
+            },
+            {
+                nombre: 'News API Generic',
+                url: 'https://api.rss2json.com/v1/api.json?rss_url=https://rss.cnn.com/rss/edition.rss&count=3',
                 backup: true
             }
         ];
@@ -273,48 +282,66 @@ class GestorNoticias {    constructor() {
             return;
         }
         
-        // Intentar conectar con APIs reales
+        // Intentar conectar con APIs reales usando múltiples fuentes
         console.log('🌐 Intentando conectar con APIs de noticias reales...');
         
-        try {
-            // Crear promise con timeout
-            const fetchPromise = fetch('https://api.rss2json.com/v1/api.json?rss_url=https://feeds.feedburner.com/europapress/asturias&count=6');
-            const timeoutPromise = new Promise((_, reject) => 
-                setTimeout(() => reject(new Error('Timeout de API')), this.tiempoTimeout)
-            );
+        let exitoso = false;
+        
+        // Intentar con cada fuente disponible
+        for (const fuente of this.fuentes) {
+            if (exitoso) break;
             
-            const response = await Promise.race([fetchPromise, timeoutPromise]);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            try {
+                console.log(`📡 Probando fuente: ${fuente.nombre}`);
+                
+                // Crear promise con timeout
+                const fetchPromise = fetch(fuente.url);
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Timeout de API')), this.tiempoTimeout)
+                );
+                
+                const response = await Promise.race([fetchPromise, timeoutPromise]);
+                
+                if (!response.ok) {
+                    console.warn(`⚠️ ${fuente.nombre} falló con status: ${response.status}`);
+                    continue; // Probar siguiente fuente
+                }
+                
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    this.noticias = data.items.slice(0, 6).map(item => ({
+                        title: item.title || 'Título no disponible',
+                        description: item.description ? item.description.substring(0, 200) + '...' : 'Sin descripción disponible',
+                        publishedAt: item.pubDate || new Date().toISOString(),
+                        source: { name: fuente.nombre },
+                        url: item.link || '#',
+                        urlToImage: item.enclosure && item.enclosure.link ? item.enclosure.link : null
+                    }));
+                    
+                    console.log(`✅ Noticias cargadas exitosamente desde ${fuente.nombre}:`, this.noticias.length);
+                    this.mostrarNoticias();
+                    exitoso = true;
+                    return;
+                } else {
+                    console.warn(`⚠️ ${fuente.nombre} no devolvió datos válidos`);
+                }
+                
+            } catch (error) {
+                console.warn(`❌ Error con ${fuente.nombre}:`, error.message);
+                // Continuar con la siguiente fuente
             }
-            
-            const data = await response.json();
-            
-            if (data.status === 'ok' && data.items && data.items.length > 0) {
-                this.noticias = data.items.map(item => ({
-                    title: item.title,
-                    description: item.description ? item.description.substring(0, 200) + '...' : 'Sin descripción disponible',
-                    publishedAt: item.pubDate,
-                    source: { name: 'Europa Press Asturias' },
-                    url: item.link,
-                    urlToImage: item.enclosure && item.enclosure.link ? item.enclosure.link : null
-                }));
-                console.log('✅ Noticias reales cargadas exitosamente:', this.noticias.length);
-                this.mostrarNoticias();
-                return;
-            } else {
-                throw new Error('Respuesta de API sin datos válidos');
-            }
-            
-        } catch (error) {
-            console.error('❌ Error al cargar noticias desde API:', error.message);
+        }
+        
+        // Si ninguna fuente funcionó, usar noticias de ejemplo
+        if (!exitoso) {
+            console.error('❌ Todas las fuentes de noticias fallaron');
             console.log('🔄 Cambiando a noticias de ejemplo como fallback');
             this.mostrarNoticiasEjemplo();
-        } finally {
-            this.cargando = false;
-            this.ocultarCargando();
         }
+        
+        this.cargando = false;
+        this.ocultarCargando();
     }
     
     mostrarNoticias() {
@@ -418,10 +445,36 @@ class GestorNoticias {    constructor() {
             </aside>
         `);
     }
-    
-    async cargarMasNoticias() {
+      async cargarMasNoticias() {
         // Implementar paginación si se requiere
-        console.log('Cargando más noticias...');
+        console.log('📰 Funcionalidad "Ver más noticias" no implementada en demo');
+        alert('Esta funcionalidad dirigiría a un portal de noticias completo');
+    }
+    
+    // Función de debug para probar APIs individualmente
+    async probarAPI(indice = 0) {
+        if (indice >= this.fuentes.length) {
+            console.log('🔍 Se probaron todas las fuentes disponibles');
+            return;
+        }
+        
+        const fuente = this.fuentes[indice];
+        console.log(`🧪 Probando API ${indice + 1}/${this.fuentes.length}: ${fuente.nombre}`);
+        console.log(`📡 URL: ${fuente.url}`);
+        
+        try {
+            const response = await fetch(fuente.url);
+            console.log(`📊 Status: ${response.status}`);
+            
+            if (response.ok) {
+                const data = await response.json();
+                console.log(`✅ ${fuente.nombre} - Datos recibidos:`, data);
+            } else {
+                console.log(`❌ ${fuente.nombre} - Error HTTP: ${response.status}`);
+            }
+        } catch (error) {
+            console.log(`❌ ${fuente.nombre} - Error de conexión:`, error.message);
+        }
     }
     
     mostrarCargando() {
@@ -454,6 +507,30 @@ $(document).ready(function() {
     // Crear instancias de los gestores
     window.carruselFotos = new CarruselFotos();
     window.gestorNoticias = new GestorNoticias();
+      console.log('Carrusel y noticias inicializados correctamente');
     
-    console.log('Carrusel y noticias inicializados correctamente');
+    // Funciones de debug globales para testing de APIs
+    window.probarNoticiasAPI = function(indice) {
+        if (window.gestorNoticias) {
+            window.gestorNoticias.probarAPI(indice);
+        } else {
+            console.error('Gestor de noticias no inicializado');
+        }
+    };
+    
+    window.probarTodasLasAPIs = async function() {
+        if (window.gestorNoticias) {
+            console.log('🔍 Probando todas las APIs de noticias...');
+            for (let i = 0; i < window.gestorNoticias.fuentes.length; i++) {
+                await window.gestorNoticias.probarAPI(i);
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Pausa de 1 segundo
+            }
+        } else {
+            console.error('Gestor de noticias no inicializado');
+        }
+    };
+    
+    console.log('🛠️ Funciones de debug disponibles:');
+    console.log('- probarNoticiasAPI(indice) - Probar una API específica');
+    console.log('- probarTodasLasAPIs() - Probar todas las APIs disponibles');
 });

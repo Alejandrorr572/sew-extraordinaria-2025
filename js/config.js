@@ -6,17 +6,16 @@
 window.SieroConfig = {
     // Configuración global del sistema
     MODO_DEMO: false, // Cambiado a false para intentar APIs reales
-    
-    // Configuración de noticias
+      // Configuración de noticias
     noticias: {
         intentarAPIs: true, // true para intentar APIs reales primero
-        tiempoTimeout: 5000, // 5 segundos timeout para APIs
+        tiempoTimeout: 4000, // 4 segundos timeout para APIs (reducido para múltiples intentos)
         fuentes: [
-            'Europa Press Asturias',
+            'El Comercio Asturias',
             'La Nueva España', 
-            'El Comercio',
-            'RTPA',
-            'Asturias24'
+            'RTPA Noticias',
+            'News API Generic',
+            'Backup Local'
         ]
     },
     
