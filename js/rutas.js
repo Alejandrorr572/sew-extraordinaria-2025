@@ -36,11 +36,12 @@ class GestorRutas {
     
     /**
      * Carga el archivo XML con las rutas usando jQuery
-     */    cargarRutasXML() {
+     */    
+    cargarRutasXML() {
         const self = this;
         
         $.ajax({
-            url: 'xml/rutas-fixed.xml',
+            url: 'xml/rutas.xml',
             type: 'GET',
             dataType: 'xml',
             cache: false,
@@ -51,7 +52,7 @@ class GestorRutas {
                 self.$loading.hide();
             },
             error: function(xhr, status, error) {
-                console.error('Error cargando rutas-fixed.xml:', error, xhr.status);
+                console.error('Error cargando rutas.xml:', error, xhr.status);
                 self.mostrarError('No se pudo cargar el archivo de rutas');
                 self.$loading.hide();
             }

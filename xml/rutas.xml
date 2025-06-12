@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rutas SYSTEM "rutas.dtd">
 <rutas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-       xsi:noNamespaceSchemaLocation="rutas.xsd">                <coordenadas>
-                    <longitud>-5.663421</longitud>
-                    <latitud>43.390187</latitud>
-                    <altitud>189</altitud>
-                </coordenadas>  <ruta id="ruta001">
+       xsi:noNamespaceSchemaLocation="rutas.xsd">
+  <ruta id="ruta001">
         <nombre>Ruta de Palacios Indianos</nombre>
         <tipo>Arquitectura y monumentos</tipo>
         <transporte>A pie</transporte>
@@ -21,7 +18,8 @@
         </descripcion>
         <personasAdecuadas>Todas las edades, accesible para familias con niños</personasAdecuadas>
         <lugarInicio>Plaza de la Campa - Pola de Siero</lugarInicio>
-        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>        <coordenadasInicio>
+        <direccionInicio>Plaza de la Campa, s/n</direccionInicio>        
+        <coordenadasInicio>
             <longitud>-5.664763</longitud>
             <latitud>43.389194</latitud>
             <altitud>185</altitud>
@@ -32,393 +30,200 @@
             <referencia>http://www.siero.es/turismo/rutas-culturales</referencia>
             <referencia>https://www.asturias.es/patrimonio/palacios-indianos</referencia>
         </referencias>
-        <recomendacion>8</recomendacion>
-        
+        <recomendaciones>
+            <recomendacion>Se recomienda llevar calzado cómodo para caminar</recomendacion>
+            <recomendacion>Traer cámara para fotografiar los detalles arquitectónicos</recomendacion>
+        </recomendaciones>
         <hitos>
             <hito>
                 <nombre>Casa Consistorial de Siero</nombre>
-                <descripcion>
-                    Edificio de estilo ecléctico construido a principios del siglo XX, 
-                    sede del ayuntamiento que combina elementos tradicionales asturianos 
-                    con influencias indianas.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.664523</longitud>
-                    <latitud>43.389421</latitud>
-                    <altitud>186</altitud>
+                <descripcion>Edificio de estilo ecléctico construido a principios del siglo XX</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.664763</longitud>
+                    <latitud>43.389194</latitud>
+                    <altitud>185</altitud>
                 </coordenadas>
-                <distancia unidad="metros">50</distancia>
-                <fotografias>
-                    <fotografia>ayuntamiento-siero-fachada.jpg</fotografia>
-                    <fotografia>ayuntamiento-siero-detalle.jpg</fotografia>
-                </fotografias>
             </hito>
-              <hito>
-                <nombre>Palacio de los Álvarez-Buylla</nombre>
-                <descripcion>
-                    Magnífico ejemplo de arquitectura indiana del siglo XIX, 
-                    construido por la familia Álvarez-Buylla tras su regreso de Cuba. 
-                    Destaca por su torre mirador y sus jardines.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.663987</longitud>
-                    <latitud>43.389823</latitud>
-                    <altitud>188</altitud>
-                </coordenadas>
-                <distancia unidad="metros">120</distancia>
-                <fotografias>
-                    <fotografia>palacio-alvarez-buylla-principal.jpg</fotografia>
-                    <fotografia>palacio-alvarez-buylla-torre.jpg</fotografia>
-                    <fotografia>palacio-alvarez-buylla-jardines.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>palacio-alvarez-buylla-360.mp4</video>
-                </videos>
-            </hito>
-            
             <hito>
-                <nombre>Villa Indiana "El Retiro"</nombre>
-                <descripcion>
-                    Casa solariega de finales del XIX con elementos decorativos 
-                    típicos del estilo colonial cubano adaptado al clima asturiano. 
-                    Notable por sus galerías acristaladas y su capilla privada.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.663456</longitud>
-                    <latitud>43.390134</latitud>
+                <nombre>Palacio de los Arguelles</nombre>
+                <descripcion>Palacio indiano de finales del siglo XIX con elementos neoclásicos</descripcion>
+                <distancia>450</distancia>
+                <coordenadas>
+                    <longitud>-5.662367</longitud>
+                    <latitud>43.391582</latitud>
+                    <altitud>187</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Casa de los Leones</nombre>
+                <descripcion>Magnífica casona con detalles modernistas y esculturas de leones</descripcion>
+                <distancia>850</distancia>
+                <coordenadas>
+                    <longitud>-5.659658</longitud>
+                    <latitud>43.393286</latitud>
                     <altitud>190</altitud>
                 </coordenadas>
-                <distancia unidad="metros">180</distancia>
-                <fotografias>
-                    <fotografia>villa-el-retiro-fachada.jpg</fotografia>
-                    <fotografia>villa-el-retiro-galeria.jpg</fotografia>
-                    <fotografia>villa-el-retiro-capilla.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Casa de los Miranda</nombre>
-                <descripcion>
-                    Edificio de influencia colonial mexicana con característicos 
-                    balcones de hierro forjado y patio interior. Actualmente 
-                    alberga el Centro Cultural del concejo.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.664912</longitud>
-                    <latitud>43.390567</latitud>
-                    <altitud>192</altitud>
-                </coordenadas>
-                <distancia unidad="metros">150</distancia>
-                <fotografias>
-                    <fotografia>casa-miranda-balcones.jpg</fotografia>
-                    <fotografia>casa-miranda-patio.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>casa-miranda-interior.mp4</video>
-                    <video>casa-miranda-exposicion.mp4</video>
-                </videos>
-            </hito>
-            
-            <hito>
-                <nombre>Quinta de San José</nombre>
-                <descripcion>
-                    Conjunto arquitectónico que incluye palacio, capilla y jardines 
-                    de estilo francés. Construido por un indiano enriquecido en Argentina, 
-                    representa la culminación del estilo palaciego sierense.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.665534</longitud>
-                    <latitud>43.388823</latitud>
-                    <altitud>187</altitud>
-                </coordenadas>
-                <distancia unidad="metros">200</distancia>
-                <fotografias>
-                    <fotografia>quinta-san-jose-palacio.jpg</fotografia>
-                    <fotografia>quinta-san-jose-capilla.jpg</fotografia>
-                    <fotografia>quinta-san-jose-jardines.jpg</fotografia>
-                    <fotografia>quinta-san-jose-panoramica.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>quinta-san-jose-aereo.mp4</video>
-                </videos>
-            </hito>
-        </hitos>
-    </ruta>
-      <ruta id="ruta002">
-        <nombre>Ruta de Sidrerías Tradicionales</nombre>
-        <tipo>Gastronómica</tipo>
-        <transporte>A pie</transporte>
-        <duracion>4 horas</duracion>
-        <agencia>Sin agencia</agencia>
-        <descripcion>
-            Recorrido por las sidrerías más auténticas del concejo de Siero, 
-            donde podrás degustar la sidra natural y los platos tradicionales 
-            asturianos en ambientes familiares y acogedores que mantienen 
-            viva la tradición culinaria sierense.
-        </descripcion>
-        <personasAdecuadas>Adultos, tercera edad</personasAdecuadas>
-        <lugarInicio>Sidrería La Pola</lugarInicio>
-        <direccionInicio>Calle Marcelino Fernández, 12</direccionInicio>        <coordenadasInicio>
-            <longitud>-5.665198</longitud>
-            <latitud>43.388734</latitud>
-            <altitud>183</altitud>
-        </coordenadasInicio>
-        <referencias>
-            <referencia>https://www.sidreriasasturias.com/siero</referencia>
-            <referencia>https://es.wikipedia.org/wiki/Sidra_de_Asturias</referencia>
-            <referencia>https://www.gastronomiaasturiana.com/rutas-sidrerías</referencia>
-        </referencias>
-        <recomendacion>9</recomendacion>
-        
-        <hitos>
-            <hito>
-                <nombre>Sidrería La Pola</nombre>
-                <descripcion>
-                    Sidrería centenaria que mantiene la tradición del escanciado 
-                    y ofrece la auténtica fabada sierense. Ambiente familiar 
-                    con decoración tradicional asturiana.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.665198</longitud>
-                    <latitud>43.388734</latitud>
-                    <altitud>183</altitud>
-                </coordenadas>
-                <distancia unidad="metros">0</distancia>
-                <fotografias>
-                    <fotografia>sidreria-la-pola-interior.jpg</fotografia>
-                    <fotografia>sidreria-la-pola-escanciado.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Casa Fermín</nombre>
-                <descripcion>
-                    Restaurante de tradición familiar especializado en cachopo 
-                    y carnes a la brasa. Su bodega de sidras naturales es 
-                    una de las mejor surtidas del concejo.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6634</longitud>
-                    <latitud>43.3902</latitud>
-                    <altitud>187</altitud>
-                </coordenadas>
-                <distancia unidad="metros">380</distancia>
-                <fotografias>
-                    <fotografia>casa-fermin-comedor.jpg</fotografia>
-                    <fotografia>casa-fermin-cachopo.jpg</fotografia>
-                    <fotografia>casa-fermin-bodega.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Sidrería Los Carbayones</nombre>
-                <descripcion>
-                    Ubicada en Carbayín, destaca por su terraza con vistas 
-                    al valle y su especialidad en productos locales. 
-                    Ideal para degustar quesos asturianos con sidra.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6789</longitud>
-                    <latitud>43.3756</latitud>
-                    <altitud>195</altitud>
-                </coordenadas>
-                <distancia unidad="metros">1850</distancia>
-                <fotografias>
-                    <fotografia>los-carbayones-terraza.jpg</fotografia>
-                    <fotografia>los-carbayones-quesos.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>los-carbayones-vistas.mp4</video>
-                </videos>
-            </hito>
-            
-            <hito>
-                <nombre>El Lagar de Aramil</nombre>
-                <descripcion>
-                    Lagar tradicional reconvertido en sidrería que conserva 
-                    la maquinaria original de prensado. Ofrece catas de 
-                    sidras de diferentes productores locales.
-                </descripcion>                <coordenadas>
-                    <longitud>-5.658734</longitud>
-                    <latitud>43.392156</latitud>
-                    <altitud>198</altitud>
-                </coordenadas>
-                <distancia unidad="metros">750</distancia>
-                <fotografias>
-                    <fotografia>lagar-aramil-prensa.jpg</fotografia>
-                    <fotografia>lagar-aramil-barricas.jpg</fotografia>
-                    <fotografia>lagar-aramil-cata.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Restaurante El Lugones</nombre>
-                <descripción>
-                    Establecimiento moderno que fusiona la cocina tradicional 
-                    con técnicas contemporáneas. Su carta de sidras incluye 
-                    variedades premium de productores sierenses.
-                </descripción>                <coordenadas>
-                    <longitud>-5.671234</longitud>
-                    <latitud>43.385678</latitud>
-                    <altitud>175</altitud>
-                </coordenadas>
-                <distancia unidad="metros">1100</distancia>
-                <fotografias>
-                    <fotografia>el-lugones-salon.jpg</fotografia>
-                    <fotografia>el-lugones-carta-sidras.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>el-lugones-cocina.mp4</video>
-                </videos>
-            </hito>
-        </hitos>
-    </ruta>      <ruta id="ruta003">
-        <nombre>Sendero Cueva de San Pedrín</nombre>
-        <tipo>Senderismo</tipo>
-        <transporte>A pie</transporte>
-        <fechaInicio>2025-07-01</fechaInicio>
-        <horaInicio>09:00</horaInicio>
-        <duracion>4 horas</duracion>
-        <agencia>NaturaSiero</agencia>
-        <descripcion>
-            Ruta de senderismo inspirada en el tradicional sendero que conecta 
-            La Piñera con la Cueva y Capilla de San Pedrín, atravesando paisajes 
-            de gran valor natural y cultural en el territorio sierense. Incluye 
-            elementos del patrimonio religioso y natural del concejo.
-        </descripcion>
-        <personasAdecuadas>Personas con experiencia básica en senderismo, no recomendada para niños menores de 10 años</personasAdecuadas>
-        <lugarInicio>La Piñera</lugarInicio>
-        <direccionInicio>Pueblo de La Piñera, Siero</direccionInicio>
-        <coordenadasInicio>
-            <longitud>-5.6234</longitud>
-            <latitud>43.3656</latitud>
-            <altitud>260</altitud>
-        </coordenadasInicio>
-        <referencias>
-            <referencia>https://www.wikiloc.com/hiking-trails/la-pinera-cueva-y-capilla-de-san-pedrin-pena-careses-fuente-les-xanes-capilla-san-roque-la-pinera-209288266</referencia>
-            <referencia>https://www.asturias.es/patrimonio/ermitas-asturias</referencia>
-            <referencia>https://www.turismosiero.com/senderos-naturales</referencia>
-            <referencia>https://www.senderosdeAsturias.com/cueva-san-pedrin</referencia>
-        </referencias>
-        <recomendacion>8</recomendacion>
-        
-        <hitos>
-            <hito>
-                <nombre>La Piñera - Inicio del sendero</nombre>
-                <descripcion>
-                    Pequeño pueblo sierense punto de partida del sendero. 
-                    Conserva arquitectura tradicional asturiana y ofrece 
-                    últimos servicios antes de iniciar la ruta de montaña.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6234</longitud>
-                    <latitud>43.3656</latitud>
-                    <altitud>260</altitud>
-                </coordenadas>
-                <distancia unidad="metros">0</distancia>
-                <fotografias>
-                    <fotografia>la-pinera-pueblo.jpg</fotografia>
-                    <fotografia>la-pinera-inicio-sendero.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Lavadero del Campón</nombre>
-                <descripcion>
-                    Antiguo lavadero comunal de piedra donde las mujeres 
-                    del pueblo acudían a lavar la ropa. Ejemplo del 
-                    patrimonio etnográfico sierense conservado.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6187</longitud>
-                    <latitud>43.3623</latitud>
-                    <altitud>249</altitud>
-                </coordenadas>
-                <distancia unidad="metros">520</distancia>
-                <fotografias>
-                    <fotografia>lavadero-campon-general.jpg</fotografia>
-                    <fotografia>lavadero-campon-detalle.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Túnel de Aveno</nombre>
-                <descripcion>
-                    Túnel excavado en roca que forma parte del antiguo 
-                    trazado del ferrocarril minero. Punto de interés 
-                    histórico y geológico en la ruta.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6156</longitud>
-                    <latitud>43.3598</latitud>
-                    <altitud>306</altitud>
-                </coordenadas>
-                <distancia unidad="metros">780</distancia>
-                <fotografias>
-                    <fotografia>tunel-aveno-entrada.jpg</fotografia>
-                    <fotografia>tunel-aveno-interior.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>tunel-aveno-travesia.mp4</video>
-                </videos>
-            </hito>
-            
-            <hito>
-                <nombre>Cueva de San Pedrín</nombre>
-                <descripcion>
-                    Cueva natural de formación calcárea que alberga la 
-                    ermita de San Pedrín, lugar de peregrinación local 
-                    desde el siglo XVIII. Patrimonio religioso y natural 
-                    del concejo de Siero.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6123</longitud>
-                    <latitud>43.3567</latitud>
-                    <altitud>297</altitud>
-                </coordenadas>
-                <distancia unidad="metros">650</distancia>
-                <fotografias>
-                    <fotografia>cueva-san-pedrin-entrada.jpg</fotografia>
-                    <fotografia>cueva-san-pedrin-interior.jpg</fotografia>
-                    <fotografia>cueva-san-pedrin-capilla.jpg</fotografia>
-                </fotografias>
-                <videos>
-                    <video>cueva-san-pedrin-recorrido.mp4</video>
-                </videos>
-            </hito>
-            
-            <hito>
-                <nombre>Capilla de San Pedrín</nombre>
-                <descripcion>
-                    Pequeña ermita construida en el interior de la cueva 
-                    natural. Centro de devoción popular y ejemplo único 
-                    de arquitectura religiosa rupestre en Asturias.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6119</longitud>
-                    <latitud>43.3564</latitud>
-                    <altitud>303</altitud>
-                </coordenadas>
-                <distancia unidad="metros">180</distancia>
-                <fotografias>
-                    <fotografia>capilla-san-pedrin-altar.jpg</fotografia>
-                    <fotografia>capilla-san-pedrin-santos.jpg</fotografia>
-                </fotografias>
-            </hito>
-            
-            <hito>
-                <nombre>Fuente Les Xanes</nombre>
-                <descripcion>
-                    Manantial natural de aguas cristalinas rodeado de 
-                    leyendas locales sobre seres mitológicos asturianos. 
-                    Punto de descanso y avituallamiento en la ruta.
-                </descripcion>
-                <coordenadas>
-                    <longitud>-5.6089</longitud>
-                    <latitud>43.3523</latitud>
-                    <altitud>298</altitud>
-                </coordenadas>
-                <distancia unidad="metros">620</distancia>
-                <fotografias>
-                    <fotografia>fuente-les-xanes-manantial.jpg</fotografia>
-                    <fotografia>fuente-les-xanes-entorno.jpg</fotografia>
-                </fotografias>
             </hito>
         </hitos>
     </ruta>
     
+    <ruta id="ruta002">
+        <nombre>Senda Verde del Río Nora</nombre>
+        <tipo>Naturaleza y paisajismo</tipo>
+        <transporte>A pie o bicicleta</transporte>
+        <fechaInicio>2025-06-20</fechaInicio>
+        <horaInicio>09:30</horaInicio>
+        <duracion>4 horas</duracion>
+        <agencia>EcoSendas Asturias</agencia>
+        <descripcion>
+            Recorrido a lo largo del río Nora que atraviesa el concejo de Siero ofreciendo 
+            un entorno natural privilegiado con bosques autóctonos, prados y ecosistemas 
+            fluviales. Ideal para observación de aves y fotografía de naturaleza.
+        </descripcion>
+        <personasAdecuadas>Todas las edades, recomendada para amantes de la naturaleza</personasAdecuadas>
+        <lugarInicio>Área Recreativa de La Fresneda</lugarInicio>
+        <direccionInicio>Camino del Río, s/n - La Fresneda</direccionInicio>        
+        <coordenadasInicio>
+            <longitud>-5.794639</longitud>
+            <latitud>43.396077</latitud>
+            <altitud>165</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.sendaverde.es/rio-nora</referencia>
+            <referencia>https://www.siero.es/espacios-naturales/rio-nora</referencia>
+            <referencia>https://www.asturias.es/rutas-verdes</referencia>
+        </referencias>
+        <recomendaciones>
+            <recomendacion>Llevar calzado impermeable en temporada de lluvias</recomendacion>
+            <recomendacion>Recomendable llevar prismáticos para observación de aves</recomendacion>
+            <recomendacion>En bicicleta, respetar a los senderistas</recomendacion>
+        </recomendaciones>
+        <hitos>
+            <hito>
+                <nombre>Área Recreativa La Fresneda</nombre>
+                <descripcion>Punto de inicio con merenderos y área de descanso</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.794639</longitud>
+                    <latitud>43.396077</latitud>
+                    <altitud>165</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Puente Medieval de Colloto</nombre>
+                <descripcion>Antiguo puente de piedra que atraviesa el río Nora</descripcion>
+                <distancia>1200</distancia>
+                <coordenadas>
+                    <longitud>-5.782548</longitud>
+                    <latitud>43.389913</latitud>
+                    <altitud>158</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Bosque de Ribera</nombre>
+                <descripcion>Zona de especial interés ecológico con alisos y sauces centenarios</descripcion>
+                <distancia>2500</distancia>
+                <coordenadas>
+                    <longitud>-5.767092</longitud>
+                    <latitud>43.384826</latitud>
+                    <altitud>152</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Mirador del Meandro</nombre>
+                <descripcion>Vista panorámica del meandro del río y la vega circundante</descripcion>
+                <distancia>4800</distancia>
+                <coordenadas>
+                    <longitud>-5.747918</longitud>
+                    <latitud>43.379451</latitud>
+                    <altitud>175</altitud>
+                </coordenadas>
+            </hito>
+        </hitos>
+    </ruta>
+    
+    <ruta id="ruta003">
+        <nombre>Ruta Gastronómica de Siero</nombre>
+        <tipo>Gastronomía y tradiciones</tipo>
+        <transporte>A pie</transporte>
+        <fechaInicio>2025-06-25</fechaInicio>
+        <horaInicio>12:00</horaInicio>
+        <duracion>5 horas</duracion>
+        <agencia>Sabores de Asturias</agencia>
+        <descripcion>
+            Un recorrido por las sidrerías, restaurantes y mercados tradicionales de Pola de Siero 
+            para descubrir la auténtica gastronomía asturiana. Incluye degustaciones de productos 
+            típicos y demostración de escanciado de sidra.
+        </descripcion>
+        <personasAdecuadas>Adultos (mayores de 18 años)</personasAdecuadas>
+        <lugarInicio>Mercado de Abastos - Pola de Siero</lugarInicio>
+        <direccionInicio>Plaza del Mercado, 4 - Pola de Siero</direccionInicio>        
+        <coordenadasInicio>
+            <longitud>-5.663763</longitud>
+            <latitud>43.388971</latitud>
+            <altitud>183</altitud>
+        </coordenadasInicio>
+        <referencias>
+            <referencia>https://www.saboresasturianos.com/rutas/siero</referencia>
+            <referencia>https://www.sidrerias-asturias.com/pola-siero</referencia>
+            <referencia>https://www.gastronomiaasturiana.org</referencia>
+        </referencias>
+        <recomendaciones>
+            <recomendacion>Venir con apetito, las degustaciones son abundantes</recomendacion>
+            <recomendacion>Se recomienda no conducir después de la ruta (degustación de sidra)</recomendacion>
+        </recomendaciones>
+        <hitos>
+            <hito>
+                <nombre>Mercado de Abastos</nombre>
+                <descripcion>Mercado tradicional con productos locales y artesanales</descripcion>
+                <distancia>0</distancia>
+                <coordenadas>
+                    <longitud>-5.663763</longitud>
+                    <latitud>43.388971</latitud>
+                    <altitud>183</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Sidrería El Madreñeru</nombre>
+                <descripcion>Sidrería tradicional con demostración de escanciado</descripcion>
+                <distancia>250</distancia>
+                <coordenadas>
+                    <longitud>-5.663128</longitud>
+                    <latitud>43.390353</latitud>
+                    <altitud>184</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Restaurante La Pola</nombre>
+                <descripcion>Establecimiento especializado en fabada y cachopos</descripcion>
+                <distancia>450</distancia>
+                <coordenadas>
+                    <longitud>-5.661249</longitud>
+                    <latitud>43.389218</latitud>
+                    <altitud>186</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Confitería Cardin</nombre>
+                <descripcion>Elaboración artesanal de dulces asturianos</descripcion>
+                <distancia>650</distancia>
+                <coordenadas>
+                    <longitud>-5.664892</longitud>
+                    <latitud>43.387659</latitud>
+                    <altitud>182</altitud>
+                </coordenadas>
+            </hito>
+            <hito>
+                <nombre>Llagar de sidra</nombre>
+                <descripcion>Visita a un llagar tradicional con explicación del proceso de elaboración</descripcion>
+                <distancia>1200</distancia>
+                <coordenadas>
+                    <longitud>-5.668749</longitud>
+                    <latitud>43.385367</latitud>
+                    <altitud>190</altitud>
+                </coordenadas>
+            </hito>
+        </hitos>
+    </ruta>
 </rutas>
