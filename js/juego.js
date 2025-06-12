@@ -340,20 +340,21 @@ class InterfazJuego {
 
     /**
      * Renderiza la pantalla de resultados
-     */
-    renderizarResultados(estadisticas, mensaje) {
+     */    renderizarResultados(estadisticas, mensaje) {
         const colorPuntuacion = this.obtenerColorPuntuacion(estadisticas.correctas);
         
         const html = `
             <h2>🎉 ¡Juego Completado!</h2>
             
-            <p style="font-size: 3rem; font-weight: bold; margin: 1rem 0; color: ${colorPuntuacion};">
-                ${estadisticas.correctas}/10
-            </p>
+            <div role="status" aria-label="Puntuación final">
+                <p style="color: ${colorPuntuacion};">
+                    ${estadisticas.correctas}/10
+                </p>
+            </div>
 
-            <section>
+            <aside>
                 ${mensaje}
-            </section>
+            </aside>
 
             <section aria-label="Estadísticas del juego">
                 <div>
@@ -374,11 +375,11 @@ class InterfazJuego {
                 </div>
             </section>
 
-            <nav>
-                <button onclick="juego.reiniciar()" aria-label="Jugar de nuevo">
+            <nav aria-label="Acciones del juego">
+                <button onclick="reiniciarJuego()" aria-label="Jugar de nuevo">
                     🔄 Jugar de Nuevo
                 </button>
-                <button onclick="juego.volverAlInicio()" aria-label="Volver al sitio web">
+                <button onclick="volverAlInicio()" aria-label="Volver al sitio web">
                     🏠 Volver al Inicio
                 </button>
             </nav>
