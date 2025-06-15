@@ -1188,16 +1188,16 @@ section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[rol
 }
 
 /* Previsiones 7 días */
-/* Especificidad: (0,2,8)  - 2 atributos */
-section[role="region"][aria-label="Lista de previsiones diarias"] {
+/* Especificidad: (0,1,3)  - 1 atributo */
+section[aria-label="Lista de previsiones diarias"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-/* Especificidad: (0,3,11)  - 3 atributos */
-section[role="region"][aria-label="Lista de previsiones diarias"] article[role="listitem"] {
+/* Especificidad: (0,2,4)  - 2 atributos */
+section[aria-label="Lista de previsiones diarias"] article[role="listitem"] {
     background: rgba(255,255,255,0.15);
     border-radius: 12px;
     padding: 1.5rem;
@@ -1205,51 +1205,52 @@ section[role="region"][aria-label="Lista de previsiones diarias"] article[role="
     transition: transform 0.3s ease;
 }
 
-/* Especificidad: (0,4,12)  - :hover es una pseudoclase */
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"]:hover {
+/* Especificidad: (0,3,5)  - :hover es una pseudoclase */
+section[aria-label="Lista de previsiones diarias"] article[role="listitem"]:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
-/* Especificidad: (0,2,10)  - 2 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] header h3 {
+/* Especificidad: (0,1,5)  - 1 atributo */
+section[aria-label="Lista de previsiones diarias"] header h3 {
     font-size: 1.2rem;
     color: #fff;
     margin-bottom: 0.5rem;
     text-transform: capitalize;
 }
 
-/* Especificidad: (0,2,9)  - 2 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] time {
+/* Especificidad: (0,1,4)  - 1 atributo */
+section[aria-label="Lista de previsiones diarias"] time {
     font-size: 0.9rem;
     color: rgba(255,255,255,0.8);
     text-transform: capitalize;
 }
 
 /* Especificidad: (0,3,11)  - 3 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[aria-label="Lista de previsiones diarias"] section[role="group"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
     margin-top: 1rem;
 }
 
-/* Especificidad: (0,3,11)  - 3 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] {
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[aria-label="Lista de previsiones diarias"] article[role="text"] {
     background: rgba(255,255,255,0.1);
     border-radius: 6px;
     padding: 0.8rem;
     text-align: center;
 }
 
-/* Especificidad: (0,3,12)  - 3 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] h4 {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[aria-label="Lista de previsiones diarias"] article[role="text"] h4 {
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
 }
 
-/* Especificidad: (0,3,12)  - 3 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] p {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[aria-label="Lista de previsiones diarias"] article[role="text"] p {
     font-size: 0.9rem;
     margin: 0;
 }
@@ -1386,13 +1387,13 @@ section[role="region"][aria-label="InformaciÃ³n adicional"] strong {
         grid-template-columns: 1fr;
     }
     
-/* Especificidad: (0,2,8)  - 2 atributos */
-    section[role="list"][aria-label="Lista de previsiones diarias"] {
+/* Especificidad: (0,1,6)  - 1 atributo */
+    section[aria-label="Lista de previsiones diarias"] {
         grid-template-columns: 1fr;
     }
     
-/* Especificidad: (0,3,11)  - 3 atributos */
-    section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {
+/* Especificidad: (0,2,9)  - 2 atributos */
+    section[aria-label="Lista de previsiones diarias"] section[role="group"] {
         grid-template-columns: 1fr;
     }
 }
