@@ -238,6 +238,9 @@ class GestorRutas {    constructor() {
                     <button role="tab" aria-selected="false" aria-controls="altimetria-${rutaId}">Altimetría (SVG)</button>
                 </nav>
                   <section role="group" aria-label="Contenido de pestañas">
+                    <section role="tabpanel" aria-labelledby="informacion-${rutaId}" aria-label="Información">
+                        ${this.generarTabInformacion(info)}
+                    </section>
                     <section role="tabpanel" aria-labelledby="mapa-${rutaId}" aria-label="Planimetría (KML)" hidden>
                         <section role="img" aria-label="Mapa de ruta ${rutaId}"></section>
                     </section>
@@ -252,6 +255,25 @@ class GestorRutas {    constructor() {
         
         return $content;
     }
+    
+    /**     * Genera el contenido de la pestaña de información
+     */
+    generarTabInformacion(info) {
+        let html = '<h3>Hitos de la Ruta</h3><ol role="list">';
+        info.hitos.forEach((hito, index) => {
+            html += `
+                <li>
+                    <h4>Hito ${index + 1}: ${hito.nombre}</h4>
+                    <p>${hito.descripcion}</p>
+                    <p><small>Distancia acumulada: ${hito.distancia}m | Altitud: ${hito.coordenadas.altitud}m</small></p>
+                    ${hito.fotos && hito.fotos.length > 0 ? `<figure>${hito.fotos.map(foto => `<img src='${foto}' alt='Foto de ${hito.nombre}' loading='lazy' width='180'>`).join('')}</figure>` : ''}
+                </li>
+            `;
+        });
+        html += '</ol>';
+        
+        return html;
+    }   
     
     /**
      * Configura el funcionamiento de las pestañas
