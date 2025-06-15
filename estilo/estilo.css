@@ -187,7 +187,7 @@ nav[role="tablist"][aria-label="Selector de rutas"] {
 /* Especificidad: (0,2,2) - Dos atributos y un elemento button */
 /* Especificidad: (0,2,8)  - 2 atributos */
 nav[role="tablist"][aria-label="Selector de rutas"] button {
-    background: linear-gradient(135deg, #2980b9 0%, #1a5f85 100%); /* Más oscuro para mejor contraste */
+    background: linear-gradient(135deg, #1a5f85 0%, #154360 100%); /* Azul mucho más oscuro para contraste AAA con texto blanco */
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -196,7 +196,7 @@ nav[role="tablist"][aria-label="Selector de rutas"] button {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 4px 15px rgba(26, 95, 133, 0.4);
     min-width: 200px;
     position: relative; /* Para soporte de focus */
 }
@@ -206,7 +206,7 @@ nav[role="tablist"][aria-label="Selector de rutas"] button {
 nav[role="tablist"][aria-label="Selector de rutas"] button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    background: linear-gradient(135deg, #1a5f85 0%, #2573a7 100%); /* Azul más oscuro para mejor contraste */
 }
 
 /* Focus visible para accesibilidad */
@@ -219,8 +219,8 @@ nav[role="tablist"][aria-label="Selector de rutas"] button:focus-visible {
 /* Especificidad: (0,3,2) - Tres atributos y un elemento button */
 /* Especificidad: (0,3,10)  - 3 atributos */
 nav[role="tablist"][aria-label="Selector de rutas"] button[aria-selected="true"] {
-    background: linear-gradient(135deg, #196f3d 0%, #27ae60 100%); /* Más oscuro para mejor contraste */
-    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    background: linear-gradient(135deg, #0b5345 0%, #145a32 100%); /* Verde muy oscuro para contraste AAA con texto blanco */
+    box-shadow: 0 6px 20px rgba(20, 90, 50, 0.5);
     transform: translateY(-2px);
 }
 
@@ -358,7 +358,7 @@ article[role="tabpanel"] > nav[role="tablist"] button:focus-visible {
 
 /* Especificidad: (0,2,6)  - 2 atributos */
 article[role="tabpanel"] > nav[role="tablist"] button[aria-selected="true"] {
-    background: #1976D2; /* Azul más oscuro para mejor contraste */
+    background: #0d47a1; /* Azul mucho más oscuro para contraste AAA con texto blanco */
     color: white;
     position: relative;
 }
@@ -371,7 +371,7 @@ article[role="tabpanel"] > nav[role="tablist"] button[aria-selected="true"]::aft
     left: 0;
     right: 0;
     height: 3px;
-    background: #f39c12; /* Naranja para mejor contraste que rojo */
+    background: #0a4b82; /* Azul oscuro para mejor contraste con el blanco */
 }
 
 /* Contenido de pestaÃ±as */
