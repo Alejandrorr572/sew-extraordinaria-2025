@@ -1189,7 +1189,7 @@ section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[rol
 
 /* Previsiones 7 días */
 /* Especificidad: (0,2,8)  - 2 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] {
+section[role="region"][aria-label="Lista de previsiones diarias"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
@@ -1197,7 +1197,7 @@ section[role="list"][aria-label="Lista de previsiones diarias"] {
 }
 
 /* Especificidad: (0,3,11)  - 3 atributos */
-section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"] {
+section[role="region"][aria-label="Lista de previsiones diarias"] article[role="listitem"] {
     background: rgba(255,255,255,0.15);
     border-radius: 12px;
     padding: 1.5rem;
