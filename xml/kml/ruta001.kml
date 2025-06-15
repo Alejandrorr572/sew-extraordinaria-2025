@@ -50,70 +50,50 @@
         <!-- Hito 1 -->
         <Placemark>
             <name>Hito 1: Casa Consistorial de Siero</name>
-            <description>
-                    Edificio de estilo ecléctico construido a principios del siglo XX, 
-                    sede del ayuntamiento que combina elementos tradicionales asturianos 
-                    con influencias indianas.
-                </description>
+            <description>Edificio de estilo ecléctico construido a principios del siglo XX</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.664523,43.389421,186</coordinates>
+                <coordinates>-5.664763,43.389194,185</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 2 -->
         <Placemark>
-            <name>Hito 2: Palacio de los Álvarez-Buylla</name>
-            <description>
-                    Magnífico ejemplo de arquitectura indiana del siglo XIX, 
-                    construido por la familia Álvarez-Buylla tras su regreso de Cuba. 
-                    Destaca por su torre mirador y sus jardines.
-                </description>
+            <name>Hito 2: Palacio de los Arguelles</name>
+            <description>Palacio indiano de finales del siglo XIX con elementos neoclásicos</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.663987,43.389823,188</coordinates>
+                <coordinates>-5.662367,43.391582,187</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 3 -->
         <Placemark>
-            <name>Hito 3: Villa Indiana "El Retiro"</name>
-            <description>
-                    Casa solariega de finales del XIX con elementos decorativos 
-                    típicos del estilo colonial cubano adaptado al clima asturiano. 
-                    Notable por sus galerías acristaladas y su capilla privada.
-                </description>
+            <name>Hito 3: Casa de los Leones</name>
+            <description>Magnífica casona con detalles modernistas y esculturas de leones</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.663456,43.390134,190</coordinates>
+                <coordinates>-5.659658,43.393286,190</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 4 -->
         <Placemark>
-            <name>Hito 4: Casa de los Miranda</name>
-            <description>
-                    Edificio de influencia colonial mexicana con característicos 
-                    balcones de hierro forjado y patio interior. Actualmente 
-                    alberga el Centro Cultural del concejo.
-                </description>
+            <name>Hito 4: Palacio de Celles</name>
+            <description>Palacio rural con jardines históricos y arquitectura tradicional</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.664912,43.390567,192</coordinates>
+                <coordinates>-5.655000,43.395000,200</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 5 -->
         <Placemark>
-            <name>Hito 5: Quinta de San José</name>
-            <description>
-                    Conjunto arquitectónico que incluye palacio, capilla y jardines 
-                    de estilo francés. Construido por un indiano enriquecido en Argentina, 
-                    representa la culminación del estilo palaciego sierense.
-                </description>
+            <name>Hito 5: Casa de la Torre</name>
+            <description>Casa torreada representativa de la arquitectura indiana</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.665534,43.388823,187</coordinates>
+                <coordinates>-5.652000,43.398000,210</coordinates>
             </Point>
         </Placemark>
         
@@ -125,7 +105,7 @@
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.664763,43.389194,185 -5.664523,43.389421,186 -5.663987,43.389823,188 -5.663456,43.390134,190 -5.664912,43.390567,192 -5.665534,43.388823,187
+                    -5.664763,43.389194,185 -5.664763,43.389194,185 -5.662367,43.391582,187 -5.659658,43.393286,190 -5.655000,43.395000,200 -5.652000,43.398000,210
                 </coordinates>
             </LineString>
         </Placemark>

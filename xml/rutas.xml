@@ -28,44 +28,77 @@
             <referencia>https://www.turismosiero.com/patrimonio-indiano</referencia>
             <referencia>https://es.wikipedia.org/wiki/Arquitectura_indiana_en_Asturias</referencia>
             <referencia>http://www.siero.es/turismo/rutas-culturales</referencia>
-            <referencia>https://www.asturias.es/patrimonio/palacios-indianos</referencia>
         </referencias>
-        <recomendaciones>
-            <recomendacion>Se recomienda llevar calzado cómodo para caminar</recomendacion>
-            <recomendacion>Traer cámara para fotografiar los detalles arquitectónicos</recomendacion>
-        </recomendaciones>
+        <recomendacion>8</recomendacion>
         <hitos>
             <hito>
                 <nombre>Casa Consistorial de Siero</nombre>
                 <descripcion>Edificio de estilo ecléctico construido a principios del siglo XX</descripcion>
-                <distancia>0</distancia>
+                <distancia unidades="m">0</distancia>
                 <coordenadas>
                     <longitud>-5.664763</longitud>
                     <latitud>43.389194</latitud>
                     <altitud>185</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/casa_consistorial.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Palacio de los Arguelles</nombre>
                 <descripcion>Palacio indiano de finales del siglo XIX con elementos neoclásicos</descripcion>
-                <distancia>450</distancia>
+                <distancia unidades="m">450</distancia>
                 <coordenadas>
                     <longitud>-5.662367</longitud>
                     <latitud>43.391582</latitud>
                     <altitud>187</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/palacio_arguelles.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Casa de los Leones</nombre>
                 <descripcion>Magnífica casona con detalles modernistas y esculturas de leones</descripcion>
-                <distancia>850</distancia>
+                <distancia unidades="m">850</distancia>
                 <coordenadas>
                     <longitud>-5.659658</longitud>
                     <latitud>43.393286</latitud>
                     <altitud>190</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/casa_leones.jpg</foto>
+                </galeria>
+            </hito>
+            <hito>
+                <nombre>Palacio de Celles</nombre>
+                <descripcion>Palacio rural con jardines históricos y arquitectura tradicional</descripcion>
+                <distancia unidades="m">1200</distancia>
+                <coordenadas>
+                    <longitud>-5.655000</longitud>
+                    <latitud>43.395000</latitud>
+                    <altitud>200</altitud>
+                </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/palacio_celles.jpg</foto>
+                </galeria>
+            </hito>
+            <hito>
+                <nombre>Casa de la Torre</nombre>
+                <descripcion>Casa torreada representativa de la arquitectura indiana</descripcion>
+                <distancia unidades="m">1600</distancia>
+                <coordenadas>
+                    <longitud>-5.652000</longitud>
+                    <latitud>43.398000</latitud>
+                    <altitud>210</altitud>
+                </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/casa_torre.jpg</foto>
+                </galeria>
             </hito>
         </hitos>
+        <planimetria>xml/kml/ruta001.kml</planimetria>
+        <altimetria>xml/svg/ruta001.svg</altimetria>
     </ruta>
     
     <ruta id="ruta002">
@@ -94,53 +127,76 @@
             <referencia>https://www.siero.es/espacios-naturales/rio-nora</referencia>
             <referencia>https://www.asturias.es/rutas-verdes</referencia>
         </referencias>
-        <recomendaciones>
-            <recomendacion>Llevar calzado impermeable en temporada de lluvias</recomendacion>
-            <recomendacion>Recomendable llevar prismáticos para observación de aves</recomendacion>
-            <recomendacion>En bicicleta, respetar a los senderistas</recomendacion>
-        </recomendaciones>
+        <recomendacion>9</recomendacion>
         <hitos>
             <hito>
                 <nombre>Área Recreativa La Fresneda</nombre>
                 <descripcion>Punto de inicio con merenderos y área de descanso</descripcion>
-                <distancia>0</distancia>
+                <distancia unidades="m">0</distancia>
                 <coordenadas>
                     <longitud>-5.794639</longitud>
                     <latitud>43.396077</latitud>
                     <altitud>165</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/area_fresneda.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Puente Medieval de Colloto</nombre>
                 <descripcion>Antiguo puente de piedra que atraviesa el río Nora</descripcion>
-                <distancia>1200</distancia>
+                <distancia unidades="m">1200</distancia>
                 <coordenadas>
                     <longitud>-5.782548</longitud>
                     <latitud>43.389913</latitud>
                     <altitud>158</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/puente_colloto.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Bosque de Ribera</nombre>
                 <descripcion>Zona de especial interés ecológico con alisos y sauces centenarios</descripcion>
-                <distancia>2500</distancia>
+                <distancia unidades="m">2500</distancia>
                 <coordenadas>
                     <longitud>-5.767092</longitud>
                     <latitud>43.384826</latitud>
                     <altitud>152</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/bosque_ribera.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Mirador del Meandro</nombre>
                 <descripcion>Vista panorámica del meandro del río y la vega circundante</descripcion>
-                <distancia>4800</distancia>
+                <distancia unidades="m">4800</distancia>
                 <coordenadas>
                     <longitud>-5.747918</longitud>
                     <latitud>43.379451</latitud>
                     <altitud>175</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/mirador_meandro.jpg</foto>
+                </galeria>
+            </hito>
+            <hito>
+                <nombre>Molino de Nora</nombre>
+                <descripcion>Molino tradicional restaurado junto al río</descripcion>
+                <distancia unidades="m">6000</distancia>
+                <coordenadas>
+                    <longitud>-5.740000</longitud>
+                    <latitud>43.377000</latitud>
+                    <altitud>170</altitud>
+                </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/molino_nora.jpg</foto>
+                </galeria>
             </hito>
         </hitos>
+        <planimetria>xml/kml/ruta002.kml</planimetria>
+        <altimetria>xml/svg/ruta002.svg</altimetria>
     </ruta>
     
     <ruta id="ruta003">
@@ -169,61 +225,75 @@
             <referencia>https://www.sidrerias-asturias.com/pola-siero</referencia>
             <referencia>https://www.gastronomiaasturiana.org</referencia>
         </referencias>
-        <recomendaciones>
-            <recomendacion>Venir con apetito, las degustaciones son abundantes</recomendacion>
-            <recomendacion>Se recomienda no conducir después de la ruta (degustación de sidra)</recomendacion>
-        </recomendaciones>
+        <recomendacion>7</recomendacion>
         <hitos>
             <hito>
                 <nombre>Mercado de Abastos</nombre>
                 <descripcion>Mercado tradicional con productos locales y artesanales</descripcion>
-                <distancia>0</distancia>
+                <distancia unidades="m">0</distancia>
                 <coordenadas>
                     <longitud>-5.663763</longitud>
                     <latitud>43.388971</latitud>
                     <altitud>183</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/mercado_abastos.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Sidrería El Madreñeru</nombre>
                 <descripcion>Sidrería tradicional con demostración de escanciado</descripcion>
-                <distancia>250</distancia>
+                <distancia unidades="m">250</distancia>
                 <coordenadas>
                     <longitud>-5.663128</longitud>
                     <latitud>43.390353</latitud>
                     <altitud>184</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/sidreria_madreneru.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Restaurante La Pola</nombre>
                 <descripcion>Establecimiento especializado en fabada y cachopos</descripcion>
-                <distancia>450</distancia>
+                <distancia unidades="m">450</distancia>
                 <coordenadas>
                     <longitud>-5.661249</longitud>
                     <latitud>43.389218</latitud>
                     <altitud>186</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/restaurante_la_pola.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Confitería Cardin</nombre>
                 <descripcion>Elaboración artesanal de dulces asturianos</descripcion>
-                <distancia>650</distancia>
+                <distancia unidades="m">650</distancia>
                 <coordenadas>
                     <longitud>-5.664892</longitud>
                     <latitud>43.387659</latitud>
                     <altitud>182</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/confiteria_cardin.jpg</foto>
+                </galeria>
             </hito>
             <hito>
                 <nombre>Llagar de sidra</nombre>
                 <descripcion>Visita a un llagar tradicional con explicación del proceso de elaboración</descripcion>
-                <distancia>1200</distancia>
+                <distancia unidades="m">1200</distancia>
                 <coordenadas>
                     <longitud>-5.668749</longitud>
                     <latitud>43.385367</latitud>
                     <altitud>190</altitud>
                 </coordenadas>
+                <galeria>
+                  <foto>multimedia/images/llagar_sidra.jpg</foto>
+                </galeria>
             </hito>
         </hitos>
+        <planimetria>xml/kml/ruta003.kml</planimetria>
+        <altimetria>xml/svg/ruta003.svg</altimetria>
     </ruta>
 </rutas>

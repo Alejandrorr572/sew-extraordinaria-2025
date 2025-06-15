@@ -9,10 +9,11 @@
  * Implementa el patrón de orientación a objetos requerido
  */
 class GestorRutas {    constructor() {
-        this.$container = $('section[role="region"][aria-label="Detalles de ruta"]');
-        this.$buttons = $('nav[role="navigation"][aria-label="Selector de rutas"]');
-        this.$loading = $('aside[role="status"]');
-        this.$error = $('aside[role="alert"]');
+        // Buscar solo por aria-label, sin role
+        this.$container = $('section[aria-label="Detalles de ruta"]');
+        this.$buttons = $('nav[aria-label="Selector de rutas"]'); // <-- Corregido aquí
+        this.$loading = $('p[aria-live="polite"]');
+        this.$error = $('aside[aria-live="assertive"]');
         this.rutasData = null;
         this.rutaActual = null;
         this.mapas = new Map(); // Almacenar instancias de mapas
@@ -50,12 +51,14 @@ class GestorRutas {    constructor() {
                 console.log('XML cargado correctamente');
                 self.rutasData = data;
                 self.procesarRutas();
-                self.$loading.hide();
+                // Ocultar mensaje de cargando rutas
+                $('p[aria-live="polite"]').hide();
             },
             error: function(xhr, status, error) {
                 console.error('Error cargando rutas.xml:', error, xhr.status);
                 self.mostrarError('No se pudo cargar el archivo de rutas');
-                self.$loading.hide();
+                // Ocultar mensaje de cargando rutas también en error
+                $('p[aria-live="polite"]').hide();
             }
         });
     }
@@ -72,22 +75,24 @@ class GestorRutas {    constructor() {
             return;
         }
         
+        // Limpiar botones previos
+        self.$buttons.empty();
         // Generar botones de rutas
         $rutas.each(function(index, ruta) {
             const $ruta = $(ruta);
             const id = $ruta.attr('id');
             const nombre = $ruta.find('nombre').text();
-              const $button = $('<button>')
+            const $button = $('<button>')
                 .attr('role', 'tab')
                 .attr('aria-controls', 'ruta-' + id)
                 .text(nombre)
                 .click(function() {
                     self.seleccionarRuta(id);
                 });
-            
             self.$buttons.append($button);
         });
-        
+        // Mostrar el contenedor de botones si estaba oculto
+        self.$buttons.closest('nav, section').show();
         // Seleccionar primera ruta por defecto
         const primeraRuta = $rutas.first().attr('id');
         this.seleccionarRuta(primeraRuta);
@@ -170,6 +175,11 @@ class GestorRutas {    constructor() {
         // Hitos
         $ruta.find('hitos hito').each(function() {
             const $hito = $(this);
+            // Galería de fotos
+            const fotos = [];
+            $hito.find('galeria foto').each(function() {
+                fotos.push($(this).text());
+            });
             info.hitos.push({
                 nombre: $hito.find('nombre').text(),
                 descripcion: $hito.find('descripcion').text(),
@@ -178,7 +188,8 @@ class GestorRutas {    constructor() {
                     latitud: parseFloat($hito.find('coordenadas latitud').text()),
                     longitud: parseFloat($hito.find('coordenadas longitud').text()),
                     altitud: parseInt($hito.find('coordenadas altitud').text())
-                }
+                },
+                fotos: fotos
             });
         });
         
@@ -240,17 +251,16 @@ class GestorRutas {    constructor() {
      */
     generarTabInformacion(info) {
         let html = '<h3>Hitos de la Ruta</h3><ol role="list">';
-        
         info.hitos.forEach((hito, index) => {
             html += `
                 <li>
                     <h4>Hito ${index + 1}: ${hito.nombre}</h4>
                     <p>${hito.descripcion}</p>
                     <p><small>Distancia acumulada: ${hito.distancia}m | Altitud: ${hito.coordenadas.altitud}m</small></p>
+                    ${hito.fotos && hito.fotos.length > 0 ? `<figure>${hito.fotos.map(foto => `<img src='${foto}' alt='Foto de ${hito.nombre}' loading='lazy' width='180'>`).join('')}</figure>` : ''}
                 </li>
             `;
         });
-        
         html += '</ol>';
         
         if (info.referencias.length > 0) {

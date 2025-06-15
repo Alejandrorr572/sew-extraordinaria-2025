@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Sistema de Reservas Turísticas de Siero</title>
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <link rel="stylesheet" href="estilo/layout.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Reservas Turísticas de Siero</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="gastronomia.html">Gastronomía</a></li>
+                <li><a href="meteorologia.html">Meteorología</a></li>
+                <li><a href="juego.html">Juego</a></li>
+                <li><a href="php/index.php">Reservas</a></li>
+                <li><a href="ayuda.html" aria-current="page">Ayuda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Documentación del Proyecto</h1>
+        
+        <section>
+            <h2>Descripción General</h2>
+            <p>Este proyecto implementa un Sistema de Reservas Turísticas para el concejo de Siero, integrando información turística, 
+            actividades culturales, gastronomía, y permitiendo la gestión completa de reservas de recursos turísticos.</p>
+        </section>
+
+        <section>
+            <h2>Módulos Implementados</h2>
+            
+            <article>
+                <h3>1. Mejora de la Interfaz General</h3>
+                <ul>
+                    <li>Eliminación de <code>div</code>, estilos en línea, clases e IDs innecesarios</li>
+                    <li>Implementación de HTML semántico y atributos de accesibilidad</li>
+                    <li>Separación clara entre contenido (HTML), presentación (CSS) y comportamiento (JavaScript)</li>
+                    <li>Adaptación responsive para múltiples dispositivos</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>2. Sistema de Reservas PHP</h3>
+                <ul>
+                    <li>Arquitectura MVC (Modelo-Vista-Controlador) completa</li>
+                    <li>Gestión de usuarios (registro e inicio de sesión)</li>
+                    <li>Catálogo de recursos turísticos filtrable</li>
+                    <li>Sistema de reservas con confirmación automática</li>
+                    <li>Panel de control de usuario con estadísticas</li>
+                    <li>Gestión de disponibilidad para agosto y septiembre</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>3. Optimizaciones Avanzadas</h3>
+                <ul>
+                    <li>Seguridad:
+                        <ul>
+                            <li>Validación de formularios tanto en cliente como en servidor</li>
+                            <li>Prevención de inyección SQL mediante consultas parametrizadas</li>
+                            <li>Gestión de sesiones seguras</li>
+                            <li>Encriptación de contraseñas</li>
+                        </ul>
+                    </li>
+                    <li>Optimización de bases de datos:
+                        <ul>
+                            <li>Transacciones seguras para garantizar la integridad de los datos</li>
+                            <li>Normalización de tablas para evitar redundancias</li>
+                            <li>Índices para mejorar el rendimiento de consultas frecuentes</li>
+                        </ul>
+                    </li>
+                    <li>Accesibilidad:
+                        <ul>
+                            <li>Markup semántico en todas las vistas</li>
+                            <li>Atributos ARIA donde es necesario</li>
+                            <li>Navegación por teclado mejorada</li>
+                            <li>Alto contraste en la interfaz</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>Mejoras Implementadas en el Sistema de Reservas</h2>
+            <ol>
+                <li><strong>Modernización general de la interfaz:</strong> Eliminación de estilos en línea y uso de HTML semántico en todas las vistas PHP</li>
+                <li><strong>Corrección de rutas CSS:</strong> Todas las referencias a hojas de estilo ahora son correctas y funcionan en todo el sistema</li>
+                <li><strong>Arreglo del registro de usuarios:</strong> Corregido error en el campo de confirmación de contraseña</li>
+                <li><strong>Navegación mejorada:</strong> Integración perfecta entre el sitio principal HTML y el sistema de reservas PHP</li>
+                <li><strong>Inicialización automática:</strong> Creación de recursos por defecto si no existen al iniciar sesión</li>
+                <li><strong>Simplificación de la interfaz:</strong> Eliminación de filtros complejos e imágenes para una experiencia más limpia</li>
+                <li><strong>Flujo directo de reservas:</strong> Nuevo sistema de creación de reservas más intuitivo</li>
+                <li><strong>Arquitectura modular:</strong> Servicios separados para Recursos y Reservas</li>
+                <li><strong>Gestión transaccional segura:</strong> Prevención de problemas con transacciones anidadas</li>
+                <li><strong>Estadísticas actualizadas:</strong> El panel principal y la vista de reservas muestran datos consistentes</li>
+                <li><strong>Disponibilidad controlada:</strong> Nuevas disponibilidades limitadas a agosto/septiembre para mejor planificación</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Componentes Técnicos</h2>
+            <ul>
+                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript nativo, sin dependencias de frameworks</li>
+                <li><strong>Backend:</strong> PHP 8 con arquitectura MVC personalizada</li>
+                <li><strong>Base de datos:</strong> MySQL con procedimientos almacenados para operaciones críticas</li>
+                <li><strong>APIs:</strong> Integración de servicios meteorológicos y manejo de datos XML para rutas</li>
+                <li><strong>Persistencia:</strong> Gestión de sesiones, cookies, y almacenamiento local donde corresponde</li>
+            </ul>
+        </section>
+    </main>    <footer>
+        <p>&copy; 2025 Descubre Siero - Portal Turístico del Concejo. Todos los derechos reservados.</p>
+        <section>
+            <h3>Certificaciones de Calidad</h3>
+            <p>
+                <a href="https://validator.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/valid-html5.png" 
+                         alt="Válido HTML5 - Verificado por W3C" >
+                </a>                <a href="https://jigsaw.w3.org" target="_blank" rel="noopener noreferrer">
+                    <img src="multimedia/images/vcss-blue.png" 
+                         alt="CSS Válido - Verificado por W3C" >
+                </a>
+            </p>
+        </section>
+    </footer>
+</body>
+</html>

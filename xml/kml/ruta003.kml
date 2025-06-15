@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
-        <name>Sendero Cueva de San Pedrín</name>
+        <name>Ruta Gastronómica de Siero</name>
         <description>
-            Ruta de senderismo inspirada en el tradicional sendero que conecta 
-            La Piñera con la Cueva y Capilla de San Pedrín, atravesando paisajes 
-            de gran valor natural y cultural en el territorio sierense. Incluye 
-            elementos del patrimonio religioso y natural del concejo.
+            Un recorrido por las sidrerías, restaurantes y mercados tradicionales de Pola de Siero 
+            para descubrir la auténtica gastronomía asturiana. Incluye degustaciones de productos 
+            típicos y demostración de escanciado de sidra.
         </description>
         
         <!-- Estilos para puntos -->
@@ -37,110 +36,75 @@
         
         <!-- Punto de inicio -->
         <Placemark>
-            <name>Inicio: La Piñera</name>
+            <name>Inicio: Mercado de Abastos - Pola de Siero</name>
             <description>Punto de inicio de la ruta</description>
             <styleUrl>#inicio</styleUrl>
             <Point>
                 <coordinates>
-                    -5.6234,43.3656,260
+                    -5.663763,43.388971,183
                 </coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 1 -->
         <Placemark>
-            <name>Hito 1: La Piñera - Inicio del sendero</name>
-            <description>
-                    Pequeño pueblo sierense punto de partida del sendero. 
-                    Conserva arquitectura tradicional asturiana y ofrece 
-                    últimos servicios antes de iniciar la ruta de montaña.
-                </description>
+            <name>Hito 1: Mercado de Abastos</name>
+            <description>Mercado tradicional con productos locales y artesanales</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6234,43.3656,260</coordinates>
+                <coordinates>-5.663763,43.388971,183</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 2 -->
         <Placemark>
-            <name>Hito 2: Lavadero del Campón</name>
-            <description>
-                    Antiguo lavadero comunal de piedra donde las mujeres 
-                    del pueblo acudían a lavar la ropa. Ejemplo del 
-                    patrimonio etnográfico sierense conservado.
-                </description>
+            <name>Hito 2: Sidrería El Madreñeru</name>
+            <description>Sidrería tradicional con demostración de escanciado</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6187,43.3623,249</coordinates>
+                <coordinates>-5.663128,43.390353,184</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 3 -->
         <Placemark>
-            <name>Hito 3: Túnel de Aveno</name>
-            <description>
-                    Túnel excavado en roca que forma parte del antiguo 
-                    trazado del ferrocarril minero. Punto de interés 
-                    histórico y geológico en la ruta.
-                </description>
+            <name>Hito 3: Restaurante La Pola</name>
+            <description>Establecimiento especializado en fabada y cachopos</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6156,43.3598,306</coordinates>
+                <coordinates>-5.661249,43.389218,186</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 4 -->
         <Placemark>
-            <name>Hito 4: Cueva de San Pedrín</name>
-            <description>
-                    Cueva natural de formación calcárea que alberga la 
-                    ermita de San Pedrín, lugar de peregrinación local 
-                    desde el siglo XVIII. Patrimonio religioso y natural 
-                    del concejo de Siero.
-                </description>
+            <name>Hito 4: Confitería Cardin</name>
+            <description>Elaboración artesanal de dulces asturianos</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6123,43.3567,297</coordinates>
+                <coordinates>-5.664892,43.387659,182</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 5 -->
         <Placemark>
-            <name>Hito 5: Capilla de San Pedrín</name>
-            <description>
-                    Pequeña ermita construida en el interior de la cueva 
-                    natural. Centro de devoción popular y ejemplo único 
-                    de arquitectura religiosa rupestre en Asturias.
-                </description>
+            <name>Hito 5: Llagar de sidra</name>
+            <description>Visita a un llagar tradicional con explicación del proceso de elaboración</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6119,43.3564,303</coordinates>
-            </Point>
-        </Placemark>
-        
-        <!-- Hito 6 -->
-        <Placemark>
-            <name>Hito 6: Fuente Les Xanes</name>
-            <description>
-                    Manantial natural de aguas cristalinas rodeado de 
-                    leyendas locales sobre seres mitológicos asturianos. 
-                    Punto de descanso y avituallamiento en la ruta.
-                </description>
-            <styleUrl>#hito</styleUrl>
-            <Point>
-                <coordinates>-5.6089,43.3523,298</coordinates>
+                <coordinates>-5.668749,43.385367,190</coordinates>
             </Point>
         </Placemark>
         
         <!-- Línea de ruta -->
         <Placemark>
-            <name>Recorrido Sendero Cueva de San Pedrín</name>
+            <name>Recorrido Ruta Gastronómica de Siero</name>
             <description>Trazado completo de la ruta</description>
             <styleUrl>#ruta</styleUrl>
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.6234,43.3656,260 -5.6234,43.3656,260 -5.6187,43.3623,249 -5.6156,43.3598,306 -5.6123,43.3567,297 -5.6119,43.3564,303 -5.6089,43.3523,298
+                    -5.663763,43.388971,183 -5.663763,43.388971,183 -5.663128,43.390353,184 -5.661249,43.389218,186 -5.664892,43.387659,182 -5.668749,43.385367,190
                 </coordinates>
             </LineString>
         </Placemark>

@@ -23,12 +23,15 @@
             </ul>
         </nav>
     </header>    
-    <main>
-        <section>
+    <main>        <section>
             <h2>Bienvenido a Siero</h2>
             <p>Descubre uno de los concejos más dinámicos y atractivos de Asturias. Siero combina tradición e innovación, ofreciendo paisajes verdes, rica gastronomía y un patrimonio cultural único que te invita a explorar cada rincón de nuestro territorio.</p>
             
             <p>Con más de 51.000 habitantes y una extensión de 211 km², Siero es el segundo concejo más poblado de Asturias. Su capital, Pola de Siero, es el corazón económico y administrativo de una región que destaca por su industria, comercio y calidad de vida.</p>
+              <aside>                <h3>¿Quieres visitar Siero?</h3>
+                <p>Utiliza nuestro <strong>Sistema de Reservas Turísticas</strong> para explorar los recursos disponibles y gestionar tus visitas de forma sencilla.</p>
+                <p><a href="php/index.php">Acceder al Sistema de Reservas</a></p>
+            </aside>
         </section>
 
         <section>
@@ -51,95 +54,25 @@
             <article>
                 <h3> Fiestas y Tradiciones</h3>
                 <p>Las Fiestas de la Pola, la Feria de la Boroña, el Festival de Folclore y numerosas celebraciones parroquiales te sumergirán en la cultura sierense.</p>
-            </article>
-        </section>        <!-- Carrusel de fotos turísticas -->
-        <section role="region" aria-label="Galería fotográfica">
-            <!-- El contenido será generado dinámicamente por JavaScript -->
-        </section>        <!-- Sección de noticias turísticas -->
-        <section role="region" aria-label="Noticias turísticas">
-            <!-- El contenido será generado dinámicamente por JavaScript -->
-        </section>
-
-        <!-- Nueva sección: Noticias del Concejo vía Servicios Web -->
-        <section role="region" aria-label="Noticias del concejo vía web">
-            <!-- El contenido será generado dinámicamente por JavaScript -->
-        </section>
-
-        <!-- Nueva sección: Gestor de Noticias con API File -->
-        <section role="region" aria-label="Gestor de noticias locales">
-            <h2>📰 Gestor de Noticias Locales</h2>
-            <p>Carga noticias desde un archivo de texto o añade tus propias noticias manualmente.</p>
+            </article>        
+        </section>        <!-- Carrusel de fotos turísticas -->        
+        <section>
             
-            <!-- Área de carga de archivo -->
-            <fieldset>
-                <legend>📄 Cargar Noticias desde Archivo</legend>
-                <p><strong>Formato del archivo:</strong> Cada línea debe contener: Titular_Entradilla_Autor</p>
-                <input type="file" 
-                       accept=".txt"
-                       aria-label="Cargar archivo de noticias"
-                       aria-describedby="file-help">
-                <small id="file-help">Selecciona un archivo .txt con noticias en el formato especificado</small>
-            </fieldset>
-
-            <!-- Formulario para añadir noticias manualmente -->
-            <fieldset>
-                <legend>✏️ Añadir Noticia Manual</legend>
-                <div role="group" aria-label="Formulario de nueva noticia">
-                    <div>
-                        <label for="titular-noticia">Titular:</label>
-                        <input type="text" 
-                               id="titular-noticia"
-                               aria-label="Titular de la noticia"
-                               placeholder="Introduce el titular de la noticia"
-                               maxlength="200">
-                    </div>
-                    
-                    <div>
-                        <label for="entradilla-noticia">Entradilla:</label>
-                        <textarea id="entradilla-noticia"
-                                  aria-label="Entradilla de la noticia"
-                                  placeholder="Escribe aquí el contenido de la noticia"
-                                  rows="4"
-                                  maxlength="500"></textarea>
-                    </div>
-                    
-                    <div>
-                        <label for="autor-noticia">Autor:</label>
-                        <input type="text" 
-                               id="autor-noticia"
-                               aria-label="Autor de la noticia"
-                               placeholder="Nombre del autor"
-                               maxlength="100">
-                    </div>
-                    
-                    <button type="button" 
-                            aria-label="Añadir noticia manual">
-                        ➕ Añadir Noticia
-                    </button>
-                </div>
-            </fieldset>
-
-            <!-- Área de mensajes del sistema -->
-            <section role="status" 
-                     aria-label="Mensajes del sistema" 
-                     aria-live="polite" 
-                     style="display: none;">
-                <!-- Los mensajes aparecerán aquí -->
-            </section>
-
-            <!-- Contenedor para mostrar las noticias cargadas -->
-            <section role="region" aria-label="Noticias desde archivo">
-                <h3>📋 Noticias Cargadas</h3>
-                <p><em>Las noticias aparecerán aquí una vez que cargues un archivo o añadas manualmente.</em></p>
-                <!-- Las noticias se mostrarán aquí dinámicamente -->
-            </section>
-
-            <!-- Panel de control -->
-            <nav role="navigation" aria-label="Controles del gestor de noticias">
-                <button type="button" onclick="mostrarEstadisticas()">
-                    📊 Ver Estadísticas
-                </button>
-            </nav>
+            <h2>Galería fotográfica</h2>
+            <!-- El contenido será generado dinámicamente por JavaScript -->
+            
+        </section>
+        <!-- Sección de noticias turísticas -->        
+        <section>
+            
+                <h2>Noticias turísticas</h2>
+            <!-- El contenido será generado dinámicamente por JavaScript -->
+        
+        </section>        
+        <!-- Nueva sección: Noticias del Concejo vía Servicios Web -->        
+        <section>
+            <h2>Noticias del concejo vía web</h2>
+            <!-- El contenido será generado dinámicamente por JavaScript -->
         </section>
 
         <section>
@@ -167,12 +100,10 @@
                 </a>
             </p>
         </section>
-    </footer>    <!-- Scripts para funcionalidad dinámica -->
+    </footer>   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-            crossorigin="anonymous"></script>
-    <script src="js/config.js"></script>
+            crossorigin="anonymous"></script>    <script src="js/config.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/noticias.js"></script>
 </body>
 </html>

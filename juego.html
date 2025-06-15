@@ -24,10 +24,9 @@
         </nav>
     </header>
 
-    <main>
-        <section role="region">
-            <!-- Pantalla de inicio del juego -->
-            <section aria-label="Pantalla de inicio del juego" role="region">
+    <main>        <section>
+            <h2>Juego de Conocimiento sobre Siero</h2>
+            <!-- Pantalla de inicio del juego --><section aria-label="Pantalla de inicio del juego">
                 <h2>🎯 ¿Cuánto sabes sobre Siero?</h2>
                 <p>Pon a prueba tus conocimientos sobre el concejo asturiano con este divertido juego de preguntas.</p>
                 
@@ -46,17 +45,14 @@
                 <button onclick="iniciarJuego()" aria-label="Comenzar juego">
                     🚀 Comenzar Juego
                 </button>
-            </section>
-
-            <!-- Pantalla del juego -->
-            <section aria-label="Área de juego" role="region" hidden>
+            </section>            <!-- Pantalla del juego -->            <section hidden>
+                <h2>Área de juego</h2>
                 <!-- Barra de progreso -->
-                <div role="progressbar" aria-label="Progreso del juego">
-                    <div></div>
-                </div>
-
+                <progress aria-label="Progreso del juego" value="0" max="100"></progress>
+                
                 <!-- Contenedor de preguntas -->
                 <section>
+                    <h3>Pregunta</h3>
                     <!-- Las preguntas se cargarán dinámicamente aquí -->
                 </section>
 
@@ -76,8 +72,7 @@
                 </nav>
             </section>
 
-            <!-- Pantalla de resultados -->
-            <section aria-label="Resultados del juego" role="region" hidden>
+            <!-- Pantalla de resultados -->            <section aria-label="Resultados del juego" hidden>
                 <!-- Los resultados se cargarán dinámicamente aquí -->
             </section>
         </section>

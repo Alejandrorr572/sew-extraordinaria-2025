@@ -16,30 +16,30 @@
     <text x="45" y="354.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
         185m
     </text>
-    <line x1="50" y1="289.9999999999998" x2="750" y2="289.9999999999998" 
+    <line x1="50" y1="290.0" x2="750" y2="290.0" 
           stroke="#dee2e6" stroke-width="0.5"/>
-    <text x="45" y="293.9999999999998" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
-        186m
-    </text>
-    <line x1="50" y1="229.99999999999952" x2="750" y2="229.99999999999952" 
-          stroke="#dee2e6" stroke-width="0.5"/>
-    <text x="45" y="233.99999999999952" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
-        187m
-    </text>
-    <line x1="50" y1="170.00000000000048" x2="750" y2="170.00000000000048" 
-          stroke="#dee2e6" stroke-width="0.5"/>
-    <text x="45" y="174.00000000000048" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
-        189m
-    </text>
-    <line x1="50" y1="110.00000000000026" x2="750" y2="110.00000000000026" 
-          stroke="#dee2e6" stroke-width="0.5"/>
-    <text x="45" y="114.00000000000026" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+    <text x="45" y="294.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
         190m
+    </text>
+    <line x1="50" y1="230.0" x2="750" y2="230.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="234.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        195m
+    </text>
+    <line x1="50" y1="170.0" x2="750" y2="170.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="174.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        200m
+    </text>
+    <line x1="50" y1="110.0" x2="750" y2="110.0" 
+          stroke="#dee2e6" stroke-width="0.5"/>
+    <text x="45" y="114.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
+        205m
     </text>
     <line x1="50" y1="50.0" x2="750" y2="50.0" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="45" y="54.0" text-anchor="end" font-family="Arial, sans-serif" font-size="10">
-        192m
+        210m
     </text>
 
     <!-- Líneas de cuadrícula verticales (distancias) -->
@@ -51,35 +51,35 @@
     <line x1="190.0" y1="50" x2="190.0" y2="350" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="190.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
-        140m
+        820m
     </text>
     <line x1="330.0" y1="50" x2="330.0" y2="350" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="330.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
-        280m
+        1640m
     </text>
     <line x1="470.0" y1="50" x2="470.0" y2="350" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="470.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
-        420m
+        2460m
     </text>
     <line x1="610.0" y1="50" x2="610.0" y2="350" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="610.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
-        560m
+        3280m
     </text>
     <line x1="750.0" y1="50" x2="750.0" y2="350" 
           stroke="#dee2e6" stroke-width="0.5"/>
     <text x="750.0" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
-        700m
+        4100m
     </text>
 
     <!-- Perfil altimétrico -->
-    <polyline points="50.0,350.0 100.0,307.14285714285717 220.0,221.42857142857142 400.0,135.71428571428572 550.0,50.0 750.0,264.2857142857143" 
+    <polyline points="50.0,350.0 50.0,350.0 126.82926829268293,326.0 271.9512195121951,290.0 476.8292682926829,170.0 750.0,50.0" 
               fill="none" stroke="#007bff" stroke-width="3"/>
     
     <!-- Área bajo la curva -->
-    <polygon points="50,350 50.0,350.0 100.0,307.14285714285717 220.0,221.42857142857142 400.0,135.71428571428572 550.0,50.0 750.0,264.2857142857143 750,350" 
+    <polygon points="50,350 50.0,350.0 50.0,350.0 126.82926829268293,326.0 271.9512195121951,290.0 476.8292682926829,170.0 750.0,50.0 750,350" 
              fill="rgba(0, 123, 255, 0.3)" stroke="none"/>
     
     <!-- Puntos de hitos -->
@@ -87,24 +87,24 @@
     <text x="50.0" y="340.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         0
     </text>
-    <circle cx="100.0" cy="307.14285714285717" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
-    <text x="100.0" y="297.14285714285717" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    <circle cx="50.0" cy="350.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="50.0" y="340.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         H1
     </text>
-    <circle cx="220.0" cy="221.42857142857142" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
-    <text x="220.0" y="211.42857142857142" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    <circle cx="126.82926829268293" cy="326.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="126.82926829268293" y="316.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         H2
     </text>
-    <circle cx="400.0" cy="135.71428571428572" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
-    <text x="400.0" y="125.71428571428572" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    <circle cx="271.9512195121951" cy="290.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="271.9512195121951" y="280.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         H3
     </text>
-    <circle cx="550.0" cy="50.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
-    <text x="550.0" y="40.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    <circle cx="476.8292682926829" cy="170.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="476.8292682926829" y="160.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         H4
     </text>
-    <circle cx="750.0" cy="264.2857142857143" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
-    <text x="750.0" y="254.28571428571428" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    <circle cx="750.0" cy="50.0" r="4" fill="#dc3545" stroke="white" stroke-width="2"/>
+    <text x="750.0" y="40.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
         H5
     </text>
 
@@ -120,7 +120,7 @@
     
     <!-- Información estadística -->
     <text x="50" y="370" font-family="Arial, sans-serif" font-size="10">
-        Distancia total: 700m | Altitud mín: 185m | Altitud máx: 192m | Desnivel: 7m
+        Distancia total: 4100m | Altitud mín: 185m | Altitud máx: 210m | Desnivel: 25m
     </text>
     
 </svg>

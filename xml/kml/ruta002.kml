@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
     <Document>
-        <name>Ruta de Sidrerías Tradicionales</name>
+        <name>Senda Verde del Río Nora</name>
         <description>
-            Recorrido por las sidrerías más auténticas del concejo de Siero, 
-            donde podrás degustar la sidra natural y los platos tradicionales 
-            asturianos en ambientes familiares y acogedores que mantienen 
-            viva la tradición culinaria sierense.
+            Recorrido a lo largo del río Nora que atraviesa el concejo de Siero ofreciendo 
+            un entorno natural privilegiado con bosques autóctonos, prados y ecosistemas 
+            fluviales. Ideal para observación de aves y fotografía de naturaleza.
         </description>
         
         <!-- Estilos para puntos -->
@@ -37,91 +36,75 @@
         
         <!-- Punto de inicio -->
         <Placemark>
-            <name>Inicio: Sidrería La Pola</name>
+            <name>Inicio: Área Recreativa de La Fresneda</name>
             <description>Punto de inicio de la ruta</description>
             <styleUrl>#inicio</styleUrl>
             <Point>
                 <coordinates>
-                    -5.665198,43.388734,183
+                    -5.794639,43.396077,165
                 </coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 1 -->
         <Placemark>
-            <name>Hito 1: Sidrería La Pola</name>
-            <description>
-                    Sidrería centenaria que mantiene la tradición del escanciado 
-                    y ofrece la auténtica fabada sierense. Ambiente familiar 
-                    con decoración tradicional asturiana.
-                </description>
+            <name>Hito 1: Área Recreativa La Fresneda</name>
+            <description>Punto de inicio con merenderos y área de descanso</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.665198,43.388734,183</coordinates>
+                <coordinates>-5.794639,43.396077,165</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 2 -->
         <Placemark>
-            <name>Hito 2: Casa Fermín</name>
-            <description>
-                    Restaurante de tradición familiar especializado en cachopo 
-                    y carnes a la brasa. Su bodega de sidras naturales es 
-                    una de las mejor surtidas del concejo.
-                </description>
+            <name>Hito 2: Puente Medieval de Colloto</name>
+            <description>Antiguo puente de piedra que atraviesa el río Nora</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6634,43.3902,187</coordinates>
+                <coordinates>-5.782548,43.389913,158</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 3 -->
         <Placemark>
-            <name>Hito 3: Sidrería Los Carbayones</name>
-            <description>
-                    Ubicada en Carbayín, destaca por su terraza con vistas 
-                    al valle y su especialidad en productos locales. 
-                    Ideal para degustar quesos asturianos con sidra.
-                </description>
+            <name>Hito 3: Bosque de Ribera</name>
+            <description>Zona de especial interés ecológico con alisos y sauces centenarios</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.6789,43.3756,195</coordinates>
+                <coordinates>-5.767092,43.384826,152</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 4 -->
         <Placemark>
-            <name>Hito 4: El Lagar de Aramil</name>
-            <description>
-                    Lagar tradicional reconvertido en sidrería que conserva 
-                    la maquinaria original de prensado. Ofrece catas de 
-                    sidras de diferentes productores locales.
-                </description>
+            <name>Hito 4: Mirador del Meandro</name>
+            <description>Vista panorámica del meandro del río y la vega circundante</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.658734,43.392156,198</coordinates>
+                <coordinates>-5.747918,43.379451,175</coordinates>
             </Point>
         </Placemark>
         
         <!-- Hito 5 -->
         <Placemark>
-            <name>Hito 5: Restaurante El Lugones</name>
-            <description>Sin descripción disponible</description>
+            <name>Hito 5: Molino de Nora</name>
+            <description>Molino tradicional restaurado junto al río</description>
             <styleUrl>#hito</styleUrl>
             <Point>
-                <coordinates>-5.671234,43.385678,175</coordinates>
+                <coordinates>-5.740000,43.377000,170</coordinates>
             </Point>
         </Placemark>
         
         <!-- Línea de ruta -->
         <Placemark>
-            <name>Recorrido Ruta de Sidrerías Tradicionales</name>
+            <name>Recorrido Senda Verde del Río Nora</name>
             <description>Trazado completo de la ruta</description>
             <styleUrl>#ruta</styleUrl>
             <LineString>
                 <tessellate>1</tessellate>
                 <coordinates>
-                    -5.665198,43.388734,183 -5.665198,43.388734,183 -5.6634,43.3902,187 -5.6789,43.3756,195 -5.658734,43.392156,198 -5.671234,43.385678,175
+                    -5.794639,43.396077,165 -5.794639,43.396077,165 -5.782548,43.389913,158 -5.767092,43.384826,152 -5.747918,43.379451,175 -5.740000,43.377000,170
                 </coordinates>
             </LineString>
         </Placemark>

@@ -38,40 +38,35 @@
     </header>
     
     <main>        <article>
-            <h1>Información Meteorológica de Siero</h1>
+            <h2>Información Meteorológica de Siero</h2>
             <p>Consulta el tiempo actual y la previsión meteorológica para Pola de Siero y sus alrededores. 
-               Información actualizada en tiempo real para planificar tus actividades turísticas.</p>
-              <aside role="note" aria-label="Información sobre el servicio meteorológico">
+               Información actualizada en tiempo real para planificar tus actividades turísticas.</p>              <aside aria-label="Información sobre el servicio meteorológico">
                 <h3>🌐 Servicio Meteorológico Inteligente</h3>
                 <p>Nuestro sistema intenta obtener datos meteorológicos en tiempo real de OpenWeatherMap. 
                    Si no es posible, se muestran datos de demostración basados en el clima típico de Asturias 
                    para garantizar una experiencia completa.</p>
             </aside>
             
-            <!-- Tiempo actual -->
-            <section role="region" aria-label="Tiempo actual">
-                <h2>Tiempo Actual en Pola de Siero</h2>
-                <section role="status" aria-label="Estado de carga del tiempo actual" aria-live="polite">
-                    <p>⏳ Cargando información meteorológica actual...</p>
-                </section>
-                <section role="group" aria-label="Datos meteorológicos actuales">
+            <!-- Tiempo actual -->            <section aria-label="Tiempo actual">
+                <h2>Tiempo Actual en Pola de Siero</h2>                  <p aria-live="polite">
+                    <span>⏳ Cargando información meteorológica actual...</span>
+                </p>
+                <section aria-label="Datos meteorológicos actuales">
                     <!-- Contenido generado dinámicamente -->
                 </section>
             </section>
             
-            <!-- Previsión 7 días -->
-            <section role="region" aria-label="Previsión de 7 días">
-                <h2>Previsión para los Próximos 7 Días</h2>
-                <section role="status" aria-label="Estado de carga de la previsión" aria-live="polite">
-                    <p>⏳ Cargando previsión meteorológica...</p>
-                </section>
-                <section role="list" aria-label="Lista de previsiones diarias">
-                    <!-- Contenido generado dinámicamente -->
-                </section>
+            <!-- Previsión 7 días -->            <section aria-label="Previsión de 7 días">
+                <h2>Previsión para los Próximos 7 Días</h2>                  <p aria-live="polite">
+                    <span>⏳ Cargando previsión meteorológica...</span>                
+                </p>
+                    <ul>
+                    <!-- Contenido generado dinámicamente -->                
+                    </ul>
             </section>
             
             <!-- Información adicional -->
-            <section role="region" aria-label="Información adicional">
+            <section aria-label="Información adicional">
                 <h2>Información Climática de Siero</h2>
                 <article>
                     <h3>Clima Atlántico</h3>

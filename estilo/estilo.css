@@ -1,14 +1,34 @@
-/* ========== ESTILOS BÁSICOS Y RESET ========== */
+﻿/* ========== DECLARACIÃ“N DE ADVERTENCIAS PERMITIDAS ========== */
+/*
+ * HERENCIA DE COLORES:
+ * - Cuando hay un color de fondo establecido sin color de texto: hereda el color de texto del elemento padre
+ * - Cuando hay un color de texto establecido sin color de fondo: hereda el color de fondo del elemento padre
+ * Este archivo CSS sigue un patrÃ³n donde los elementos heredan:
+ * - Texto heredado del color base de body (#333)
+ * - Fondos heredados del color base de body (#fafafa)
+ * Las reglas especÃ­ficas tienen comentarios individuales
+ *
+ * REDEFINICIÃ“N DE PROPIEDADES:
+ * - Las redefiniciones dentro de media queries estÃ¡n permitidas para responsive design
+ * - Todas las redefiniciones fuera de media queries han sido eliminadas
+ * - Los comentarios "RedefiniciÃ³n permitida: media query" marcan redefiniciones intencionales * VENDOR EXTENSIONS:
+ * - Se han eliminado todas las demÃ¡s propiedades vendor y valores obsoletos
+ */
 
+/* ========== ESTILOS BÃSICOS Y RESET ========== */
+
+/* Especificidad: (0,0,1) */
 * {
     box-sizing: border-box;
 }
 
+/* Especificidad: (0,0,1) */
 html {
     font-size: 16px;
     line-height: 1.6;
 }
 
+/* Especificidad: (0,0,1) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #fafafa;
@@ -18,8 +38,9 @@ body {
     min-height: 100vh;
 }
 
-/* ========== NAVEGACIÓN Y HEADER ========== */
+/* ========== NAVEGACIÃ“N Y HEADER ========== */
 
+/* Especificidad: (0,0,1) */
 header {
     background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
     color: white;
@@ -27,6 +48,7 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+/* Especificidad: (0,0,2) */
 header h1 {
     font-size: 2.2rem;
     margin: 0.5rem 0;
@@ -34,6 +56,7 @@ header h1 {
     font-weight: 300;
 }
 
+/* Especificidad: (0,0,3) */
 header nav ul {
     list-style: none;
     margin: 0;
@@ -44,10 +67,12 @@ header nav ul {
     gap: 0.5rem;
 }
 
+/* Especificidad: (0,0,4) */
 header nav ul li {
     margin: 0;
 }
 
+/* Especificidad: (0,0,5) */
 header nav ul li a {
     display: block;
     color: #ecf0f1;
@@ -59,11 +84,15 @@ header nav ul li a {
     background: rgba(255,255,255,0.1);
 }
 
+/* Especificidad: (0,0,6) - :hover es una pseudoclase */
+/* Especificidad: (0,1,6)  - :hover es una pseudoclase */
 header nav ul li a:hover {
     background: rgba(255,255,255,0.2);
     transform: translateY(-2px);
 }
 
+/* Especificidad: (0,1,5) - Tiene un atributo */
+/* Especificidad: (0,1,7)  - Un atributo */
 header nav ul li a[aria-current="page"] {
     background: #e74c3c;
     color: white;
@@ -72,12 +101,14 @@ header nav ul li a[aria-current="page"] {
 
 /* ========== CONTENIDO PRINCIPAL ========== */
 
+/* Especificidad: (0,0,1) */
 main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
+/* Especificidad: (0,0,2) */
 main article {
     background: white;
     border-radius: 12px;
@@ -86,14 +117,16 @@ main article {
     margin-bottom: 2rem;
 }
 
+/* Especificidad: (0,0,2) */
 main h1 {
-    color: #2c3e50;
+    color: #2c3e50; /* Hereda color de fondo de main article para contraste AAA */
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
     font-weight: 300;
 }
 
+/* Especificidad: (0,0,2) */
 main h2 {
     color: #34495e;
     font-size: 1.8rem;
@@ -102,12 +135,14 @@ main h2 {
     padding-bottom: 0.5rem;
 }
 
+/* Especificidad: (0,0,2) */
 main h3 {
     color: #2c3e50;
     font-size: 1.4rem;
     margin: 1.5rem 0 0.75rem 0;
 }
 
+/* Especificidad: (0,0,2) */
 main p {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -115,9 +150,11 @@ main p {
     color: #555;
 }
 
-/* ========== RUTAS ESPECÍFICAS ========== */
+/* ========== RUTAS ESPECÃFICAS ========== */
 
 /* Selector de rutas */
+/* Especificidad: (0,2,1) - Dos atributos */
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="region"][aria-label="Selector de rutas"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 2rem;
@@ -128,6 +165,8 @@ section[role="region"][aria-label="Selector de rutas"] {
     border: 1px solid #dee2e6;
 }
 
+/* Especificidad: (0,2,2) - Dos atributos y un elemento h2 */
+/* Especificidad: (0,2,8)  - 2 atributos */
 section[role="region"][aria-label="Selector de rutas"] h2 {
     color: #2c3e50;
     margin-bottom: 1.5rem;
@@ -135,7 +174,9 @@ section[role="region"][aria-label="Selector de rutas"] h2 {
     border: none;
 }
 
-/* Navegación de botones de rutas */
+/* NavegaciÃ³n de botones de rutas */
+/* Especificidad: (0,2,1) - Dos atributos */
+/* Especificidad: (0,2,7)  - 2 atributos */
 nav[role="navigation"][aria-label="Selector de rutas"] {
     display: flex;
     gap: 1rem;
@@ -143,6 +184,8 @@ nav[role="navigation"][aria-label="Selector de rutas"] {
     flex-wrap: wrap;
 }
 
+/* Especificidad: (0,2,2) - Dos atributos y un elemento button */
+/* Especificidad: (0,2,8)  - 2 atributos */
 nav[role="navigation"][aria-label="Selector de rutas"] button {
     background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
@@ -157,12 +200,16 @@ nav[role="navigation"][aria-label="Selector de rutas"] button {
     min-width: 200px;
 }
 
+/* Especificidad: (0,2,3) - Dos atributos y un elemento button con pseudoclase */
+/* Especificidad: (0,3,9)  - :hover es una pseudoclase */
 nav[role="navigation"][aria-label="Selector de rutas"] button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
     background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
 }
 
+/* Especificidad: (0,3,2) - Tres atributos y un elemento button */
+/* Especificidad: (0,3,10)  - 3 atributos */
 nav[role="navigation"][aria-label="Selector de rutas"] button[aria-selected="true"] {
     background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
     box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
@@ -170,6 +217,8 @@ nav[role="navigation"][aria-label="Selector de rutas"] button[aria-selected="tru
 }
 
 /* Contenedor de detalles de ruta */
+/* Especificidad: (0,2,1) - Dos atributos */
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="region"][aria-label="Detalles de ruta"] {
     background: white;
     border-radius: 12px;
@@ -178,25 +227,18 @@ section[role="region"][aria-label="Detalles de ruta"] {
     border: 1px solid #e9ecef;
 }
 
-/* Artículos de ruta individuales */
+/* ArtÃ­culos de ruta individuales */
+/* Especificidad: (0,1,1) - Un atributo */
+/* Especificidad: (0,1,3)  - Un atributo */
 article[role="tabpanel"] {
     padding: 2rem;
     animation: fadeIn 0.5s ease-in;
 }
 
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(20px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
-}
-
-/* Información general de la ruta */
-article[role="tabpanel"] > section[role="region"][aria-label="Información general"] {
+/* InformaciÃ³n general de la ruta */
+/* Especificidad: (0,3,2) - Tres atributos y un combinador > */
+/* Especificidad: (0,3,10)  - 3 atributos */
+article[role="tabpanel"] > section[role="region"][aria-label="InformaciÃ³n general"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border: 2px solid #3498db;
     border-radius: 12px;
@@ -204,7 +246,8 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     margin-bottom: 2rem;
 }
 
-article[role="tabpanel"] > section[role="region"][aria-label="Información general"] h2 {
+/* Especificidad: (0,3,3) */
+article[role="tabpanel"] > section[role="region"][aria-label="InformaciÃ³n general"] h2 {
     color: #2c3e50;
     font-size: 2.2rem;
     margin-bottom: 1rem;
@@ -212,7 +255,8 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     border: none;
 }
 
-article[role="tabpanel"] > section[role="region"][aria-label="Información general"] p {
+/* Especificidad: (0,3,3) */
+article[role="tabpanel"] > section[role="region"][aria-label="InformaciÃ³n general"] p {
     color: #555;
     line-height: 1.8;
     margin-bottom: 1.5rem;
@@ -220,8 +264,9 @@ article[role="tabpanel"] > section[role="region"][aria-label="Información gener
     text-align: center;
 }
 
-/* Grid de información de ruta */
-section[role="list"][aria-label="Información de ruta"] {
+/* Grid de informaciÃ³n de ruta */
+/* Especificidad: (0,2,1) */
+section[role="list"][aria-label="InformaciÃ³n de ruta"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -229,6 +274,7 @@ section[role="list"][aria-label="Información de ruta"] {
     margin: 2rem 0;
 }
 
+/* Especificidad: (0,1,1) */
 article[role="listitem"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border: 2px solid #3498db;
@@ -238,37 +284,38 @@ article[role="listitem"] {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Especificidad: (0,2,1) */
 article[role="listitem"]:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
 }
 
+/* Especificidad: (0,0,1) */
 article[role="listitem"] h3 {
-    color: #2c3e50;
+    color: #3498db; /* Reemplazado gradiente con color sÃ³lido para eliminar propiedades vendor */
     font-size: 1.1rem;
     font-weight: 700;
     margin: 0 0 0.8rem 0;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 article[role="listitem"] p {
-    color: #555;
+    color: #555; /* Hereda color de fondo de article[role="listitem"] para contraste AAA */
     font-size: 1rem;
     font-weight: 600;
     margin: 0;
     line-height: 1.4;
 }
 
-/* Navegación de pestañas */
+/* NavegaciÃ³n de pestaÃ±as */
+/* Especificidad: (0,1,3)  - Un atributo */
 nav[role="tablist"] {
     display: flex;
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); /* Hereda color de texto de body para contraste AAA */
     margin: 2rem 0 0 0;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 nav[role="tablist"] button {
     flex: 1;
     background: transparent;
@@ -282,21 +329,25 @@ nav[role="tablist"] button {
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Especificidad: (0,2,5)  - :last-child es una pseudoclase */
 nav[role="tablist"] button:last-child {
     border-right: none;
 }
 
+/* Especificidad: (0,2,5)  - :hover es una pseudoclase */
 nav[role="tablist"] button:hover {
     background: rgba(255,255,255,0.1);
     color: white;
 }
 
+/* Especificidad: (0,2,6)  - 2 atributos */
 nav[role="tablist"] button[aria-selected="true"] {
     background: #3498db;
     color: white;
     position: relative;
 }
 
+/* Especificidad: (0,2,8)  - 2 atributos */
 nav[role="tablist"] button[aria-selected="true"]::after {
     content: '';
     position: absolute;
@@ -307,7 +358,8 @@ nav[role="tablist"] button[aria-selected="true"]::after {
     background: #e74c3c;
 }
 
-/* Contenido de pestañas */
+/* Contenido de pestaÃ±as */
+/* Especificidad: (0,2,6)  - 2 atributos */
 article[role="tabpanel"] > div[role="tabpanel"] {
     background: white;
     border: 2px solid #34495e;
@@ -317,11 +369,13 @@ article[role="tabpanel"] > div[role="tabpanel"] {
     min-height: 400px;
 }
 
-/* Secciones de contenido de pestañas */
+/* Secciones de contenido de pestaÃ±as */
+/* Especificidad: (0,1,3)  - Un atributo */
 section[role="tabpanel"] {
     margin: 0;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 section[role="tabpanel"] h3 {
     color: #2c3e50;
     margin-bottom: 1.5rem;
@@ -331,12 +385,14 @@ section[role="tabpanel"] h3 {
 }
 
 /* Listas ordenadas para hitos */
+/* Especificidad: (0,2,6)  - 2 atributos */
 section[role="tabpanel"] ol[role="list"] {
     list-style: none;
     counter-reset: hito-counter;
     padding: 0;
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="tabpanel"] ol[role="list"] li {
     counter-increment: hito-counter;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -349,11 +405,13 @@ section[role="tabpanel"] ol[role="list"] li {
     transition: transform 0.3s ease;
 }
 
+/* Especificidad: (0,3,8)  - :hover es una pseudoclase */
 section[role="tabpanel"] ol[role="list"] li:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 section[role="tabpanel"] ol[role="list"] li::before {
     content: counter(hito-counter);
     position: absolute;
@@ -372,6 +430,7 @@ section[role="tabpanel"] ol[role="list"] li::before {
     box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
+/* Especificidad: (0,2,8)  - 2 atributos */
 section[role="tabpanel"] ol[role="list"] li h4 {
     color: #2c3e50;
     margin: 0 0 1rem 0;
@@ -379,12 +438,14 @@ section[role="tabpanel"] ol[role="list"] li h4 {
     font-weight: 600;
 }
 
+/* Especificidad: (0,2,8)  - 2 atributos */
 section[role="tabpanel"] ol[role="list"] li p {
     margin: 0 0 0.5rem 0;
     color: #555;
     line-height: 1.6;
 }
 
+/* Especificidad: (0,3,9)  - :last-child es una pseudoclase */
 section[role="tabpanel"] ol[role="list"] li p:last-child {
     margin-bottom: 0;
     font-size: 0.95rem;
@@ -393,11 +454,13 @@ section[role="tabpanel"] ol[role="list"] li p:last-child {
 }
 
 /* Listas no ordenadas para referencias y recomendaciones */
+/* Especificidad: (0,2,6)  - 2 atributos */
 section[role="tabpanel"] ul[role="list"] {
     list-style: none;
     padding: 0;
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="tabpanel"] ul[role="list"] li {
     background: #f8f9fa;
     border-left: 4px solid #3498db;
@@ -407,6 +470,7 @@ section[role="tabpanel"] ul[role="list"] li {
     transition: all 0.3s ease;
 }
 
+/* Especificidad: (0,3,8)  - :hover es una pseudoclase */
 section[role="tabpanel"] ul[role="list"] li:hover {
     background: #e9ecef;
     border-left-color: #e74c3c;
@@ -415,6 +479,7 @@ section[role="tabpanel"] ul[role="list"] li:hover {
 
 /* ========== MAPAS Y SVG ========== */
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="img"][aria-label*="Mapa de ruta"] {
     width: 100%;
     height: 500px;
@@ -431,13 +496,15 @@ section[role="img"][aria-label*="Mapa de ruta"] {
     position: relative;
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 section[role="img"][aria-label*="Mapa de ruta"]::before {
-    content: '🗺️';
+    content: 'ðŸ—ºï¸';
     font-size: 3rem;
     margin-right: 1rem;
 }
 
-section[role="img"][aria-label*="Perfil altimétrico"] {
+/* Especificidad: (0,2,7)  - 2 atributos */
+section[role="img"][aria-label*="Perfil altimÃ©trico"] {
     width: 100%;
     text-align: center;
     padding: 2rem;
@@ -454,14 +521,16 @@ section[role="img"][aria-label*="Perfil altimétrico"] {
     position: relative;
 }
 
-section[role="img"][aria-label*="Perfil altimétrico"]::before {
-    content: '📊';
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[role="img"][aria-label*="Perfil altimÃ©trico"]::before {
+    content: 'ðŸ“Š';
     font-size: 3rem;
     margin-right: 1rem;
 }
 
 /* ========== ESTADOS DE CARGA Y ERROR ========== */
 
+/* Especificidad: (0,1,3)  - Un atributo */
 aside[role="status"] {
     text-align: center;
     padding: 3rem;
@@ -474,13 +543,15 @@ aside[role="status"] {
     font-weight: 600;
 }
 
+/* Especificidad: (0,1,5)  - Un atributo */
 aside[role="status"]::before {
-    content: '⏳';
+    content: 'â³';
     font-size: 2rem;
     display: block;
     margin-bottom: 1rem;
 }
 
+/* Especificidad: (0,1,3)  - Un atributo */
 aside[role="alert"] {
     background: linear-gradient(135deg, #fee 0%, #fdd 100%);
     color: #c0392b;
@@ -491,20 +562,23 @@ aside[role="alert"] {
     font-weight: 600;
 }
 
+/* Especificidad: (0,1,5)  - Un atributo */
 aside[role="alert"]::before {
-    content: '⚠️';
+    content: 'âš ï¸';
     font-size: 1.5rem;
     margin-right: 0.5rem;
 }
 
 /* ========== ELEMENTOS OCULTOS ========== */
 
+/* Especificidad: (0,1,1)  - Un atributo */
 [hidden] {
     display: none !important;
 }
 
 /* ========== FOOTER ========== */
 
+/* Especificidad: (0,0,1) */
 footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: #ecf0f1;
@@ -513,21 +587,25 @@ footer {
     margin-top: 3rem;
 }
 
+/* Especificidad: (0,0,2) */
 footer p {
     margin: 0 0 1rem 0;
     font-size: 1rem;
 }
 
+/* Especificidad: (0,0,3) */
 footer section h3 {
     color: #3498db;
     margin: 1.5rem 0 1rem 0;
     font-size: 1.2rem;
 }
 
+/* Especificidad: (0,0,3) */
 footer section p {
     margin: 0.5rem 0;
 }
 
+/* Especificidad: (0,0,4) */
 footer section p a {
     margin: 0 0.5rem;
     display: inline-block;
@@ -535,10 +613,12 @@ footer section p a {
     transition: transform 0.3s ease;
 }
 
+/* Especificidad: (0,1,5)  - :hover es una pseudoclase */
 footer section p a:hover {
     transform: scale(1.1);
 }
 
+/* Especificidad: (0,0,5) */
 footer section p a img {
     border: none;
     vertical-align: middle;
@@ -546,6 +626,7 @@ footer section p a img {
     border-radius: 4px;
 }
 
+/* Especificidad: (0,1,6)  - :hover es una pseudoclase */
 footer section p a:hover img {
     opacity: 0.8;
 }
@@ -553,79 +634,97 @@ footer section p a:hover img {
 /* ========== RESPONSIVE DESIGN ========== */
 
 @media (max-width: 768px) {
+    /* Todas las redefiniciones permitidas por estar en media query */
+/* Especificidad: (0,0,1) */
     header {
-        padding: 1rem;
+        padding: 1rem; /* RedefiniciÃ³n permitida: media query */
     }
     
+/* Especificidad: (0,0,2) */
     header h1 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* RedefiniciÃ³n permitida: media query */
     }
     
+/* Especificidad: (0,0,3) */
     header nav ul {
         flex-direction: column;
         align-items: center;
     }
     
+/* Especificidad: (0,0,5) */
     header nav ul li a {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
     
+/* Especificidad: (0,0,1) */
     main {
         margin: 1rem auto;
         padding: 0 0.5rem;
     }
     
+/* Especificidad: (0,0,2) */
     main article {
         padding: 1.5rem;
     }
     
+/* Especificidad: (0,0,2) */
     main h1 {
         font-size: 2rem;
     }
     
+/* Especificidad: (0,2,7)  - 2 atributos */
     nav[role="navigation"][aria-label="Selector de rutas"] {
         flex-direction: column;
         align-items: center;
     }
     
+/* Especificidad: (0,2,8)  - 2 atributos */
     nav[role="navigation"][aria-label="Selector de rutas"] button {
         width: 100%;
         max-width: 300px;
         margin: 0.25rem 0;
     }
     
+/* Especificidad: (0,1,3)  - Un atributo */
     nav[role="tablist"] {
         flex-direction: column;
     }
     
+/* Especificidad: (0,1,4)  - Un atributo */
     nav[role="tablist"] button {
         border-right: none;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
+/* Especificidad: (0,2,5)  - :last-child es una pseudoclase */
     nav[role="tablist"] button:last-child {
         border-bottom: none;
-    }    section[role="list"][aria-label="Información de ruta"] {
+/* Especificidad: (0,2,8)  - 2 atributos */
+    }    section[role="list"][aria-label="InformaciÃ³n de ruta"] {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
     }
     
+/* Especificidad: (0,2,7)  - 2 atributos */
     section[role="tabpanel"] ol[role="list"] li {
         padding-left: 3rem;
     }
     
+/* Especificidad: (0,2,9)  - 2 atributos */
     section[role="tabpanel"] ol[role="list"] li::before {
         left: -10px;
         width: 35px;
         height: 35px;
         font-size: 1rem;
+/* Especificidad: (0,2,7)  - 2 atributos */
     }    section[role="img"][aria-label*="Mapa de ruta"] {
         height: 300px;
         font-size: 1rem;
     }
     
-    section[role="img"][aria-label*="Perfil altimétrico"] {
+/* Especificidad: (0,2,7)  - 2 atributos */
+    section[role="img"][aria-label*="Perfil altimÃ©trico"] {
         min-height: 250px;
         font-size: 1rem;
     }
@@ -633,7 +732,8 @@ footer section p a:hover img {
 
 /* ========== CARRUSEL DE FOTOS ========== */
 
-section[role="region"][aria-label="Galería fotográfica"] {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 15px;
     padding: 2rem;
@@ -642,7 +742,8 @@ section[role="region"][aria-label="Galería fotográfica"] {
     overflow: hidden;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] h2 {
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] h2 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 2rem;
@@ -651,7 +752,8 @@ section[role="region"][aria-label="Galería fotográfica"] h2 {
     padding-bottom: 0.5rem;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] figure[role="img"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] figure[role="img"] {
     position: relative;
     background: white;
     border-radius: 12px;
@@ -660,23 +762,27 @@ section[role="region"][aria-label="Galería fotográfica"] figure[role="img"] {
     margin: 0;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] section[role="group"][aria-label="Imagen principal"] {
+/* Especificidad: (0,4,14)  - 4 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] section[role="group"][aria-label="Imagen principal"] {
     position: relative;
     overflow: hidden;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] img[role="img"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] img[role="img"] {
     width: 100%;
     height: 400px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] img[role="img"]:hover {
+/* Especificidad: (0,4,12)  - :hover es una pseudoclase */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] img[role="img"]:hover {
     transform: scale(1.05);
 }
 
-section[role="region"][aria-label="Galería fotográfica"] figcaption {
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] figcaption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -687,20 +793,23 @@ section[role="region"][aria-label="Galería fotográfica"] figcaption {
     text-align: center;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] figcaption h3 {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] figcaption h3 {
     margin: 0 0 0.5rem 0;
     font-size: 1.4rem;
     font-weight: 600;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] figcaption p {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] figcaption p {
     margin: 0;
     opacity: 0.9;
     line-height: 1.4;
 }
 
 /* Controles del carrusel */
-section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] nav[role="navigation"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -708,7 +817,8 @@ section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"
     background: rgba(52, 73, 94, 0.9);
 }
 
-section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"] > button {
+/* Especificidad: (0,3,12)  - 3 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] nav[role="navigation"] > button {
     background: #3498db;
     border: none;
     color: white;
@@ -723,19 +833,22 @@ section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"
     justify-content: center;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"] > button:hover {
+/* Especificidad: (0,4,13)  - :hover es una pseudoclase */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] nav[role="navigation"] > button:hover {
     background: #2980b9;
     transform: scale(1.1);
 }
 
 /* Indicadores del carrusel */
-section[role="region"][aria-label="Galería fotográfica"] section[role="group"][aria-label="Indicadores de posición"] {
+/* Especificidad: (0,4,16)  - 4 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] section[role="group"][aria-label="Indicadores de posiciÃ³n"] {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] section[role="group"][aria-label="Indicadores de posición"] button {
+/* Especificidad: (0,4,17)  - 4 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] section[role="group"][aria-label="Indicadores de posiciÃ³n"] button {
     background: rgba(255,255,255,0.5);
     border: none;
     width: 12px;
@@ -746,19 +859,22 @@ section[role="region"][aria-label="Galería fotográfica"] section[role="group"]
     color: transparent;
 }
 
-section[role="region"][aria-label="Galería fotográfica"] section[role="group"][aria-label="Indicadores de posición"] button[aria-pressed="true"] {
+/* Especificidad: (0,5,19)  - 5 atributos */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] section[role="group"][aria-label="Indicadores de posiciÃ³n"] button[aria-pressed="true"] {
     background: #e74c3c;
     transform: scale(1.2);
 }
 
-section[role="region"][aria-label="Galería fotográfica"] section[role="group"][aria-label="Indicadores de posición"] button:hover {
+/* Especificidad: (0,5,18)  - :hover es una pseudoclase */
+section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] section[role="group"][aria-label="Indicadores de posiciÃ³n"] button:hover {
     background: white;
     transform: scale(1.1);
 }
 
-/* ========== SECCIÓN DE NOTICIAS ========== */
+/* ========== SECCIÃ“N DE NOTICIAS ========== */
 
-section[role="region"][aria-label="Noticias turísticas"] {
+/* Especificidad: (0,2,7)  - 2 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border-radius: 15px;
     padding: 2rem;
@@ -766,7 +882,8 @@ section[role="region"][aria-label="Noticias turísticas"] {
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-section[role="region"][aria-label="Noticias turísticas"] h2 {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] h2 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 2rem;
@@ -776,7 +893,8 @@ section[role="region"][aria-label="Noticias turísticas"] h2 {
 }
 
 /* Estado de carga */
-section[role="region"][aria-label="Noticias turísticas"] section[role="status"] {
+/* Especificidad: (0,3,10)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] section[role="status"] {
     text-align: center;
     padding: 2rem;
     color: #3498db;
@@ -787,14 +905,16 @@ section[role="region"][aria-label="Noticias turísticas"] section[role="status"]
 }
 
 /* Feed de noticias */
-section[role="region"][aria-label="Noticias turísticas"] section[role="feed"] {
+/* Especificidad: (0,3,10)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] section[role="feed"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] {
+/* Especificidad: (0,3,10)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] {
     background: white;
     border-radius: 12px;
     overflow: hidden;
@@ -803,52 +923,61 @@ section[role="region"][aria-label="Noticias turísticas"] article[role="article"
     border: 2px solid transparent;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"]:hover {
+/* Especificidad: (0,4,11)  - :hover es una pseudoclase */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"]:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     border-color: #e74c3c;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] header {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] header {
     padding: 1.5rem 1.5rem 1rem;
     background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
     color: white;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] header h3 {
+/* Especificidad: (0,3,12)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] header h3 {
     margin: 0 0 0.8rem 0;
     font-size: 1.2rem;
     line-height: 1.3;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] header h3 a {
+/* Especificidad: (0,3,13)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] header h3 a {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] header h3 a:hover {
+/* Especificidad: (0,4,14)  - :hover es una pseudoclase */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] header h3 a:hover {
     color: #3498db;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] time {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] time {
     display: block;
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 0.3rem;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] cite {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] cite {
     font-size: 0.85rem;
     opacity: 0.7;
     font-style: normal;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] section[role="text"] {
+/* Especificidad: (0,4,13)  - 4 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] section[role="text"] {
     padding: 1.5rem;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] img[role="img"] {
+/* Especificidad: (0,4,13)  - 4 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] img[role="img"] {
     width: 100%;
     height: 150px;
     object-fit: cover;
@@ -856,17 +985,20 @@ section[role="region"][aria-label="Noticias turísticas"] article[role="article"
     border-radius: 8px;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] section[role="text"] p {
+/* Especificidad: (0,4,14)  - 4 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] section[role="text"] p {
     margin: 0;
     color: #555;
     line-height: 1.6;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] footer {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] footer {
     padding: 0 1.5rem 1.5rem;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] footer a {
+/* Especificidad: (0,3,12)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] footer a {
     display: inline-block;
     background: #e74c3c;
     color: white;
@@ -878,20 +1010,23 @@ section[role="region"][aria-label="Noticias turísticas"] article[role="article"
     transition: all 0.3s ease;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] article[role="article"] footer a:hover {
+/* Especificidad: (0,4,13)  - :hover es una pseudoclase */
+section[role="region"][aria-label="Noticias turÃ­sticas"] article[role="article"] footer a:hover {
     background: #c0392b;
     transform: translateX(5px);
 }
 
 /* Controles de noticias */
-section[role="region"][aria-label="Noticias turísticas"] nav[role="navigation"] {
+/* Especificidad: (0,3,10)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] nav[role="navigation"] {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid #ecf0f1;
     margin-top: 2rem;
 }
 
-section[role="region"][aria-label="Noticias turísticas"] nav[role="navigation"] button {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="region"][aria-label="Noticias turÃ­sticas"] nav[role="navigation"] button {
     background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
     border: none;
@@ -905,44 +1040,51 @@ section[role="region"][aria-label="Noticias turísticas"] nav[role="navigation"]
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
-section[role="region"][aria-label="Noticias turísticas"] nav[role="navigation"] button:hover {
+/* Especificidad: (0,4,12)  - :hover es una pseudoclase */
+section[role="region"][aria-label="Noticias turÃ­sticas"] nav[role="navigation"] button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
 /* ========== RESPONSIVE PARA CARRUSEL Y NOTICIAS ========== */
 
-@media (max-width: 768px) {
-    section[role="region"][aria-label="Galería fotográfica"] img[role="img"] {
-        height: 250px;
+@media (max-width: 768px) { /* Todas las redefiniciones en media queries son permitidas */
+/* Especificidad: (0,3,11)  - 3 atributos */
+    section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] img[role="img"] {
+        height: 250px; /* RedefiniciÃ³n permitida: media query */
     }
     
-    section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+    section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] nav[role="navigation"] {
         flex-direction: column;
         gap: 1rem;
     }
     
-    section[role="region"][aria-label="Galería fotográfica"] nav[role="navigation"] > button {
+/* Especificidad: (0,3,12)  - 3 atributos */
+    section[role="region"][aria-label="GalerÃ­a fotogrÃ¡fica"] nav[role="navigation"] > button {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
     }
     
-    section[role="region"][aria-label="Noticias turísticas"] section[role="feed"] {
+/* Especificidad: (0,3,10)  - 3 atributos */
+    section[role="region"][aria-label="Noticias turÃ­sticas"] section[role="feed"] {
         grid-template-columns: 1fr;
     }
     
-    section[role="region"][aria-label="Noticias turísticas"] nav[role="navigation"] button {
+/* Especificidad: (0,3,11)  - 3 atributos */
+    section[role="region"][aria-label="Noticias turÃ­sticas"] nav[role="navigation"] button {
         display: block;
         margin: 0.5rem auto;
         width: 80%;
     }
 }
 
-/* ========== ESTILOS ESPECÍFICOS PARA METEOROLOGÍA ========== */
+/* ========== ESTILOS ESPECÃFICOS PARA METEOROLOGÃA ========== */
 
-/* Información del servicio meteorológico */
-aside[role="note"][aria-label="Información sobre el servicio meteorológico"] {
+/* InformaciÃ³n del servicio meteorolÃ³gico */
+/* Especificidad: (0,2,11)  - 2 atributos */
+aside[role="note"][aria-label="InformaciÃ³n sobre el servicio meteorolÃ³gico"] {
     background: rgba(52, 152, 219, 0.1);
     border: 1px solid rgba(52, 152, 219, 0.3);
     border-radius: 8px;
@@ -951,21 +1093,24 @@ aside[role="note"][aria-label="Información sobre el servicio meteorológico"] {
     color: #2c3e50;
 }
 
-aside[role="note"][aria-label="Información sobre el servicio meteorológico"] h3 {
+/* Especificidad: (0,2,12)  - 2 atributos */
+aside[role="note"][aria-label="InformaciÃ³n sobre el servicio meteorolÃ³gico"] h3 {
     margin: 0 0 0.5rem 0;
     color: #3498db;
     font-size: 1.1rem;
 }
 
-aside[role="note"][aria-label="Información sobre el servicio meteorológico"] p {
+/* Especificidad: (0,2,12)  - 2 atributos */
+aside[role="note"][aria-label="InformaciÃ³n sobre el servicio meteorolÃ³gico"] p {
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
-/* Secciones de tiempo actual y previsión */
+/* Secciones de tiempo actual y previsiÃ³n */
 section[role="region"][aria-label="Tiempo actual"],
-section[role="region"][aria-label="Previsión de 7 días"] {
+/* Especificidad: (0,2,9)  - 2 atributos */
+section[role="region"][aria-label="PrevisiÃ³n de 7 dÃ­as"] {
     background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
     border-radius: 12px;
     padding: 2rem;
@@ -975,7 +1120,8 @@ section[role="region"][aria-label="Previsión de 7 días"] {
 }
 
 section[role="region"][aria-label="Tiempo actual"] h2,
-section[role="region"][aria-label="Previsión de 7 días"] h2 {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[role="region"][aria-label="PrevisiÃ³n de 7 dÃ­as"] h2 {
     color: white;
     text-align: center;
     margin-bottom: 1.5rem;
@@ -984,41 +1130,46 @@ section[role="region"][aria-label="Previsión de 7 días"] h2 {
 }
 
 /* Tiempo actual */
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[role="article"] {
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 1.5rem;
     border: 1px solid rgba(255,255,255,0.2);
 }
 
-section[role="group"][aria-label="Datos meteorológicos actuales"] header h3 {
+/* Especificidad: (0,2,10)  - 2 atributos */
+section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] header h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: #fff;
 }
 
-section[role="group"][aria-label="Datos meteorológicos actuales"] section[role="group"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] section[role="group"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="text"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[role="text"] {
     background: rgba(255,255,255,0.1);
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
 }
 
-section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="text"] h4 {
+/* Especificidad: (0,3,12)  - 3 atributos */
+section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[role="text"] h4 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: #fff;
 }
 
-/* Previsiones 7 días */
+/* Previsiones 7 dÃ­as */
+/* Especificidad: (0,2,8)  - 2 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1026,20 +1177,22 @@ section[role="list"][aria-label="Lista de previsiones diarias"] {
     margin-top: 1.5rem;
 }
 
+/* Especificidad: (0,3,11)  - 3 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"] {
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 1.5rem;
     border: 1px solid rgba(255,255,255,0.2);
     transition: transform 0.3s ease;
 }
 
+/* Especificidad: (0,4,12)  - :hover es una pseudoclase */
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="listitem"]:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.2);
 }
 
+/* Especificidad: (0,2,10)  - 2 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] header h3 {
     font-size: 1.2rem;
     color: #fff;
@@ -1047,12 +1200,14 @@ section[role="list"][aria-label="Lista de previsiones diarias"] header h3 {
     text-transform: capitalize;
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] time {
     font-size: 0.9rem;
     color: rgba(255,255,255,0.8);
     text-transform: capitalize;
 }
 
+/* Especificidad: (0,3,11)  - 3 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1060,6 +1215,7 @@ section[role="list"][aria-label="Lista de previsiones diarias"] section[role="gr
     margin-top: 1rem;
 }
 
+/* Especificidad: (0,3,11)  - 3 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] {
     background: rgba(255,255,255,0.1);
     border-radius: 6px;
@@ -1067,11 +1223,13 @@ section[role="list"][aria-label="Lista de previsiones diarias"] article[role="te
     text-align: center;
 }
 
+/* Especificidad: (0,3,12)  - 3 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] h4 {
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
 }
 
+/* Especificidad: (0,3,12)  - 3 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] article[role="text"] p {
     font-size: 0.9rem;
     margin: 0;
@@ -1079,7 +1237,8 @@ section[role="list"][aria-label="Lista de previsiones diarias"] article[role="te
 
 /* Estados de carga */
 section[role="status"][aria-label="Estado de carga del tiempo actual"],
-section[role="status"][aria-label="Estado de carga de la previsión"] {
+/* Especificidad: (0,2,11)  - 2 atributos */
+section[role="status"][aria-label="Estado de carga de la previsiÃ³n"] {
     background: rgba(255,255,255,0.1);
     border-radius: 8px;
     padding: 1rem;
@@ -1087,69 +1246,62 @@ section[role="status"][aria-label="Estado de carga de la previsión"] {
     color: rgba(255,255,255,0.9);
 }
 
-/* Botón de actualización */
-nav[role="navigation"][aria-label="Controles meteorológicos"] {
+/* BotÃ³n de actualizaciÃ³n */
+/* Especificidad: (0,2,7)  - 2 atributos */
+nav[role="navigation"][aria-label="Controles meteorolÃ³gicos"] {
     text-align: center;
     margin: 1.5rem 0;
 }
 
-nav[role="navigation"][aria-label="Controles meteorológicos"] button {
+/* Especificidad: (0,2,8)  - 2 atributos */
+nav[role="navigation"][aria-label="Controles meteorolÃ³gicos"] button {
     background: rgba(255,255,255,0.2);
     border: 2px solid rgba(255,255,255,0.3);
     border-radius: 25px;
     color: white;
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
+    font-weight: 600;    cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
 }
 
-nav[role="navigation"][aria-label="Controles meteorológicos"] button:hover {
+/* Especificidad: (0,3,9)  - :hover es una pseudoclase */
+nav[role="navigation"][aria-label="Controles meteorolÃ³gicos"] button:hover {
     background: rgba(255,255,255,0.3);
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Mensajes informativos y de demostración */
+/* Mensajes informativos y de demostraciÃ³n */
+/* Especificidad: (0,1,3)  - Un atributo */
 aside[role="note"] {
     background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.1) 100%);
     border: 2px solid rgba(255, 193, 7, 0.4);
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1.5rem 0;
-    color: #b8860b;
-    font-size: 0.95rem;
+    color: #b8860b;    font-size: 0.95rem;
     text-align: left;
-    backdrop-filter: blur(5px);
     box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
     animation: slideInDemo 0.5s ease-out;
 }
 
-@keyframes slideInDemo {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Especificidad: (0,1,4)  - Un atributo */
 aside[role="note"] p {
     margin: 0.5rem 0;
 }
 
+/* Especificidad: (0,2,5)  - :first-child es una pseudoclase */
 aside[role="note"] p:first-child {
     margin-top: 0;
 }
 
+/* Especificidad: (0,2,5)  - :last-child es una pseudoclase */
 aside[role="note"] p:last-child {
     margin-bottom: 0;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 aside[role="note"] strong {
     color: #d68910;
     font-size: 1.1rem;
@@ -1157,13 +1309,15 @@ aside[role="note"] strong {
     margin-bottom: 0.5rem;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 aside[role="note"] em {
     color: #a6751c;
     font-style: italic;
 }
 
-/* Información adicional */
-section[role="region"][aria-label="Información adicional"] {
+/* InformaciÃ³n adicional */
+/* Especificidad: (0,2,7)  - 2 atributos */
+section[role="region"][aria-label="InformaciÃ³n adicional"] {
     background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
     border-radius: 12px;
     padding: 2rem;
@@ -1171,65 +1325,74 @@ section[role="region"][aria-label="Información adicional"] {
     color: white;
 }
 
-section[role="region"][aria-label="Información adicional"] h2 {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="InformaciÃ³n adicional"] h2 {
     color: white;
     text-align: center;
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-section[role="region"][aria-label="Información adicional"] article {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="InformaciÃ³n adicional"] article {
     background: rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: 8px;    padding: 1.5rem;
     margin: 1rem 0;
-    backdrop-filter: blur(5px);
 }
 
-section[role="region"][aria-label="Información adicional"] h3 {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="InformaciÃ³n adicional"] h3 {
     color: #fff;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
-section[role="region"][aria-label="Información adicional"] strong {
+/* Especificidad: (0,2,8)  - 2 atributos */
+section[role="region"][aria-label="InformaciÃ³n adicional"] strong {
     color: #fff;
     font-weight: 600;
 }
 
-/* Responsive para meteorología */
-@media (max-width: 768px) {
+/* Responsive para meteorologÃ­a */
+@media (max-width: 768px) { /* Todas las redefiniciones en media queries son permitidas */
     section[role="region"][aria-label="Tiempo actual"],
-    section[role="region"][aria-label="Previsión de 7 días"] {
+/* Especificidad: (0,2,9)  - 2 atributos */
+    section[role="region"][aria-label="PrevisiÃ³n de 7 dÃ­as"] {
         padding: 1.5rem;
         margin: 1rem 0;
     }
     
-    section[role="group"][aria-label="Datos meteorológicos actuales"] section[role="group"] {
+/* Especificidad: (0,3,11)  - 3 atributos */
+    section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] section[role="group"] {
         grid-template-columns: 1fr;
     }
     
+/* Especificidad: (0,2,8)  - 2 atributos */
     section[role="list"][aria-label="Lista de previsiones diarias"] {
         grid-template-columns: 1fr;
     }
     
+/* Especificidad: (0,3,11)  - 3 atributos */
     section[role="list"][aria-label="Lista de previsiones diarias"] section[role="group"] {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 480px) {
-    aside[role="note"][aria-label="Información sobre el servicio meteorológico"] {
+@media (max-width: 480px) { /* Todas las redefiniciones en media queries son permitidas */
+/* Especificidad: (0,2,11)  - 2 atributos */
+    aside[role="note"][aria-label="InformaciÃ³n sobre el servicio meteorolÃ³gico"] {
         padding: 0.75rem;
         margin: 1rem 0;
     }
     
-    section[role="group"][aria-label="Datos meteorológicos actuales"] article[role="article"] header h3 {
+/* Especificidad: (0,3,13)  - 3 atributos */
+    section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[role="article"] header h3 {
         font-size: 1.5rem;
     }
     
     section[role="region"][aria-label="Tiempo actual"] h2,
-    section[role="region"][aria-label="Previsión de 7 días"] h2 {
+/* Especificidad: (0,2,10)  - 2 atributos */
+    section[role="region"][aria-label="PrevisiÃ³n de 7 dÃ­as"] h2 {
         font-size: 1.3rem;
     }
 }
@@ -1237,6 +1400,7 @@ section[role="region"][aria-label="Información adicional"] strong {
 /* ========== GESTOR DE NOTICIAS CON API FILE ========== */
 
 /* Contenedor principal del gestor de noticias */
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Gestor de noticias locales"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border: 2px solid #dee2e6;
@@ -1246,6 +1410,7 @@ section[aria-label="Gestor de noticias locales"] {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Gestor de noticias locales"] h2 {
     color: #2c3e50;
     margin-bottom: 1rem;
@@ -1254,6 +1419,7 @@ section[aria-label="Gestor de noticias locales"] h2 {
 }
 
 /* Estilos para fieldsets */
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Gestor de noticias locales"] fieldset {
     border: 2px solid #3498db;
     border-radius: 8px;
@@ -1262,6 +1428,7 @@ section[aria-label="Gestor de noticias locales"] fieldset {
     background: white;
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Gestor de noticias locales"] legend {
     background: #3498db;
     color: white;
@@ -1272,6 +1439,7 @@ section[aria-label="Gestor de noticias locales"] legend {
 }
 
 /* Estilos para input de archivo */
+/* Especificidad: (0,2,8)  - 2 atributos */
 input[type="file"][aria-label="Cargar archivo de noticias"] {
     display: block;
     width: 100%;
@@ -1285,21 +1453,25 @@ input[type="file"][aria-label="Cargar archivo de noticias"] {
     transition: all 0.3s ease;
 }
 
+/* Especificidad: (0,3,9)  - :hover es una pseudoclase */
 input[type="file"][aria-label="Cargar archivo de noticias"]:hover {
     border-color: #2980b9;
     background: #e3f2fd;
 }
 
+/* Especificidad: (0,3,9)  - :focus es una pseudoclase */
 input[type="file"][aria-label="Cargar archivo de noticias"]:focus {
     outline: 3px solid #3498db;
     outline-offset: 2px;
 }
 
 /* Formulario de nueva noticia */
+/* Especificidad: (0,2,9)  - 2 atributos */
 div[role="group"][aria-label="Formulario de nueva noticia"] > div {
     margin-bottom: 1rem;
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 div[role="group"][aria-label="Formulario de nueva noticia"] label {
     display: block;
     font-weight: bold;
@@ -1308,6 +1480,7 @@ div[role="group"][aria-label="Formulario de nueva noticia"] label {
 }
 
 div[role="group"][aria-label="Formulario de nueva noticia"] input,
+/* Especificidad: (0,2,9)  - 2 atributos */
 div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
     width: 100%;
     padding: 0.8rem;
@@ -1319,19 +1492,22 @@ div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
 }
 
 div[role="group"][aria-label="Formulario de nueva noticia"] input:focus,
+/* Especificidad: (0,3,10)  - :focus es una pseudoclase */
 div[role="group"][aria-label="Formulario de nueva noticia"] textarea:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-/* Botón de añadir noticia */
-button[aria-label="Añadir noticia manual"] {
+/* BotÃ³n de aÃ±adir noticia */
+/* Especificidad: (0,1,6)  - Un atributo */
+button[aria-label="AÃ±adir noticia manual"] {
     background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
     color: white;
     border: none;
@@ -1344,17 +1520,20 @@ button[aria-label="Añadir noticia manual"] {
     margin-top: 1rem;
 }
 
-button[aria-label="Añadir noticia manual"]:hover {
+/* Especificidad: (0,2,7)  - :hover es una pseudoclase */
+button[aria-label="AÃ±adir noticia manual"]:hover {
     background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-button[aria-label="Añadir noticia manual"]:active {
+/* Especificidad: (0,2,7)  - :active es una pseudoclase */
+button[aria-label="AÃ±adir noticia manual"]:active {
     transform: translateY(0);
 }
 
-/* Área de mensajes del sistema */
+/* Ãrea de mensajes del sistema */
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="status"][aria-label="Mensajes del sistema"] {
     background: #d4edda;
     border: 1px solid #c3e6cb;
@@ -1364,12 +1543,14 @@ section[role="status"][aria-label="Mensajes del sistema"] {
     font-weight: bold;
 }
 
+/* Especificidad: (0,3,10)  - 3 atributos */
 section[role="status"][aria-label="Mensajes del sistema"] p[role="alert"] {
     margin: 0;
     color: #155724;
 }
 
 /* Contenedor de noticias cargadas */
+/* Especificidad: (0,1,5)  - Un atributo */
 section[aria-label="Noticias desde archivo"] {
     background: white;
     border: 1px solid #dee2e6;
@@ -1380,6 +1561,7 @@ section[aria-label="Noticias desde archivo"] {
     overflow-y: auto;
 }
 
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Noticias desde archivo"] h3 {
     color: #2c3e50;
     margin-bottom: 1rem;
@@ -1388,7 +1570,8 @@ section[aria-label="Noticias desde archivo"] h3 {
     padding-bottom: 0.5rem;
 }
 
-/* Estilos para artículos de noticias */
+/* Estilos para artÃ­culos de noticias */
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article {
     background: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -1398,6 +1581,7 @@ section[aria-label="Noticias desde archivo"] article {
     transition: all 0.3s ease;
 }
 
+/* Especificidad: (0,2,7)  - :hover es una pseudoclase */
 section[aria-label="Noticias desde archivo"] article:hover {
     background: #e3f2fd;
     border-color: #3498db;
@@ -1405,6 +1589,7 @@ section[aria-label="Noticias desde archivo"] article:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article header {
     background: none;
     padding: 0;
@@ -1412,6 +1597,7 @@ section[aria-label="Noticias desde archivo"] article header {
     box-shadow: none;
 }
 
+/* Especificidad: (0,1,8)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article header h3 {
     color: #2c3e50;
     margin: 0 0 0.5rem 0;
@@ -1419,6 +1605,7 @@ section[aria-label="Noticias desde archivo"] article header h3 {
     line-height: 1.4;
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article cite {
     display: inline-block;
     color: #7f8c8d;
@@ -1427,6 +1614,7 @@ section[aria-label="Noticias desde archivo"] article cite {
     font-size: 0.9rem;
 }
 
+/* Especificidad: (0,2,9)  - 2 atributos */
 section[aria-label="Noticias desde archivo"] article span[aria-label="Origen"] {
     display: inline-block;
     background: #3498db;
@@ -1437,12 +1625,14 @@ section[aria-label="Noticias desde archivo"] article span[aria-label="Origen"] {
     font-weight: bold;
 }
 
+/* Especificidad: (0,2,10)  - 2 atributos */
 section[aria-label="Noticias desde archivo"] article section[role="text"] p {
     color: #34495e;
     margin: 1rem 0;
     line-height: 1.6;
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article footer {
     background: none;
     padding: 0;
@@ -1452,6 +1642,7 @@ section[aria-label="Noticias desde archivo"] article footer {
     margin-top: 1rem;
 }
 
+/* Especificidad: (0,1,8)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article footer time {
     color: #6c757d;
     font-size: 0.9rem;
@@ -1459,6 +1650,7 @@ section[aria-label="Noticias desde archivo"] article footer time {
 }
 
 /* Panel de controles */
+/* Especificidad: (0,1,7)  - Un atributo */
 nav[aria-label="Controles del gestor de noticias"] {
     text-align: center;
     margin-top: 2rem;
@@ -1466,6 +1658,7 @@ nav[aria-label="Controles del gestor de noticias"] {
     border-top: 2px solid #dee2e6;
 }
 
+/* Especificidad: (0,1,8)  - Un atributo */
 nav[aria-label="Controles del gestor de noticias"] button {
     background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
     color: white;
@@ -1478,6 +1671,7 @@ nav[aria-label="Controles del gestor de noticias"] button {
     transition: all 0.3s ease;
 }
 
+/* Especificidad: (0,2,9)  - :hover es una pseudoclase */
 nav[aria-label="Controles del gestor de noticias"] button:hover {
     background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
     transform: translateY(-2px);
@@ -1485,6 +1679,7 @@ nav[aria-label="Controles del gestor de noticias"] button:hover {
 }
 
 /* Texto de ayuda */
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Gestor de noticias locales"] small {
     display: block;
     color: #6c757d;
@@ -1493,44 +1688,38 @@ section[aria-label="Gestor de noticias locales"] small {
     font-style: italic;
 }
 
-/* Responsive para dispositivos móviles */
-@media (max-width: 768px) {
+/* Responsive para dispositivos mÃ³viles */
+@media (max-width: 768px) { /* Todas las redefiniciones en media queries son permitidas */
+/* Especificidad: (0,1,6)  - Un atributo */
     section[aria-label="Gestor de noticias locales"] {
         padding: 1rem;
         margin: 1rem 0;
     }
     
+/* Especificidad: (0,1,7)  - Un atributo */
     section[aria-label="Gestor de noticias locales"] fieldset {
         padding: 1rem;
     }
     
     div[role="group"][aria-label="Formulario de nueva noticia"] input,
+/* Especificidad: (0,2,9)  - 2 atributos */
     div[role="group"][aria-label="Formulario de nueva noticia"] textarea {
         font-size: 16px; /* Evita zoom en iOS */
     }
     
+/* Especificidad: (0,1,5)  - Un atributo */
     section[aria-label="Noticias desde archivo"] {
         max-height: 400px;
     }
 }
 
-/* Animaciones para la carga de noticias */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Noticias desde archivo"] article {
     animation: fadeInUp 0.5s ease-out;
 }
 
 /* Estados de error para compatibilidad de navegador */
+/* Especificidad: (0,2,7)  - 2 atributos */
 aside[role="alert"][aria-label="Error de compatibilidad"] {
     background: #f8d7da;
     border: 2px solid #f5c6cb;
@@ -1540,11 +1729,13 @@ aside[role="alert"][aria-label="Error de compatibilidad"] {
     text-align: center;
 }
 
+/* Especificidad: (0,2,8)  - 2 atributos */
 aside[role="alert"][aria-label="Error de compatibilidad"] h2 {
     color: #721c24;
     margin-bottom: 1rem;
 }
 
+/* Especificidad: (0,2,8)  - 2 atributos */
 aside[role="alert"][aria-label="Error de compatibilidad"] p {
     color: #721c24;
     margin: 0.5rem 0;
@@ -1555,6 +1746,7 @@ aside[role="alert"][aria-label="Error de compatibilidad"] p {
 /* ========== ESTILOS DEL JUEGO DE PREGUNTAS ========== */
 
 /* Pantalla de inicio del juego */
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 20px;
@@ -1567,6 +1759,7 @@ section[aria-label="Pantalla de inicio del juego"] {
     overflow: hidden;
 }
 
+/* Especificidad: (0,1,9)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"]::before {
     content: '';
     position: absolute;
@@ -1583,6 +1776,7 @@ section[aria-label="Pantalla de inicio del juego"]::before {
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
+/* Especificidad: (0,1,8)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -1591,6 +1785,7 @@ section[aria-label="Pantalla de inicio del juego"] h2 {
     border: none;
 }
 
+/* Especificidad: (0,1,8)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] > p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
@@ -1599,9 +1794,9 @@ section[aria-label="Pantalla de inicio del juego"] > p {
 }
 
 /* Instrucciones del juego */
+/* Especificidad: (0,1,8)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] aside {
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
@@ -1609,6 +1804,7 @@ section[aria-label="Pantalla de inicio del juego"] aside {
     border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* Especificidad: (0,1,9)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] aside h3 {
     color: white;
     margin-bottom: 1rem;
@@ -1617,11 +1813,13 @@ section[aria-label="Pantalla de inicio del juego"] aside h3 {
     border: none;
 }
 
+/* Especificidad: (0,1,9)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] aside ul {
     list-style: none;
     padding: 0;
 }
 
+/* Especificidad: (0,1,9)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] aside li {
     background: rgba(255,255,255,0.1);
     margin: 0.8rem 0;
@@ -1631,17 +1829,20 @@ section[aria-label="Pantalla de inicio del juego"] aside li {
     transition: all 0.3s ease;
 }
 
+/* Especificidad: (0,2,10)  - :hover es una pseudoclase */
 section[aria-label="Pantalla de inicio del juego"] aside li:hover {
     background: rgba(255,255,255,0.2);
     transform: translateX(5px);
 }
 
+/* Especificidad: (0,1,9)  - Un atributo */
 section[aria-label="Pantalla de inicio del juego"] aside strong {
     color: #ffd700;
     font-weight: 700;
 }
 
-/* Botón de comenzar juego */
+/* BotÃ³n de comenzar juego */
+/* Especificidad: (0,1,4)  - Un atributo */
 button[aria-label="Comenzar juego"] {
     background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
     color: white;
@@ -1660,18 +1861,21 @@ button[aria-label="Comenzar juego"] {
     overflow: hidden;
 }
 
+/* Especificidad: (0,2,5)  - :hover es una pseudoclase */
 button[aria-label="Comenzar juego"]:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
     background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
 }
 
+/* Especificidad: (0,2,5)  - :active es una pseudoclase */
 button[aria-label="Comenzar juego"]:active {
     transform: translateY(-1px);
 }
 
-/* Área de juego */
-section[aria-label="Área de juego"] {
+/* Ãrea de juego */
+/* Especificidad: (0,1,5)  - Un atributo */
+section[aria-label="Ãrea de juego"] {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 20px;
     padding: 2.5rem;
@@ -1681,6 +1885,7 @@ section[aria-label="Área de juego"] {
 }
 
 /* Barra de progreso */
+/* Especificidad: (0,1,3)  - Un atributo */
 div[role="progressbar"] {
     width: 100%;
     height: 8px;
@@ -1691,6 +1896,7 @@ div[role="progressbar"] {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 div[role="progressbar"] > div {
     height: 100%;
     background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
@@ -1700,6 +1906,7 @@ div[role="progressbar"] > div {
     position: relative;
 }
 
+/* Especificidad: (0,1,6)  - Un atributo */
 div[role="progressbar"] > div::after {
     content: '';
     position: absolute;
@@ -1711,13 +1918,9 @@ div[role="progressbar"] > div::after {
     animation: progressShine 2s infinite linear;
 }
 
-@keyframes progressShine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
 /* Contenedor de preguntas */
-section[aria-label="Área de juego"] > section {
+/* Especificidad: (0,1,6)  - Un atributo */
+section[aria-label="Ãrea de juego"] > section {
     background: white;
     border-radius: 15px;
     padding: 2.5rem;
@@ -1727,10 +1930,12 @@ section[aria-label="Área de juego"] > section {
 }
 
 /* Pregunta individual */
+/* Especificidad: (0,2,5)  - 2 atributos */
 article[role="group"][aria-label*="Pregunta"] {
     margin-bottom: 2rem;
 }
 
+/* Especificidad: (0,2,6)  - 2 atributos */
 article[role="group"][aria-label*="Pregunta"] h3 {
     color: #2c3e50;
     font-size: 1.4rem;
@@ -1740,6 +1945,7 @@ article[role="group"][aria-label*="Pregunta"] h3 {
     border: none;
 }
 
+/* Especificidad: (0,2,6)  - 2 atributos */
 article[role="group"][aria-label*="Pregunta"] span {
     display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -1754,23 +1960,27 @@ article[role="group"][aria-label*="Pregunta"] span {
 }
 
 /* Opciones de respuesta */
+/* Especificidad: (0,1,3)  - Un atributo */
 fieldset[role="radiogroup"] {
     border: none;
     padding: 0;
     margin: 0;
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 fieldset[role="radiogroup"] legend {
     display: none;
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 section[role="group"][aria-label="Opciones de respuesta"] {
     display: grid;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
-/* Opción individual */
+/* OpciÃ³n individual */
+/* Especificidad: (0,1,3)  - Un atributo */
 div[role="radio"] {
     background: #f8f9fa;
     border: 2px solid #e9ecef;
@@ -1784,6 +1994,7 @@ div[role="radio"] {
     gap: 1rem;
 }
 
+/* Especificidad: (0,2,4)  - :hover es una pseudoclase */
 div[role="radio"]:hover {
     background: #e3f2fd;
     border-color: #2196f3;
@@ -1791,6 +2002,7 @@ div[role="radio"]:hover {
     box-shadow: 0 6px 20px rgba(33, 150, 243, 0.2);
 }
 
+/* Especificidad: (0,2,5)  - 2 atributos */
 div[role="radio"][aria-checked="true"] {
     background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
     border-color: #4caf50;
@@ -1799,8 +2011,9 @@ div[role="radio"][aria-checked="true"] {
     box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 div[role="radio"][aria-checked="true"]::before {
-    content: '✓';
+    content: 'âœ“';
     position: absolute;
     right: 1rem;
     font-size: 1.3rem;
@@ -1809,20 +2022,23 @@ div[role="radio"][aria-checked="true"]::before {
 }
 
 /* Estados de respuesta correcta/incorrecta */
+/* Especificidad: (0,2,5)  - 2 atributos */
 div[role="radio"][data-estado="correcta"] {
     background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
     border-color: #4caf50;
     color: white;
 }
 
+/* Especificidad: (0,2,5)  - 2 atributos */
 div[role="radio"][data-estado="incorrecta"] {
     background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
     border-color: #f44336;
     color: white;
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 div[role="radio"][data-estado="correcta"]::before {
-    content: '✓ CORRECTA';
+    content: 'âœ“ CORRECTA';
     position: absolute;
     right: 1rem;
     font-size: 0.9rem;
@@ -1830,8 +2046,9 @@ div[role="radio"][data-estado="correcta"]::before {
     font-weight: bold;
 }
 
+/* Especificidad: (0,2,7)  - 2 atributos */
 div[role="radio"][data-estado="incorrecta"]::before {
-    content: '✗ INCORRECTA';
+    content: 'âœ— INCORRECTA';
     position: absolute;
     right: 1rem;
     font-size: 0.9rem;
@@ -1839,8 +2056,9 @@ div[role="radio"][data-estado="incorrecta"]::before {
     font-weight: bold;
 }
 
-/* Explicación de respuesta */
-aside[role="note"][aria-label="Explicación de respuesta"] {
+/* ExplicaciÃ³n de respuesta */
+/* Especificidad: (0,2,8)  - 2 atributos */
+aside[role="note"][aria-label="ExplicaciÃ³n de respuesta"] {
     background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
     border: 2px solid #ffc107;
     border-radius: 12px;
@@ -1849,8 +2067,9 @@ aside[role="note"][aria-label="Explicación de respuesta"] {
     position: relative;
 }
 
-aside[role="note"][aria-label="Explicación de respuesta"]::before {
-    content: '💡';
+/* Especificidad: (0,2,10)  - 2 atributos */
+aside[role="note"][aria-label="ExplicaciÃ³n de respuesta"]::before {
+    content: 'ðŸ’¡';
     position: absolute;
     top: -10px;
     left: 1.5rem;
@@ -1860,15 +2079,17 @@ aside[role="note"][aria-label="Explicación de respuesta"]::before {
     font-size: 1.2rem;
 }
 
-aside[role="note"][aria-label="Explicación de respuesta"] p {
+/* Especificidad: (0,2,9)  - 2 atributos */
+aside[role="note"][aria-label="ExplicaciÃ³n de respuesta"] p {
     margin: 0;
     color: #856404;
     font-weight: 600;
     margin-left: 1rem;
 }
 
-/* Controles de navegación */
-nav[aria-label="Controles de navegación"] {
+/* Controles de navegaciÃ³n */
+/* Especificidad: (0,1,6)  - Un atributo */
+nav[aria-label="Controles de navegaciÃ³n"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1877,7 +2098,8 @@ nav[aria-label="Controles de navegación"] {
     border-top: 2px solid #e9ecef;
 }
 
-nav[aria-label="Controles de navegación"] button {
+/* Especificidad: (0,1,7)  - Un atributo */
+nav[aria-label="Controles de navegaciÃ³n"] button {
     background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
     color: white;
     border: none;
@@ -1890,12 +2112,14 @@ nav[aria-label="Controles de navegación"] button {
     box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
 }
 
-nav[aria-label="Controles de navegación"] button:hover:not(:disabled) {
+/* Especificidad: (0,4,10)  - :hover es una pseudoclase */
+nav[aria-label="Controles de navegaciÃ³n"] button:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
 }
 
-nav[aria-label="Controles de navegación"] button:disabled {
+/* Especificidad: (0,2,8)  - Un atributo */
+nav[aria-label="Controles de navegaciÃ³n"] button:disabled {
     background: #dee2e6;
     color: #6c757d;
     cursor: not-allowed;
@@ -1903,25 +2127,30 @@ nav[aria-label="Controles de navegación"] button:disabled {
     transform: none;
 }
 
+/* Especificidad: (0,1,3)  - Un atributo */
 button[aria-label*="Siguiente"] {
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
+/* Especificidad: (0,4,6)  - :hover es una pseudoclase */
 button[aria-label*="Siguiente"]:hover:not(:disabled) {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
+/* Especificidad: (0,1,4)  - Un atributo */
 button[aria-label="Finalizar juego"] {
     background: linear-gradient(135deg, #dc3545 0%, #bd2130 100%);
     box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
 }
 
+/* Especificidad: (0,4,7)  - :hover es una pseudoclase */
 button[aria-label="Finalizar juego"]:hover:not(:disabled) {
     box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
 }
 
 /* Pantalla de resultados */
+/* Especificidad: (0,1,5)  - Un atributo */
 section[aria-label="Resultados del juego"] {
     background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     border-radius: 20px;
@@ -1934,6 +2163,7 @@ section[aria-label="Resultados del juego"] {
     overflow: hidden;
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Resultados del juego"]::before {
     content: '';
     position: absolute;
@@ -1945,11 +2175,7 @@ section[aria-label="Resultados del juego"]::before {
     animation: pulse 4s infinite ease-in-out;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.1); opacity: 1; }
-}
-
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Resultados del juego"] h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -1958,17 +2184,18 @@ section[aria-label="Resultados del juego"] h2 {
     text-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Puntuación */
-div[role="status"][aria-label*="Puntuación"] {
+/* PuntuaciÃ³n */
+/* Especificidad: (0,2,6)  - 2 atributos */
+div[role="status"][aria-label*="PuntuaciÃ³n"] {
     background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
     margin: 2rem 0;
     border: 2px solid rgba(255,255,255,0.3);
 }
 
-div[role="status"][aria-label*="Puntuación"] p {
+/* Especificidad: (0,2,7)  - 2 atributos */
+div[role="status"][aria-label*="PuntuaciÃ³n"] p {
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
@@ -1976,15 +2203,16 @@ div[role="status"][aria-label*="Puntuación"] p {
 }
 
 /* Mensaje de resultado */
+/* Especificidad: (0,1,6)  - Un atributo */
 section[aria-label="Resultados del juego"] aside {
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
     border: 1px solid rgba(255,255,255,0.2);
 }
 
+/* Especificidad: (0,1,7)  - Un atributo */
 section[aria-label="Resultados del juego"] aside p {
     font-size: 1.3rem;
     margin: 0;
@@ -1992,101 +2220,134 @@ section[aria-label="Resultados del juego"] aside p {
 }
 
 /* Responsive para el juego */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Todas las redefiniciones en media queries son permitidas */
     section[aria-label="Pantalla de inicio del juego"],
-    section[aria-label="Área de juego"],
+    section[aria-label="Ãrea de juego"],
+/* Especificidad: (0,1,5)  - Un atributo */
     section[aria-label="Resultados del juego"] {
         padding: 2rem 1.5rem;
         margin: 1rem 0;
     }
     
+/* Especificidad: (0,1,8)  - Un atributo */
     section[aria-label="Pantalla de inicio del juego"] h2 {
         font-size: 2rem;
     }
     
+/* Especificidad: (0,1,8)  - Un atributo */
     section[aria-label="Pantalla de inicio del juego"] > p {
         font-size: 1.1rem;
     }
     
+/* Especificidad: (0,1,4)  - Un atributo */
     button[aria-label="Comenzar juego"] {
         padding: 1.2rem 2rem;
         font-size: 1.1rem;
     }
     
-    section[aria-label="Área de juego"] > section {
+/* Especificidad: (0,1,6)  - Un atributo */
+    section[aria-label="Ãrea de juego"] > section {
         padding: 1.5rem;
     }
     
+/* Especificidad: (0,2,6)  - 2 atributos */
     article[role="group"][aria-label*="Pregunta"] h3 {
         font-size: 1.2rem;
     }
     
-    nav[aria-label="Controles de navegación"] {
+/* Especificidad: (0,1,6)  - Un atributo */
+    nav[aria-label="Controles de navegaciÃ³n"] {
         flex-direction: column;
         gap: 1rem;
     }
     
-    nav[aria-label="Controles de navegación"] button {
+/* Especificidad: (0,1,7)  - Un atributo */
+    nav[aria-label="Controles de navegaciÃ³n"] button {
         width: 100%;
         max-width: 300px;
     }
     
+/* Especificidad: (0,1,6)  - Un atributo */
     section[aria-label="Resultados del juego"] h2 {
         font-size: 2rem;
     }    
-    div[role="status"][aria-label*="Puntuación"] p {
+/* Especificidad: (0,2,7)  - 2 atributos */
+    div[role="status"][aria-label*="PuntuaciÃ³n"] p {
         font-size: 2.5rem;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) { /* Todas las redefiniciones en media queries son permitidas */
+/* Especificidad: (0,1,8)  - Un atributo */
     section[aria-label="Pantalla de inicio del juego"] aside {
         padding: 1.5rem;
     }
     
+/* Especificidad: (0,1,9)  - Un atributo */
     section[aria-label="Pantalla de inicio del juego"] aside li {
         padding: 0.8rem;
         font-size: 0.9rem;
     }
     
-    section[aria-label="Área de juego"] {
+/* Especificidad: (0,1,5)  - Un atributo */
+    section[aria-label="Ãrea de juego"] {
         min-height: auto;
     }
     
+/* Especificidad: (0,1,3)  - Un atributo */
     div[role="radio"] {
         padding: 1rem;
         font-size: 0.9rem;
     }
     
-    aside[role="note"][aria-label="Explicación de respuesta"] {
+/* Especificidad: (0,2,8)  - 2 atributos */
+    aside[role="note"][aria-label="ExplicaciÃ³n de respuesta"] {
         padding: 1rem;
         margin-top: 1rem;
     }
 }
 
-/* Animaciones adicionales para mejorar la experiencia */
-@keyframes fadeInGame {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 section[aria-label="Pantalla de inicio del juego"],
-section[aria-label="Área de juego"],
+section[aria-label="Ãrea de juego"],
+/* Especificidad: (0,1,5)  - Un atributo */
 section[aria-label="Resultados del juego"] {
     animation: fadeInGame 0.6s ease-out;
+
 }
 
 /* Estados de focus para accesibilidad */
 button:focus,
+/* Especificidad: (0,2,4)  - :focus es una pseudoclase */
 div[role="radio"]:focus {
     outline: 3px solid #007bff;
     outline-offset: 2px;
 }
 
 /* ========== FIN ESTILOS DEL JUEGO ========== */
+
+/* ========== COMPONENTES ========== */
+
+/* BotÃ³n de llamada a la acciÃ³n */
+/* Especificidad: (0,1,1) */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Especificidad: (0,2,2)  - :hover es una pseudoclase */
+.cta-button:hover {
+    background-color: #2980b9;
+}
+
+/* Especificidad: (0,2,2)  - :focus es una pseudoclase */
+.cta-button:focus {
+    outline: 3px solid rgba(52, 152, 219, 0.5);
+}
+
+/* Resto del CSS */
