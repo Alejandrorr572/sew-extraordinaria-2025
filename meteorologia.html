@@ -19,6 +19,21 @@
     
     <!-- Script local de meteorología -->
     <script src="js/meteorologia.js"></script>
+    
+    <script>
+        // Debug script to validate elements after page load
+        $(document).ready(function() {
+            setTimeout(function() {
+                console.log("DEBUG: Checking weather elements");
+                console.log("Current weather status element exists:", $('section[aria-label="Estado de carga del tiempo actual"]').length);
+                console.log("Current weather data element exists:", $('section[aria-label="Datos meteorológicos actuales"]').length);
+                console.log("Forecast status element exists:", $('section[aria-label="Estado de carga de la previsión"]').length);
+                console.log("Forecast list element exists:", $('section[aria-label="Lista de previsiones diarias"]').length);
+                console.log("Weather data exists:", window.servicioMeteorologico && window.servicioMeteorologico.datosActuales ? "Yes" : "No");
+                console.log("Forecast data exists:", window.servicioMeteorologico && window.servicioMeteorologico.datosPrevisiones ? "Yes" : "No");
+            }, 2000);
+        });
+    </script>
 </head>
 <body>
     <!-- Header y navegación -->
@@ -46,23 +61,44 @@
                    Si no es posible, se muestran datos de demostración basados en el clima típico de Asturias 
                    para garantizar una experiencia completa.</p>
             </aside>
-            
-            <!-- Tiempo actual -->            <section aria-label="Tiempo actual">
-                <h2>Tiempo Actual en Pola de Siero</h2>                  <p aria-live="polite">
+              <!-- Tiempo actual -->            <section aria-label="Tiempo actual">
+                <h2>Tiempo Actual en Pola de Siero</h2>                  
+                <section aria-label="Estado de carga del tiempo actual" role="status" aria-live="polite">
                     <span>⏳ Cargando información meteorológica actual...</span>
-                </p>
+                </section>
                 <section aria-label="Datos meteorológicos actuales">
                     <!-- Contenido generado dinámicamente -->
                 </section>
+                
+                <!-- Botón de actualización manual -->
+                <div style="margin: 20px 0; text-align: center;">
+                    <button id="force-refresh" style="padding: 10px 20px; background-color: #0d47a1; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        🔄 Forzar Actualización de Datos
+                    </button>
+                </div>
+                <script>
+                    $(document).ready(function() {
+                        $('#force-refresh').click(function() {
+                            console.log("Force refresh clicked");
+                            if (window.servicioMeteorologico) {
+                                console.log("Refreshing weather data...");
+                                window.servicioMeteorologico.cargarTiempoActual();
+                                window.servicioMeteorologico.cargarPrevisiones();
+                            } else {
+                                console.error("Weather service not initialized!");
+                            }
+                        });
+                    });
+                </script>
             </section>
-            
-            <!-- Previsión 7 días -->            <section aria-label="Previsión de 7 días">
-                <h2>Previsión para los Próximos 7 Días</h2>                  <p aria-live="polite">
+              <!-- Previsión 7 días -->            <section aria-label="Previsión de 7 días">
+                <h2>Previsión para los Próximos 7 Días</h2>                  
+                <section aria-label="Estado de carga de la previsión" role="status" aria-live="polite">
                     <span>⏳ Cargando previsión meteorológica...</span>                
-                </p>
-                    <ul>
+                </section>
+                <section aria-label="Lista de previsiones diarias" role="list">
                     <!-- Contenido generado dinámicamente -->                
-                    </ul>
+                </section>
             </section>
             
             <!-- Información adicional -->

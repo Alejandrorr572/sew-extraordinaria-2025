@@ -236,8 +236,7 @@ class ServicioMeteorologico {    constructor() {
     }
       /**
      * Carga previsiones de respaldo
-     */
-    async cargarPrevisionesRespaldo() {
+     */    async cargarPrevisionesRespaldo() {
         try {
             console.log('Generando previsiones de demostración para Siero...');
             
@@ -256,31 +255,47 @@ class ServicioMeteorologico {    constructor() {
                 { temp_min: 15, temp_max: 20, condicion: 'Rain', desc: 'chubascos', icon: '09d', humedad: 80 }
             ];
             
+            // Create 5-day forecast with 3-hour steps to simulate OpenWeatherMap format
             for (let i = 0; i < 7; i++) {
                 const fecha = new Date(hoy);
                 fecha.setDate(fecha.getDate() + i);
                 
                 const condicion = condicionesAsturias[i];
                 
-                previsiones.push({
-                    dt: fecha.getTime() / 1000,
-                    main: {
-                        temp_min: condicion.temp_min,
-                        temp_max: condicion.temp_max,
-                        humidity: condicion.humedad
-                    },
-                    weather: [{
-                        main: condicion.condicion,
-                        description: condicion.desc,
-                        icon: condicion.icon
-                    }],
-                    wind: {
-                        speed: 1.5 + Math.random() * 3.5 // Viento típico de 1.5-5 m/s
-                    }
-                });
+                // Add 8 entries per day (every 3 hours) to simulate OpenWeatherMap format
+                for (let hour = 0; hour < 24; hour += 3) {
+                    fecha.setHours(hour);
+                    
+                    previsiones.push({
+                        dt: fecha.getTime() / 1000,
+                        main: {
+                            temp: (condicion.temp_min + condicion.temp_max) / 2,
+                            temp_min: condicion.temp_min,
+                            temp_max: condicion.temp_max,
+                            humidity: condicion.humedad
+                        },
+                        weather: [{
+                            main: condicion.condicion,
+                            description: condicion.desc,
+                            icon: condicion.icon
+                        }],
+                        wind: {
+                            speed: 1.5 + Math.random() * 3.5 // Viento típico de 1.5-5 m/s
+                        },
+                        dt_txt: fecha.toISOString().replace('T', ' ').substring(0, 19)
+                    });
+                }
             }
             
-            this.datosPrevisiones = { list: previsiones };
+            this.datosPrevisiones = { 
+                list: previsiones,
+                city: {
+                    name: this.ciudad,
+                    country: "ES"
+                }
+            };
+            
+            console.log("Previsiones de respaldo generadas:", this.datosPrevisiones);
             this.mostrarPrevisiones();
             
             // Mostrar mensaje informativo
@@ -363,10 +378,17 @@ class ServicioMeteorologico {    constructor() {
      * Muestra las previsiones de 7 días
      */
     mostrarPrevisiones() {
-        if (!this.datosPrevisiones || !this.datosPrevisiones.list) return;
+        console.log("mostrarPrevisiones called, data:", this.datosPrevisiones);
+        
+        if (!this.datosPrevisiones || !this.datosPrevisiones.list) {
+            console.error("No forecast data available or invalid format!");
+            console.trace();
+            return;
+        }
         
         // Agrupar por días y tomar el del mediodía
         const previsionesDiarias = this.agruparPorDias(this.datosPrevisiones.list);
+        console.log("Forecast days processed:", previsionesDiarias.length);
         
         const html = previsionesDiarias.map((prevision, index) => {
             const fecha = new Date(prevision.dt * 1000);
@@ -409,11 +431,12 @@ class ServicioMeteorologico {    constructor() {
             `;
         }).join('');
         
+        console.log("Setting forecast HTML, length:", html.length);
         this.$previsionLista.html(html);
+        console.log("Forecast list element updated");
     }
-    
-    /**
-     * Agrupa las previsiones por días (toma la del mediodía)
+      /**
+     * Agrupa las previsiones por días (toma la del mediodía o la primera del día)
      */
     agruparPorDias(lista) {
         const dias = new Map();
@@ -421,12 +444,15 @@ class ServicioMeteorologico {    constructor() {
         lista.forEach(item => {
             const fecha = new Date(item.dt * 1000);
             const fechaStr = fecha.toISOString().split('T')[0];
+            const hora = fecha.getHours();
             
-            if (!dias.has(fechaStr)) {
+            // Preferir las previsiones de medio día (entre 11-15h)
+            if (!dias.has(fechaStr) || (hora >= 11 && hora <= 15)) {
                 dias.set(fechaStr, item);
             }
         });
         
+        console.log("Días agrupados:", Array.from(dias.keys()));
         return Array.from(dias.values()).slice(0, 7);
     }
     

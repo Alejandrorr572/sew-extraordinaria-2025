@@ -94,7 +94,7 @@ header nav ul li a:hover {
 /* Especificidad: (0,1,5) - Tiene un atributo */
 /* Especificidad: (0,1,7)  - Un atributo */
 header nav ul li a[aria-current="page"] {
-    background: #e74c3c;
+    background: #000000;
     color: white;
     font-weight: 600;
 }
@@ -1187,7 +1187,7 @@ section[role="group"][aria-label="Datos meteorolÃ³gicos actuales"] article[rol
     color: #fff;
 }
 
-/* Previsiones 7 dÃ­as */
+/* Previsiones 7 días */
 /* Especificidad: (0,2,8)  - 2 atributos */
 section[role="list"][aria-label="Lista de previsiones diarias"] {
     display: grid;
@@ -1257,7 +1257,7 @@ section[role="list"][aria-label="Lista de previsiones diarias"] article[role="te
 /* Estados de carga */
 section[role="status"][aria-label="Estado de carga del tiempo actual"],
 /* Especificidad: (0,2,11)  - 2 atributos */
-section[role="status"][aria-label="Estado de carga de la previsiÃ³n"] {
+section[role="status"][aria-label="Estado de carga de la previsión"] {
     background: rgba(255,255,255,0.1);
     border-radius: 8px;
     padding: 1rem;
