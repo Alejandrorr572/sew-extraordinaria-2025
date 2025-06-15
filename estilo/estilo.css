@@ -311,7 +311,7 @@ article[role="listitem"] p {
 /* Especificidad: (0,1,3)  - Un atributo */
 nav[role="tablist"] {
     display: flex;
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); /* Hereda color de texto de body para contraste AAA */
+    background: linear-gradient(135deg, #2c3e50 0%, #1a242f 100%); /* Color oscurecido para mejorar contraste */
     margin: 2rem 0 0 0;
 }
 
@@ -325,7 +325,7 @@ nav[role="tablist"] button {
     font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    color: #ecf0f1;
+    color: #ffffff; /* Cambiado a blanco puro para mejorar contraste */
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 
