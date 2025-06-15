@@ -8,7 +8,8 @@
  * Clase principal para gestionar las rutas turísticas
  * Implementa el patrón de orientación a objetos requerido
  */
-class GestorRutas {    constructor() {
+class GestorRutas {    
+    constructor() {
         // Buscar solo por aria-label, sin role
         this.$container = $('section[aria-label="Detalles de ruta"]');
         this.$buttons = $('nav[aria-label="Selector de rutas"]'); // <-- Corregido aquí
@@ -62,8 +63,7 @@ class GestorRutas {    constructor() {
             }
         });
     }
-    
-    /**
+      /**
      * Procesa los datos XML y genera la interfaz
      */
     procesarRutas() {
@@ -84,11 +84,11 @@ class GestorRutas {    constructor() {
             const id = $ruta.attr('id');
             const nombre = $ruta.find('nombre').text();
             
-            // Crear botón usando elementos semánticos y atributos ARIA
+            // Crear botón usando elementos semánticos y atributos ARIA - sin usar aria-controls
             const $button = $('<button>')
                 .attr('role', 'tab')
-                .attr('aria-controls', `ruta-${id}`) 
                 .attr('aria-selected', index === 0 ? 'true' : 'false')
+                .attr('aria-label', `Ver ruta: ${nombre}`)
                 .text(nombre)
                 .click(function() {
                     self.seleccionarRuta(id);
@@ -109,7 +109,22 @@ class GestorRutas {    constructor() {
     seleccionarRuta(rutaId) {
         // Actualizar botones activos
         this.$buttons.find('button').attr('aria-selected', 'false');
-        this.$buttons.find(`button[aria-controls="ruta-${rutaId}"]`).attr('aria-selected', 'true');
+        
+        // Encontrar el botón por su índice en los datos XML
+        const $rutas = $(this.rutasData).find('ruta');
+        let index = -1;
+        
+        $rutas.each(function(i, ruta) {
+            if ($(ruta).attr('id') === rutaId) {
+                index = i;
+                return false; // break
+            }
+        });
+        
+        // Seleccionar el botón correspondiente
+        if (index >= 0) {
+            this.$buttons.find('button').eq(index).attr('aria-selected', 'true');
+        }
         
         // Ocultar contenido anterior
         this.$container.find('article[role="tabpanel"]').attr('hidden', 'hidden');
@@ -206,11 +221,14 @@ class GestorRutas {    constructor() {
     }
       /**
      * Genera el HTML para mostrar una ruta
-     */    generarHTMLRuta(rutaId, info) {        const $content = $(`
+     */    
+    generarHTMLRuta(rutaId, info) {        
+        const $content = $(`
             <article role="tabpanel" aria-label="Ruta ${rutaId}">
                 <section role="region" aria-label="Información general">
                     <h2>${info.nombre}</h2>
-                    <p>${info.descripcion}</p>                    <section role="list" aria-label="Información de ruta">
+                    <p>${info.descripcion}</p>                    
+                    <section role="list" aria-label="Información de ruta">
                         <article role="listitem" aria-label="Tipo de ruta">
                             <h3>Tipo de Ruta</h3>
                             <p>${info.tipo}</p>
@@ -233,18 +251,19 @@ class GestorRutas {    constructor() {
                     </section>
                 </section>
                 <nav role="tablist" aria-label="Información de ruta">
-                    <button role="tab" aria-selected="true" aria-controls="informacion-${rutaId}">Información</button>
-                    <button role="tab" aria-selected="false" aria-controls="mapa-${rutaId}">Planimetría (KML)</button>
-                    <button role="tab" aria-selected="false" aria-controls="altimetria-${rutaId}">Altimetría (SVG)</button>
+                    <button role="tab" aria-selected="true">Información</button>
+                    <button role="tab" aria-selected="false">Planimetría (KML)</button>
+                    <button role="tab" aria-selected="false">Altimetría (SVG)</button>
                 </nav>
-                  <section role="group" aria-label="Contenido de pestañas">
-                    <section role="tabpanel" aria-labelledby="informacion-${rutaId}" aria-label="Información">
+                  
+                <section role="group" aria-label="Contenido de pestañas">
+                    <section role="tabpanel" aria-label="Información">
                         ${this.generarTabInformacion(info)}
                     </section>
-                    <section role="tabpanel" aria-labelledby="mapa-${rutaId}" aria-label="Planimetría (KML)" hidden>
+                    <section role="tabpanel" aria-label="Planimetría (KML)" hidden>
                         <section role="img" aria-label="Mapa de ruta ${rutaId}"></section>
                     </section>
-                    <section role="tabpanel" aria-labelledby="altimetria-${rutaId}" aria-label="Altimetría (SVG)" hidden>
+                    <section role="tabpanel" aria-label="Altimetría (SVG)" hidden>
                         <section role="img" aria-label="Perfil altimétrico ${rutaId}">
                             <p>Cargando perfil altimétrico...</p>
                         </section>
@@ -272,10 +291,16 @@ class GestorRutas {    constructor() {
         });
         html += '</ol>';
         
+        if (info.recomendaciones.length > 0) {
+            html += '<h3>Recomendaciones</h3><ul role="list">';
+            info.recomendaciones.forEach(rec => {
+                html += `<li>${rec}</li>`;
+            });
+            html += '</ul>';
+        }
+        
         return html;
-    }   
-    
-    /**
+    }    /**
      * Configura el funcionamiento de las pestañas
      */
     configurarPestanas(rutaId) {
@@ -284,80 +309,136 @@ class GestorRutas {    constructor() {
         // Configurar eventos para las pestañas dentro de este artículo específico
         const $article = $(`article[aria-label="Ruta ${rutaId}"]`); 
         const $tabs = $article.find('nav[role="tablist"] button[role="tab"]');
+        const $panels = $article.find('section[role="group"] > section[role="tabpanel"]');
         
-        $tabs.click(function() {
-            const $button = $(this);
-            const controlsId = $button.attr('aria-controls');
-            
-            // Actualizar botones
-            $article.find('nav[role="tablist"] button[role="tab"]').attr('aria-selected', 'false');
-            $button.attr('aria-selected', 'true');
-            
-            // Obtener el contenedor de paneles 
-            const $panelContainer = $article.find('section[role="group"]');
-            const $allPanels = $panelContainer.children('section[role="tabpanel"]');
-            
-            // Ocultar todos los paneles
-            $allPanels.attr('hidden', 'hidden');
-            
-            // Mostrar el panel específico por aria-labelledby
-            $panelContainer.find(`section[aria-labelledby="${controlsId}"]`).removeAttr('hidden');
-            
-            // Cargar contenido específico según la pestaña
-            if (controlsId.includes('mapa') && !self.mapas.has(rutaId)) {
-                setTimeout(() => {
-                    self.cargarMapa(rutaId, self.extraerInformacionRuta($(self.rutasData).find(`ruta[id="${rutaId}"]`)));
-                }, 100);
-            } else if (controlsId.includes('altimetria')) {
-                const $svgSection = $panelContainer.find(`section[aria-labelledby="${controlsId}"]`).find('section[role="img"]');
-                if ($svgSection.children().length <= 1) {
-                    self.cargarSVG(rutaId);
+        $tabs.each(function(index) {
+            $(this).click(function() {
+                // Deseleccionar todas las pestañas
+                $tabs.attr('aria-selected', 'false');
+                
+                // Seleccionar esta pestaña
+                $(this).attr('aria-selected', 'true');
+                
+                // Ocultar todos los paneles
+                $panels.attr('hidden', 'hidden');
+                
+                // Mostrar el panel correspondiente al índice
+                $panels.eq(index).removeAttr('hidden');
+                
+                // Cargar contenido específico según la pestaña
+                if (index === 1 && !self.mapas.has(rutaId)) { // Mapa
+                    setTimeout(() => {
+                        self.cargarMapa(rutaId, self.extraerInformacionRuta($(self.rutasData).find(`ruta[id="${rutaId}"]`)));
+                    }, 100);
+                } else if (index === 2) { // Altimetría
+                    const $svgSection = $panels.eq(index).find('section[role="img"]');
+                    if ($svgSection.children().length <= 1) {
+                        self.cargarSVG(rutaId);
+                    }
                 }
-            }
-            
-            // Redimensionar mapa si es necesario
-            if (controlsId.includes('mapa') && self.mapas.has(rutaId)) {
-                setTimeout(() => {
-                    google.maps.event.trigger(self.mapas.get(rutaId), 'resize');
-                }, 100);
-            }
+                
+                // Redimensionar mapa si es necesario
+                if (index === 1 && self.mapas.has(rutaId)) {
+                    setTimeout(() => {
+                        google.maps.event.trigger(self.mapas.get(rutaId), 'resize');
+                    }, 100);
+                }
+            });
         });
         
-        // Inicializar funcionalidad de pestañas usando atributos ARIA
-        this.setupTabFunctionality($article);
+        // Activar primera pestaña
+        $tabs.first().trigger('click');
     }
-    
-    /**
+      /**
      * Configura la funcionalidad de las pestañas usando atributos ARIA
+     * con soporte completo para navegación por teclado
      */
     setupTabFunctionality($element) {
         const tabs = $element.find('[role="tab"]');
         const tabPanels = $element.find('[role="tabpanel"]');
+        let selectedIndex = 0;
         
-        tabs.on('click', function() {
-            // Deseleccionar todas las pestañas
-            tabs.attr('aria-selected', 'false');
-            
-            // Ocultar todos los paneles de pestañas
-            tabPanels.attr('hidden', 'hidden');
-            
-            // Seleccionar pestaña clicada
-            $(this).attr('aria-selected', 'true');
-            
-            // Obtener el panel de pestaña que esta pestaña controla
-            const controlsId = $(this).attr('aria-controls');
-            
-            // Mostrar el panel de pestaña correspondiente
-            const targetPanel = $element.find(`[aria-labelledby="${controlsId}"]`);
-            targetPanel.removeAttr('hidden');
+        // Añadir atributos para navegación por teclado
+        tabs.each(function(i) {
+            $(this).attr('tabindex', i === 0 ? '0' : '-1')
+                   .attr('aria-posinset', i + 1)
+                   .attr('aria-setsize', tabs.length);
         });
         
+        // Manejar eventos de click
+        tabs.each(function(index) {
+            $(this).on('click', function() {
+                activateTab(index);
+            });
+        });
+        
+        // Manejar eventos de teclado
+        tabs.on('keydown', function(e) {
+            let newIndex = selectedIndex;
+            
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    newIndex = (selectedIndex + 1) % tabs.length;
+                    e.preventDefault();
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    newIndex = (selectedIndex - 1 + tabs.length) % tabs.length;
+                    e.preventDefault();
+                    break;
+                case 'Home':
+                    newIndex = 0;
+                    e.preventDefault();
+                    break;
+                case 'End':
+                    newIndex = tabs.length - 1;
+                    e.preventDefault();
+                    break;
+                case 'Enter':
+                case ' ':
+                    activateTab(selectedIndex);
+                    e.preventDefault();
+                    break;
+            }
+            
+            if (newIndex !== selectedIndex) {
+                // Actualizar el foco sin activar la pestaña
+                tabs.eq(newIndex).focus();
+                selectedIndex = newIndex;
+            }
+        });
+        
+        // Función para activar una pestaña
+        const activateTab = function(index) {
+            // Actualizar estado de las pestañas
+            tabs.attr('aria-selected', 'false')
+                .attr('tabindex', '-1');
+                
+            tabs.eq(index).attr('aria-selected', 'true')
+                          .attr('tabindex', '0');
+            
+            // Ocultar todos los paneles
+            tabPanels.attr('hidden', 'hidden');
+            
+            // Mostrar el panel seleccionado
+            tabPanels.eq(index).removeAttr('hidden');
+            
+            // Actualizar índice seleccionado
+            selectedIndex = index;
+        };
+        
         // Establecer estado inicial - primera pestaña está seleccionada
-        tabs.first().trigger('click');
-    }cargarMapa(rutaId, rutaInfo) {
-        // Encontrar el contenedor del mapa usando atributos ARIA
+        activateTab(0);
+    }
+
+    /**
+     * Carga el mapa para la ruta seleccionada
+     */
+    cargarMapa(rutaId, rutaInfo) {
+        // Encontrar el contenedor del mapa usando atributos ARIA e índices
         const $article = $(`article[aria-label="Ruta ${rutaId}"]`);
-        const $mapContainer = $article.find(`section[aria-labelledby="mapa-${rutaId}"]`);
+        const $mapContainer = $article.find('section[role="group"] > section[role="tabpanel"]:eq(1)');
         const mapDiv = $mapContainer.find('section[role="img"]')[0];
         
         if (!mapDiv) {
@@ -442,13 +523,14 @@ class GestorRutas {    constructor() {
     }
       /**
      * Carga y muestra el archivo SVG de altimetría
-     */    cargarSVG(rutaId) {
+     */    
+    cargarSVG(rutaId) {
         const self = this;
         const svgUrl = `xml/svg/${rutaId}.svg`;
         
-        // Encontrar el contenedor SVG usando atributos ARIA
+        // Encontrar el contenedor SVG usando atributos ARIA e índices
         const $article = $(`article[aria-label="Ruta ${rutaId}"]`);
-        const $altimetriaContainer = $article.find(`section[aria-labelledby="altimetria-${rutaId}"]`);
+        const $altimetriaContainer = $article.find('section[role="group"] > section[role="tabpanel"]:eq(2)');
         const $svgContainer = $altimetriaContainer.find('section[role="img"]');
         
         $.ajax({
