@@ -38,7 +38,24 @@
             <h2>Rutas Turísticas de Siero</h2>
             <p>Explora los senderos más hermosos del concejo de Siero y descubre paisajes únicos, patrimonio histórico y la riqueza natural de Asturias.
 
-            </p>            <!-- Selector de rutas -->            
+            </p>            <!-- Selector de rutas -->              <section aria-label="Carga de rutas">                <h3>Cargar archivo de rutas</h3>
+                <form aria-label="Formulario de carga de rutas">
+                    <fieldset>
+                        <legend>Selección y carga de archivo XML</legend>
+                        <label>Seleccionar archivo XML de rutas:
+                            <input type="file" name="xmlFileInput" accept=".xml">
+                        </label>
+                        <p aria-live="polite">Seleccione un archivo XML válido con la estructura de rutas</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Acciones para el archivo</legend>
+                        <button type="button" aria-label="Procesar rutas">Procesar Rutas</button>
+                        <button type="button" aria-label="Generar archivos KML y SVG" disabled>Generar KML y SVG</button>
+                    </fieldset>
+                </form>
+                <p aria-live="polite" aria-atomic="true"></p>
+            </section>
+            
             <section aria-label="Selector de rutas">
                 <h3>Selecciona una Ruta</h3>
                 <nav role="tablist" aria-label="Selector de rutas">

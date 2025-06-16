@@ -5,7 +5,7 @@
  * - Cuando hay un color de texto establecido sin color de fondo: hereda el color de fondo del elemento padre
  * Este archivo CSS sigue un patrÃ³n donde los elementos heredan:
  * - Texto heredado del color base de body (#333)
- * - Fondos heredados del color base de body (#fafafa)
+ * - Fondos heredidos del color base de body (#fafafa)
  * Las reglas especÃ­ficas tienen comentarios individuales
  *
  * REDEFINICIÃ“N DE PROPIEDADES:

@@ -14,10 +14,14 @@ class GestorRutas {
         this.$container = $('section[aria-label="Detalles de ruta"]');
         this.$buttons = $('nav[aria-label="Selector de rutas"]'); // <-- Corregido aquí
         this.$loading = $('p[aria-live="polite"]');
-        this.$error = $('aside[aria-live="assertive"]');
+        this.$error = $('aside[aria-live="assertive"]');        this.$processingStatus = $('section[aria-label="Carga de rutas"] > p[aria-live="polite"]');
+        this.$xmlFileInput = $('section[aria-label="Carga de rutas"] input[type="file"]');
+        this.$processRoutesBtn = $('section[aria-label="Carga de rutas"] button:first-of-type');
+        this.$generateFilesBtn = $('section[aria-label="Carga de rutas"] button:nth-of-type(2)');
         this.rutasData = null;
         this.rutaActual = null;
         this.mapas = new Map(); // Almacenar instancias de mapas
+        this.uploadedXmlContent = null;
         
         // Debug info
         console.log('jQuery available:', typeof $ !== 'undefined');
@@ -34,11 +38,157 @@ class GestorRutas {
      * Inicializa el gestor de rutas
      */
     init() {
+        // Configurar eventos para la carga de archivos
+        this.setupFileUploadEvents();
+        
+        // Por defecto, cargar el XML predeterminado
         this.cargarRutasXML();
     }
     
     /**
-     * Carga el archivo XML con las rutas usando jQuery
+     * Configura los eventos para el formulario de carga de archivos
+     */
+    setupFileUploadEvents() {
+        const self = this;
+        
+        // Evento para el botón de procesar rutas
+        this.$processRoutesBtn.on('click', function() {
+            if (self.$xmlFileInput[0].files.length > 0) {
+                const file = self.$xmlFileInput[0].files[0];
+                self.leerArchivoXML(file);
+            } else {
+                self.mostrarEstadoProcesamiento('Por favor, seleccione un archivo XML primero', 'error');
+            }
+        });
+        
+        // Evento para el botón de generar archivos
+        this.$generateFilesBtn.on('click', function() {
+            if (self.uploadedXmlContent) {
+                self.generarArchivosPython();
+            } else {
+                self.mostrarEstadoProcesamiento('No hay datos de rutas para procesar', 'error');
+            }
+        });
+        
+        // Evento al cambiar el archivo seleccionado
+        this.$xmlFileInput.on('change', function() {
+            if (this.files.length > 0) {
+                self.$processRoutesBtn.prop('disabled', false);
+                self.mostrarEstadoProcesamiento(`Archivo seleccionado: ${this.files[0].name}`, 'info');
+            } else {
+                self.$processRoutesBtn.prop('disabled', true);
+                self.$generateFilesBtn.prop('disabled', true);
+            }
+        });
+    }
+    
+    /**
+     * Lee el contenido de un archivo XML seleccionado
+     */
+    leerArchivoXML(file) {
+        const self = this;
+        const reader = new FileReader();
+        
+        self.mostrarEstadoProcesamiento('Leyendo archivo XML...', 'info');
+        
+        reader.onload = function(e) {
+            try {
+                const xmlContent = e.target.result;
+                self.uploadedXmlContent = xmlContent;
+                
+                // Parsear el XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlContent, "text/xml");
+                
+                // Verificar errores de parsing
+                const parserError = xmlDoc.querySelector('parsererror');
+                if (parserError) {
+                    throw new Error('Formato XML inválido');
+                }
+                
+                // Procesar rutas desde el XML cargado
+                self.rutasData = xmlDoc;
+                self.procesarRutas();
+                self.$generateFilesBtn.prop('disabled', false);
+                
+                // Mostrar mensaje de éxito
+                const numRutas = $(xmlDoc).find('ruta').length;
+                self.mostrarEstadoProcesamiento(`Archivo XML procesado. Se encontraron ${numRutas} rutas.`, 'success');
+            } catch (error) {
+                self.mostrarError(`Error procesando el archivo XML: ${error.message}`);
+                self.mostrarEstadoProcesamiento('Error al procesar el archivo XML', 'error');
+            }
+        };
+        
+        reader.onerror = function() {
+            self.mostrarError('Error al leer el archivo');
+            self.mostrarEstadoProcesamiento('Error al leer el archivo', 'error');
+        };
+        
+        reader.readAsText(file);
+    }
+      /**
+     * Genera los archivos KML y SVG usando Python
+     */
+    generarArchivosPython() {
+        const self = this;
+        
+        // En un entorno real, aquí enviaríamos el contenido XML al servidor
+        // para procesarlo con Python. En GitHub Pages, no podemos ejecutar Python.
+        
+        // Para simularlo, mostramos instrucciones al usuario:
+        self.mostrarEstadoProcesamiento('Preparando para la generación de archivos...', 'info');
+        
+        // Guarda temporalmente el XML
+        this.guardarArchivoTemporal(this.uploadedXmlContent, 'rutas_temp.xml');
+        
+        // Muestra instrucciones para ejecutar Python manualmente
+        setTimeout(() => {
+            const mensaje = `
+                <h4>GitHub Pages no puede ejecutar Python directamente</h4>
+                <p>Para generar los archivos KML y SVG, sigue estos pasos:</p>
+                <ol>
+                    <li>Se ha descargado el archivo XML como 'rutas_temp.xml'</li>
+                    <li>Guarda este archivo en la carpeta 'xml/' de tu proyecto local</li>
+                    <li>Ejecuta manualmente el script Python con: <kbd>python xml/python/generar_rutas.py rutas_temp.xml</kbd></li>
+                    <li>Los archivos KML y SVG se generarán en las carpetas 'xml/kml/' y 'xml/svg/' respectivamente</li>
+                </ol>
+            `;
+            self.mostrarEstadoProcesamiento(mensaje, 'info');
+        }, 1500);
+    }
+    
+    /**
+     * Guarda un archivo temporal en el dispositivo del usuario
+     */
+    guardarArchivoTemporal(contenido, nombreArchivo) {
+        const blob = new Blob([contenido], {type: 'text/xml'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = nombreArchivo;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+    
+    /**
+     * Muestra mensajes de estado del procesamiento
+     */
+    mostrarEstadoProcesamiento(mensaje, tipo) {
+        const claseColor = tipo === 'error' ? 'error-text' : 
+                          (tipo === 'success' ? 'success-text' : 'info-text');
+        
+        this.$processingStatus
+            .removeClass('error-text success-text info-text')
+            .addClass(claseColor)
+            .html(mensaje);
+    }
+    
+    /**
+     * Carga el archivo XML predeterminado con las rutas usando jQuery
      */    
     cargarRutasXML() {
         const self = this;
@@ -49,7 +199,7 @@ class GestorRutas {
             dataType: 'xml',
             cache: false,
             success: function(data) {
-                console.log('XML cargado correctamente');
+                console.log('XML predeterminado cargado correctamente');
                 self.rutasData = data;
                 self.procesarRutas();
                 // Ocultar mensaje de cargando rutas
@@ -57,7 +207,7 @@ class GestorRutas {
             },
             error: function(xhr, status, error) {
                 console.error('Error cargando rutas.xml:', error, xhr.status);
-                self.mostrarError('No se pudo cargar el archivo de rutas');
+                self.mostrarError('No se pudo cargar el archivo de rutas predeterminado');
                 // Ocultar mensaje de cargando rutas también en error
                 $('p[aria-live="polite"]').hide();
             }

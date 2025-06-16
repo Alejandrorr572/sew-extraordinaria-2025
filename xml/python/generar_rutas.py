@@ -312,9 +312,18 @@ class GeneradorRutas:
 def main():
     """
     Función principal del generador
+    Ahora acepta argumentos de línea de comandos para especificar el archivo XML
     """
-    # Archivo XML está un nivel arriba desde xml/python/
-    archivo_xml = "../rutas.xml"
+    import sys
+    
+    # Verificar si se proporciona un archivo XML personalizado
+    if len(sys.argv) > 1 and os.path.exists(sys.argv[1]):
+        archivo_xml = sys.argv[1]
+        print(f"Usando archivo XML personalizado: {archivo_xml}")
+    else:
+        # Archivo XML está un nivel arriba desde xml/python/ por defecto
+        archivo_xml = "../rutas.xml"
+        print(f"Usando archivo XML predeterminado: {archivo_xml}")
     
     if not os.path.exists(archivo_xml):
         print(f"Error: No se encuentra el archivo {archivo_xml}")
@@ -326,8 +335,19 @@ def main():
     os.makedirs("../kml", exist_ok=True)
     os.makedirs("../svg", exist_ok=True)
     
-    # Generar archivos para todas las rutas
-    rutas_ids = ['ruta001', 'ruta002', 'ruta003']
+    print("\nVerificando rutas disponibles:")
+    generador.listar_rutas()
+    
+    # Obtener todas las rutas del archivo XML
+    rutas_ids = []
+    for ruta in generador.root.findall('ruta'):
+        rutas_ids.append(ruta.get('id'))
+    
+    if not rutas_ids:
+        print("Error: No se encontraron rutas en el archivo XML")
+        return
+    
+    print(f"\nGenerando archivos para {len(rutas_ids)} rutas: {', '.join(rutas_ids)}")
     
     for ruta_id in rutas_ids:
         # Generar KML en carpeta xml/kml
